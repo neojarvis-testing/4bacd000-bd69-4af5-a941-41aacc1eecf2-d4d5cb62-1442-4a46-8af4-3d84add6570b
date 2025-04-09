@@ -32,6 +32,7 @@ public class FeedbackServiceImpl implements FeedbackService {
         }
     }
 
+
     @Override
     public List<Feedback> getAllFeedbacks() {
         return feedbackRepo.findAll(); 
@@ -51,5 +52,6 @@ public class FeedbackServiceImpl implements FeedbackService {
     public List<Feedback> getFeedbacksByUserId(Long userId) {
         return feedbackRepo.findByUserId(userId); 
     }
+
 }
 
