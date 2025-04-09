@@ -2,6 +2,7 @@ package com.examly.springapp.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import jakarta.persistence.EntityNotFoundException;
 @RestController
 public class LoanApplicationController {
 
+    @Autowired
     private LoanApplicationService loanApplicationService;
 
     @PostMapping("/api/loanapplication")
@@ -27,7 +29,7 @@ public class LoanApplicationController {
         return ResponseEntity.status(201).body(loanApp);
     }
 
-    @GetMapping("/api/loanApplication/{loanApplicationId}")
+    @GetMapping("/api/loanapplication/{loanApplicationId}")
     public ResponseEntity<?> getLoanApplicationById(@PathVariable Long loanApplicationId) {
         try {
             LoanApplication loanApp = loanApplicationService.getLoanApplicationById(loanApplicationId);
@@ -37,7 +39,7 @@ public class LoanApplicationController {
         }
     }
 
-    @GetMapping("/api/loanApplication")
+    @GetMapping("/api/loanapplication")
     public ResponseEntity<?> getAllLoanApplications() {
         try {
             List<LoanApplication> loanApplications = loanApplicationService.getAllLoanApplications();
@@ -61,9 +63,9 @@ public class LoanApplicationController {
     }
 
     @DeleteMapping("/api/loanapplication/{loanapplicationid}")
-    public ResponseEntity<?> deleteLoanApplication(Long loanapplicationId) {
+    public ResponseEntity<?> deleteLoanApplication(@PathVariable Long loanapplicationid) {
         try {
-            loanApplicationService.deleteLoanApplication(loanapplicationId);
+            loanApplicationService.deleteLoanApplication(loanapplicationid);
             return ResponseEntity.status(200).body(true);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(404).body(false);
