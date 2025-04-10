@@ -21,6 +21,8 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewloanComponent } from './components/userviewloan/userviewloan.component';
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { ViewloanComponent } from './components/viewloan/viewloan.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
