@@ -1,13 +1,27 @@
-<nav>
-    <ul>
-      <li>
-        <a routerLink="/adminviewfeedback">Admin Feedback</a>
-      </li>
-      <li>
-        <a routerLink="/useraddfeedback">Post Feedback</a>
-      </li>
-      <li>
-        <a routerLink="/userviewfeedback">My Feedbacks</a>
-      </li>
-    </ul>
-</nav>
+
+<h2>This is Common Navbar</h2>
+<br>
+<hr>
+
+<div *ngIf="currentRoute === '/register' || currentRoute === '/'  ">
+    <h1>This is Register Navbar</h1>
+    <br>
+    <nav>
+       <a href="">Logo</a>
+       <a routerLink="/login">Login</a>
+    </nav>
+    <hr>
+    <hr>
+</div>
+
+<div *ngIf="currentRoute === '/login'">
+    <h1>This is Login Navbar</h1>
+    <br>
+    <nav>
+       <a href="">Logo</a>
+       <a routerLink="/register">Register</a>
+    </nav>
+    <hr>
+    <hr>
+</div>
+

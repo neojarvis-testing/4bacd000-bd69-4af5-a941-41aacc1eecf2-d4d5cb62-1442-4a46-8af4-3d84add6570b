@@ -1,1 +1,7 @@
-<p>home-page works!</p>
+<div *ng="userRole=='admin'">
+    <app-adminnav></app-adminnav>
+</div>
+
+<div *ng="userRole=='user'">
+    <app-usernav></app-usernav>
+</div>

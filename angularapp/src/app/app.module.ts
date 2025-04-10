@@ -21,6 +21,8 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewloanComponent } from './components/userviewloan/userviewloan.component';
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 import { FormsModule } from '@angular/forms';
@@ -51,12 +53,14 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
+    AppRoutingModule, 
+    HttpClientModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
