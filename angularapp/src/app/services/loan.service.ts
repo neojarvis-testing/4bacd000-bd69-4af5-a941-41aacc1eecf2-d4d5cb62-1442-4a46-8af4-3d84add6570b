@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { Loan } from '../models/loan.model';
 import { LoanApplication } from '../models/loanapplication.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class LoanService {
+
 
   public apiUrl="https://ide-cdfdfcbeeaecdfcdfdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/"
 
@@ -26,7 +26,7 @@ export class LoanService {
     return this.http.get<any>(this.apiUrl + "/loan/" + id);
   }
 
- 
+
   addLoan(loan:Loan): Observable<any> 
   {
     return this.http.post<any>(this.apiUrl + "/loan", loan);
@@ -79,3 +79,4 @@ export class LoanService {
   }
   
 }
+ 
