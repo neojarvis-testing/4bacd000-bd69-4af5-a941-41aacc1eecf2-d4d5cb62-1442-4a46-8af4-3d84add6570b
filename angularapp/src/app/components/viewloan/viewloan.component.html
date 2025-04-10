@@ -1,1 +1,31 @@
-<p>viewloan works!</p>
+<h1>Loan Details</h1>
+ 
+<table>
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Loan Type</th>
+            <th>Loan Description</th>
+            <th>Interest Rate</th>
+            <th>Maximum Amount</th>
+            <th>Repayment Tenure (Months)</th>
+            <th>Eligibility</th>
+            <th>Documents Required</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let loan of loans" >
+            <td>{{loan.loanId}}</td>
+            <td>{{loan.loanType}}</td>
+            <td>{{loan.description}}</td>
+            <td>{{loan.interestRate}}</td>
+            <td>{{loan.maxAmount}}</td>
+            <td>{{loan.tenure}}</td>
+            <td>{{loan.eligibility}}</td>
+            <td>{{loan.documentsRequired}}</td>
+            <td><button [routerLink]="['/edit-loan']">Edit</button></td>
+            <td><button (click)="deleteLoan(loan.loanId)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
