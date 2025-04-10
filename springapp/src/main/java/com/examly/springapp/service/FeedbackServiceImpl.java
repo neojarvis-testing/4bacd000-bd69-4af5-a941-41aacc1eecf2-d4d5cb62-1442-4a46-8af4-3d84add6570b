@@ -23,10 +23,15 @@ public class FeedbackServiceImpl implements FeedbackService {
     
     @Override
     public Feedback createFeedback(Feedback feedback) {
-        System.out.println(feedback);
-        User user = userRepo.findById(feedback.getUser().getUserId()).get();
-        feedback.setUser(user);
-        return feedbackRepo.save(feedback);
+        System.out.println("Feedback received: " + feedback);
+        Optional<User> optionalUser = userRepo.findById(feedback.getUser().getUserId());
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            feedback.setUser(user); 
+            return feedbackRepo.save(feedback); 
+        } else {
+            throw new RuntimeException("User not found with ID: " + feedback.getUser().getUserId());
+        }
     }
 
     @Override

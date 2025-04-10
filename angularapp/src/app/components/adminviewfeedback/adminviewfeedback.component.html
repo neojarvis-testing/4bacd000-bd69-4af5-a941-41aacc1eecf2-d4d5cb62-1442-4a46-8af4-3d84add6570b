@@ -1,1 +1,34 @@
-<p>adminviewfeedback works!</p>
+<div class="admin-feedback-container">
+  <h2>Admin View Feedbacks</h2>
+  <table *ngIf="feedbackList.length > 0; else noFeedbacks" class="feedback-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Feedback</th>
+        <th>User ID</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feedback of feedbackList">
+        <td>{{feedback.feedbackId}}</td>
+        <td>{{feedback.feedbackText}}</td>
+        <td>{{feedback.userId}}</td>
+        <td>{{feedback.date | date}}</td>
+        <td>
+          <button (click)="confirmDelete(feedback.feedbackId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noFeedbacks>
+    <p>No feedbacks found.</p>
+  </ng-template>
+
+  <div *ngIf="confirmDeleteId !== null" class="popup">
+    <p>Are you sure you want to delete?</p>
+    <button (click)="deleteFeedback()">Yes, Delete</button>
+    <button (click)="cancelDelete()">Cancel</button>
+  </div>
+</div>

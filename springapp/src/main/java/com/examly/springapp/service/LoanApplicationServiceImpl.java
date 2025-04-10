@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.examly.springapp.model.LoanApplication;
+import com.examly.springapp.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.repository.LoanApplicationRepo;
+import com.examly.springapp.repository.UserRepo;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -18,17 +20,27 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 
     @Autowired
     private LoanApplicationRepo loanApplicationRepo;
-    
 
+    @Autowired
+    private UserRepo userRepo;
+    
     @Override
     public LoanApplication addLoanApplication(LoanApplication loanApplication) {
         return loanApplicationRepo.save(loanApplication); 
     }
 
-    // @Override
-    // public List<LoanApplication> getLoanApplicationByUserId(Long userId) {
-       
-    // }
+    
+    
+    public List<LoanApplication> getLoanApplicationByUserId(Long userId) {
+         List<LoanApplication> loanApps =  loanApplicationRepo.findByUserId(userId);
+         if(loanApps.isEmpty()){
+            throw new EntityNotFoundException("No Loan Applications found");
+         }else{
+            return loanApps;
+         }
+         
+         }
+    
 
     @Override
     public LoanApplication getLoanApplicationById(Long loanApplicationId) {

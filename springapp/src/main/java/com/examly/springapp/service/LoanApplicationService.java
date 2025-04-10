@@ -10,7 +10,7 @@ import com.examly.springapp.model.LoanApplication;
 public interface LoanApplicationService {
 
     public LoanApplication addLoanApplication(LoanApplication loanApplication);
-    // public List<LoanApplication> getLoanApplicationByUserId(Long userId);
+    public List<LoanApplication> getLoanApplicationByUserId(Long userId);
     public LoanApplication getLoanApplicationById(Long loanApplicationId);
     public List<LoanApplication> getAllLoanApplications();
     public LoanApplication updateLoanApplication(Long loanApplicationId, LoanApplication updatedLoanApplication);

@@ -29,6 +29,16 @@ public class LoanApplicationController {
         return ResponseEntity.status(201).body(loanApp);
     }
 
+    @GetMapping("/api/loanapplication/user/{userId}")
+    public ResponseEntity<?> getLoanApplicationsByUserId(@PathVariable Long userId){
+        try{
+            List<LoanApplication> loanApps = loanApplicationService.getLoanApplicationByUserId(userId);
+            return ResponseEntity.status(200).body(loanApps);
+        }catch(EntityNotFoundException e){
+            return ResponseEntity.status(404).body(e.getMessage());
+        } 
+    }
+
     @GetMapping("/api/loanapplication/{loanApplicationId}")
     public ResponseEntity<?> getLoanApplicationById(@PathVariable Long loanApplicationId) {
         try {
