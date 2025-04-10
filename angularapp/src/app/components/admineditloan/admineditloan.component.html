@@ -1,1 +1,52 @@
-<p>admineditloan works!</p>
+<button [routerLink]="['/viewLoan']">Back</button>
+<div class="container">
+    <h2>Edit Loan</h2>
+    <form [formGroup]="loanForm" (ngSubmit)="updateLoan()">
+
+        <label>Loan Type*</label>
+        <input type="text" formControlName="loanType">
+        <div *ngIf="loanForm.controls.loanType.invalid && loanForm.controls.loanType.touched">
+            *Loan Type is required
+        </div>
+    
+        <label>Description*</label>
+        <input type="text" formControlName="description">
+        <div *ngIf="loanForm.controls.description.invalid && loanForm.controls.description.touched">
+            *Description is required
+        </div>
+    
+        <label>Interest Rate*</label>
+        <input type="number" formControlName="interestRate">
+        <div *ngIf="loanForm.controls.interestRate.invalid && loanForm.controls.interestRate.touched">
+            *Interest Rate is required
+        </div>
+    
+        <label>Maximum Amount*</label>
+        <input type="number" formControlName="maximumAmount">
+        <div *ngIf="loanForm.controls.maximumAmount.invalid && loanForm.controls.maximumAmount.touched">
+            *Maximum Amount is required
+        </div>
+    
+        <label>Repayment Tenure (Months)*</label>
+        <input type="number" formControlName="repaymentTenure">
+        <div *ngIf="loanForm.controls.repaymentTenure.invalid && loanForm.controls.repaymentTenure.touched">
+            *Repayment Tenure is required
+        </div>
+    
+        <label>Eligibility Criteria*</label>
+        <input type="text" formControlName="eligibility">
+        <div *ngIf="loanForm.controls.eligibility.invalid && loanForm.controls.eligibility.touched">
+            *Eligibility Criteria is required
+        </div>
+    
+        <label>Documents Required*</label>
+        <input type="text" formControlName="documentsRequired">
+        <div *ngIf="loanForm.controls.documentsRequired.invalid && loanForm.controls.documentsRequired.touched">
+            *Documents Required is required
+        </div>
+    
+        <button type="submit" [disabled]="loanForm.invalid">Submit</button>
+    </form>
+    
+</div>
+

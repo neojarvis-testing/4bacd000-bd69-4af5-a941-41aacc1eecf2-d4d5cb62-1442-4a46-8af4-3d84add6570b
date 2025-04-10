@@ -21,6 +21,8 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewloanComponent } from './components/userviewloan/userviewloan.component';
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -44,15 +46,15 @@ import { FormsModule } from '@angular/forms';
     UsernavComponent,
     UserviewfeedbackComponent,
     UserviewloanComponent,
-    ViewloanComponent
-    
+    ViewloanComponent,
+    ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
