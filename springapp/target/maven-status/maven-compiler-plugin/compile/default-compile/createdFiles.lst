@@ -1,0 +1,2 @@
+com/examly/springapp/exceptions/InvalidCredentialsException.class
+com/examly/springapp/exceptions/UserAlreadyExistsException.class
