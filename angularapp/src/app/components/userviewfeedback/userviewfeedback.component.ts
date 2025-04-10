@@ -10,15 +10,19 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 export class UserviewfeedbackComponent implements OnInit {
   feedbackList: Feedback[] = [];
   confirmDeleteId: number | null = null;
+  userId:number;
 
   constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId'));
     this.getFeedbacksByUserId();
   }
 
   getFeedbacksByUserId(): void {
-    this.feedbackService.getFeedbacksByUserId(1).subscribe((data) => {
+    console.log("=============Inside FeedBacks By User==============")
+    console.log(this.userId);
+    this.feedbackService.getFeedbacksByUserId(this.userId).subscribe((data) => {
       this.feedbackList = data;
       },
       (error) => {

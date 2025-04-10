@@ -10,6 +10,6 @@ import com.examly.springapp.model.LoanApplication;
 @Repository
 public interface LoanApplicationRepo extends JpaRepository<LoanApplication,Long>{
 
-    public List<LoanApplication> findByUserId(Long userId);
+    public List<LoanApplication> findByUser_UserId(Long userId);
 
 }

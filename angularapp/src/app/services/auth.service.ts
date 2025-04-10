@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
-  baseUrl : string = "https://ide-bdbedfcefbffdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/"
+  baseUrl : string = "https://ide-fbbcebfdaefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,6 +23,8 @@ export class AuthService {
         tap((response: any) => {
             if (response.token) {
                 localStorage.setItem('jwtToken', response.token);
+                console.log(response.userId);
+                localStorage.setItem('userId', response.userId);
             }
         })
     );
@@ -30,6 +32,10 @@ export class AuthService {
 
   getToken(): string | null {
     return localStorage.getItem('jwtToken');
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId');
   }
 
   logout(): void {

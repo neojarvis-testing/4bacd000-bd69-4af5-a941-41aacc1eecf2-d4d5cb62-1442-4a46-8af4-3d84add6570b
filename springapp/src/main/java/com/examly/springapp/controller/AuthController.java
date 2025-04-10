@@ -44,12 +44,12 @@ public class AuthController {
             if (isLoggedIn) {
                 String token = jwtUtils.generateToken(loginDTO.getUsername());
                 User user = userService.getUserByUsername(loginDTO.getUsername());
-                return ResponseEntity.ok(new LoginResponseDTO(loginDTO.getUsername(), token, user.getUserRole()));
+                return ResponseEntity.ok(new LoginResponseDTO(user.getUserId(), loginDTO.getUsername(), token, user.getUserRole()));
             } else {
-                return ResponseEntity.status(401).body(new LoginResponseDTO(null, "Invalid credentials", null));
+                return ResponseEntity.status(401).body(new LoginResponseDTO(null, null, "Invalid credentials", null));
             }
         } catch (Exception e) {
-            return ResponseEntity.status(400).body(new LoginResponseDTO(null, "Bad Request", null));
+            return ResponseEntity.status(400).body(new LoginResponseDTO(null, null, "Bad Request", null));
         }
     }
 }

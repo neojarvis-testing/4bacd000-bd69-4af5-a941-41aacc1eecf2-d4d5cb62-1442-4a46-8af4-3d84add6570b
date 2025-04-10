@@ -27,7 +27,7 @@ public class SecurityConfig {
         http.csrf().disable()
             .authorizeHttpRequests()
             .requestMatchers("/api/login", "/api/register", "/api/authenticate").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
             .and()
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -44,3 +44,5 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
+// .requestMatchers("/api/login", "/api/register", "/api/authenticate").permitAll()

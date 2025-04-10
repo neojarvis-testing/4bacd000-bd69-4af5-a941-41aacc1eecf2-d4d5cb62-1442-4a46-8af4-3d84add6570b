@@ -27,6 +27,7 @@ public class FeedbackServiceImpl implements FeedbackService {
         Optional<User> optionalUser = userRepo.findById(feedback.getUser().getUserId());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
+            System.out.println("Feedback received: " + feedback);
             feedback.setUser(user); 
             return feedbackRepo.save(feedback); 
         } else {
@@ -48,6 +49,7 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public List<Feedback> getAllFeedbacks() {
+        System.out.println(feedbackRepo.findAll());
         return feedbackRepo.findAll(); 
     }
 
