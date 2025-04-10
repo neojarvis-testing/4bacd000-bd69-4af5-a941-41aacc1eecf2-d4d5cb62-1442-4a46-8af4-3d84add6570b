@@ -1,6 +1,6 @@
 package com.examly.springapp.service;
 
-
+import com.examly.springapp.dto.LoginDTO;
 import com.examly.springapp.exceptions.InvalidCredentialsException;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
@@ -28,11 +28,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginUser(String username, String password) {
-        User existingUser = userRepo.findByUsername(username);
-        if (existingUser == null || !passwordEncoder.matches(password, existingUser.getPassword())) {
+    public boolean loginUser(LoginDTO loginDTO) {
+        User existingUser = userRepo.findByUsername(loginDTO.getUsername());
+        if (existingUser == null || !passwordEncoder.matches(loginDTO.getPassword(), existingUser.getPassword())) {
             throw new InvalidCredentialsException("Invalid username or password");
         }
         return true;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepo.findByUsername(username);
     }
 }

@@ -1,5 +1,7 @@
 package com.examly.springapp.controller;
 
+import com.examly.springapp.dto.LoginDTO;
+import com.examly.springapp.dto.LoginResponseDTO;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.UserService;
@@ -36,16 +38,19 @@ public class AuthController {
     }
     
     @PostMapping("/api/login")
-    public ResponseEntity<?> loginUser(@RequestBody User user) {
+    public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO) {
         try {
-            boolean isLoggedIn = userService.loginUser(user.getUsername(), user.getPassword());
+            boolean isLoggedIn = userService.loginUser(loginDTO);
             if (isLoggedIn) {
-                return ResponseEntity.status(201).body("Login successful");
+                String token = jwtUtils.generateToken(loginDTO.getUsername());
+                User user = userService.getUserByUsername(loginDTO.getUsername());
+                return ResponseEntity.ok(new LoginResponseDTO(loginDTO.getUsername(), token, user.getUserRole()));
             } else {
-                return ResponseEntity.status(401).body("Invalid credentials");
+                return ResponseEntity.status(401).body(new LoginResponseDTO(null, "Invalid credentials", null));
             }
         } catch (Exception e) {
-            return ResponseEntity.status(400).body("Bad Request");
+            return ResponseEntity.status(400).body(new LoginResponseDTO(null, "Bad Request", null));
         }
     }
 }
+
