@@ -8,16 +8,23 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   templateUrl: './useraddfeedback.component.html',
   styleUrls: ['./useraddfeedback.component.css']
 })
-export class UseraddfeedbackComponent {
+export class UseraddfeedbackComponent implements OnInit {
 
 
   feedbackText: string = '';
   popupMessage: string | null = null;
+  userId: number;
+  ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId'));
+  }
 
   constructor(private feedbackService : FeedbackService) {}
 
+
   submitFeedback(fm :NgForm): void {
     console.log('Submit button clicked');
+    console.log("This is the user id")
+    console.log(this.userId);
     console.log(fm.value);
     
     if (!this.feedbackText.trim()) {
@@ -27,9 +34,13 @@ export class UseraddfeedbackComponent {
 
     const feedback : Feedback = {
       feedbackText: this.feedbackText,
-      userId: 0,
+      user:{
+      userId: this.userId
+    },
       date: new Date()
     };
+
+ 
 
     this.feedbackService.sendFeedback(feedback).subscribe(() => {
         this.popupMessage = 'Successfully Added!';

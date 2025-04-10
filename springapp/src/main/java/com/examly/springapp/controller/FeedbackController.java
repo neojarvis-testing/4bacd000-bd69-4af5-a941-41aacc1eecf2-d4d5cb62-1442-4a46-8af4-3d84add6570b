@@ -44,6 +44,7 @@ public class FeedbackController {
     public ResponseEntity<?> getAllFeedbacks() {
         try {
             List<Feedback> feedbackList = feedbackService.getAllFeedbacks();
+            
             return ResponseEntity.status(200).body(feedbackList);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("An error occurred.");
