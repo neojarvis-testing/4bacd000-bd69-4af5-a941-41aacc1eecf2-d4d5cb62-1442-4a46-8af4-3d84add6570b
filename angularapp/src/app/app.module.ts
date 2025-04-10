@@ -23,6 +23,7 @@ import { UserviewloanComponent } from './components/userviewloan/userviewloan.co
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,8 +50,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
