@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdmineditloanComponent } from './components/admineditloan/admineditloan.component';
@@ -21,6 +21,7 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewloanComponent } from './components/userviewloan/userviewloan.component';
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,10 +44,13 @@ import { ViewloanComponent } from './components/viewloan/viewloan.component';
     UserviewfeedbackComponent,
     UserviewloanComponent,
     ViewloanComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
