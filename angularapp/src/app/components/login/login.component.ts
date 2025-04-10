@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { Login } from 'src/app/models/login.model';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() { }
+  loginData: Login = { username: '', password: '' };
+  errorMessage: string = '';
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  onSubmit() {
+    this.authService.login(this.loginData).subscribe(
+      (response) => {
+        console.log('Login successful', response);
+        localStorage.setItem('jwtToken', response.token);
+        localStorage.setItem('userRole', response.userRole);
+
+        if (response.userRole === 'admin') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/user']);
+        }
+      },
+      (error) => {
+        this.errorMessage = 'Login failed. Please check your credentials.';
+      }
+    );
   }
-
 }

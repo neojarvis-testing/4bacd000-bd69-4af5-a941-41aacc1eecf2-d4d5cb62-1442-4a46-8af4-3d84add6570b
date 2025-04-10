@@ -1,1 +1,25 @@
-<p>navbar works!</p>
+<h2>This is Common Navbar</h2>
+<br>
+<hr>
+
+<div *ngIf="currentRoute === '/register' || currentRoute === '/'  ">
+    <h1>This is Register Navbar</h1>
+    <br>
+    <nav>
+       <a href="">Logo</a>
+       <a routerLink="/login">Login</a>
+    </nav>
+    <hr>
+    <hr>
+</div>
+
+<div *ngIf="currentRoute === '/login'">
+    <h1>This is Login Navbar</h1>
+    <br>
+    <nav>
+       <a href="">Logo</a>
+       <a routerLink="/register">Register</a>
+    </nav>
+    <hr>
+    <hr>
+</div>
