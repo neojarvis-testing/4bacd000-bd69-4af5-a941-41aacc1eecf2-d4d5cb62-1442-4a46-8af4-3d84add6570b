@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdmineditloanComponent } from './components/admineditloan/admineditloan.component';
@@ -21,9 +21,12 @@ import { UsernavComponent } from './components/usernav/usernav.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewloanComponent } from './components/userviewloan/userviewloan.component';
 import { ViewloanComponent } from './components/viewloan/viewloan.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     UsernavComponent,
     UserviewfeedbackComponent,
     UserviewloanComponent,
-    ViewloanComponent
+    ViewloanComponent,
+    ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
