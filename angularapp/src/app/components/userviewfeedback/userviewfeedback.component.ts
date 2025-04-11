@@ -15,7 +15,7 @@ export class UserviewfeedbackComponent implements OnInit {
   constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {
-    this.userId = parseInt(localStorage.getItem('userId'));
+    this.userId = parseInt(sessionStorage.getItem('userId'));
     this.getFeedbacksByUserId();
   }
 

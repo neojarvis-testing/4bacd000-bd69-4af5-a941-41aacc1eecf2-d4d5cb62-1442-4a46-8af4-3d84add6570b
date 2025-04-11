@@ -21,11 +21,11 @@ export class AuthService {
     return this.httpClient.post(AppConfig.baseUrl + 'api/login', login).pipe(
         tap((response: any) => {
             if (response.token) {
-                localStorage.setItem('jwtToken', response.token);
+                sessionStorage.setItem('jwtToken', response.token);
                 console.log(response.userId);
-                localStorage.setItem('userId', response.userId);
+                sessionStorage.setItem('userId', response.userId);
                 if (response.role) {
-                  localStorage.setItem('userRole', response.role);
+                  sessionStorage.setItem('userRole', response.role);
                 }
             }
         })
@@ -33,18 +33,18 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('jwtToken');
+    return sessionStorage.getItem('jwtToken');
   }
 
   getUserId(): string | null {
-    return localStorage.getItem('userId');
+    return sessionStorage.getItem('userId');
   }
 
   logout(): void {
-    localStorage.removeItem('jwtToken');
+    sessionStorage.removeItem('jwtToken');
   }
 
   getUserRole(): string | null {
-    return localStorage.getItem('userRole');
+    return sessionStorage.getItem('userRole');
   }
 }
