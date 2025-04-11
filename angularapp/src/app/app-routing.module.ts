@@ -16,7 +16,9 @@ import { UserappliedloanComponent } from './components/userappliedloan/userappli
 import { CreateloanComponent } from './components/createloan/createloan.component';
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+
 import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
+
 import { HomePageComponent } from './components/home-page/home-page.component';
 
 
@@ -31,12 +33,13 @@ const routes: Routes = [
   { path: 'userviewfeedback', component: UserviewfeedbackComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
-  { path: 'admin', component: AdminnavComponent},
-  { path: 'user', component: UsernavComponent },
+  { path: 'admin', component: HomePageComponent},
+  { path: 'user', component: HomePageComponent },
   {path:'userappliedloan', component:UserappliedloanComponent},
   {path:'userviewloan', component:UserviewloanComponent},
   {path:'createloan',component:CreateloanComponent},
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent},
+  {path:'home-page', component:HomePageComponent},
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent},
   {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
   {path:'requestedloan', component:RequestedloanComponent},
