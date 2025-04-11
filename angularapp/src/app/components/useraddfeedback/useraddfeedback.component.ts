@@ -9,17 +9,15 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./useraddfeedback.component.css']
 })
 export class UseraddfeedbackComponent implements OnInit {
-
-
   feedbackText: string = '';
   popupMessage: string | null = null;
   userId: number;
+
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId'));
   }
 
   constructor(private feedbackService : FeedbackService) {}
-
 
   submitFeedback(fm :NgForm): void {
     console.log('Submit button clicked');
@@ -40,8 +38,6 @@ export class UseraddfeedbackComponent implements OnInit {
       date: new Date()
     };
 
- 
-
     this.feedbackService.sendFeedback(feedback).subscribe(() => {
         this.popupMessage = 'Successfully Added!';
         this.feedbackText = ''; 
@@ -53,5 +49,6 @@ export class UseraddfeedbackComponent implements OnInit {
 
   closePopup(): void {
     this.popupMessage = null;
+  
   }
 }

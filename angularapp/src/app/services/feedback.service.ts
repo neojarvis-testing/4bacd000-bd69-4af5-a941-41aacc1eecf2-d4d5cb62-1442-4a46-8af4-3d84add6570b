@@ -8,7 +8,7 @@ import { Feedback } from '../models/feedback.model';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private baseUrl = "https://ide-fbbcebfdaefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080";
+  private baseUrl = "https://ide-aefabcebeefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/";
   constructor(private httpClient : HttpClient) { }
 
   public sendFeedback(feedback : Feedback) : Observable<any>{
@@ -25,7 +25,7 @@ export class FeedbackService {
     return this.httpClient.get(this.baseUrl + '/api/feedback/user/' + userId);
   }
 
-  public deleteFeedback(feedbackId : number) : Observable<any>{
-    return this.httpClient.delete(this.baseUrl + '/' + feedbackId);
-  }
+  public deleteFeedback(feedbackId: number): Observable<string> {
+    return this.httpClient.delete(this.baseUrl + 'api/feedback/' + feedbackId, { responseType: 'text' });
+  }  
 }

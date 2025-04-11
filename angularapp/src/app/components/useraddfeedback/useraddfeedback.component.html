@@ -1,10 +1,10 @@
 <app-usernav></app-usernav>
 <hr>
 <hr>
-<div class="feedback-form">
-  <h2>Add Feedback</h2>
-  <form (ngSubmit)="submitFeedback(feedbackForm)" #feedbackForm="ngForm">
-
+<div  class="feedback-form">
+  
+  <form *ngIf="!popupMessage" (ngSubmit)="submitFeedback(feedbackForm)" #feedbackForm="ngForm">
+    <h2>Add Feedback</h2>
     <div class="form-group">
       <label for="feedbackText">Feedback *</label>
       <textarea
