@@ -24,6 +24,9 @@ export class AuthService {
                 localStorage.setItem('jwtToken', response.token);
                 console.log(response.userId);
                 localStorage.setItem('userId', response.userId);
+                if (response.role) {
+                  localStorage.setItem('userRole', response.role);
+                }
             }
         })
     );
@@ -39,5 +42,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('jwtToken');
+  }
+
+  getUserRole(): string | null {
+    return localStorage.getItem('userRole');
   }
 }
