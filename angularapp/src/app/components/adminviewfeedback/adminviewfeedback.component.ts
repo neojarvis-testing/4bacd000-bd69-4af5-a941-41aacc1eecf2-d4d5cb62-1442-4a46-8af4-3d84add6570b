@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from 'src/app/models/feedback.model';
+import { User } from 'src/app/models/user.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class AdminviewfeedbackComponent implements OnInit {
   feedbackList: Feedback[] = [];
-  confirmDeleteId: number | null = null;
+  selectedUser: User | null = null;
 
   constructor(private feedbackService: FeedbackService) {}
 
@@ -25,21 +26,11 @@ export class AdminviewfeedbackComponent implements OnInit {
         console.error('Error fetching feedbacks:', error);
       });
   }
-
-  confirmDelete(feedbackId: number): void {
-    this.confirmDeleteId = feedbackId;
+  viewProfile(user: User): void {
+    this.selectedUser = user; 
   }
 
-  deleteFeedback(): void {
-    if (this.confirmDeleteId !== null) {
-      this.feedbackService.deleteFeedback(this.confirmDeleteId).subscribe(() => {
-        this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.confirmDeleteId);
-        this.confirmDeleteId = null;
-      });
-    }
-  }
-
-  cancelDelete(): void {
-    this.confirmDeleteId = null;
+  closeProfile(): void {
+    this.selectedUser = null;
   }
 }

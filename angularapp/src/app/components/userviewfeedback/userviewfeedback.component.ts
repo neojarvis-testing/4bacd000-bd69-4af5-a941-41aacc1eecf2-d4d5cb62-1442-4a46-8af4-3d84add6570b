@@ -36,10 +36,18 @@ export class UserviewfeedbackComponent implements OnInit {
 
   deleteFeedback(): void {
     if (this.confirmDeleteId !== null) {
-      this.feedbackService.deleteFeedback(this.confirmDeleteId).subscribe(() => {
-        this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.confirmDeleteId);
-        this.confirmDeleteId = null;
-      });
+      this.feedbackService.deleteFeedback(this.confirmDeleteId).subscribe(
+        (response) => {
+          console.log('Server response:', response);
+          this.feedbackList = this.feedbackList.filter(f => f.feedbackId !== this.confirmDeleteId);
+        },
+        (error) => {
+          console.error('Error deleting feedback:', error);
+        },
+        () => {
+          this.confirmDeleteId = null;
+        }
+      );
     }
   }
 

@@ -10,7 +10,7 @@ import { LoanApplication } from '../models/loanapplication.model';
 export class LoanService {
 
 
-  public apiUrl="https://ide-fbbcebfdaefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080"
+  public apiUrl="https://ide-aefabcebeefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/";
 
   constructor(private http: HttpClient) {}
 

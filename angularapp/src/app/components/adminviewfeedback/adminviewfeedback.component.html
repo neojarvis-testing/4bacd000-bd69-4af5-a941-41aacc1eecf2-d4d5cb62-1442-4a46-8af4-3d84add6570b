@@ -3,21 +3,21 @@
   <table *ngIf="feedbackList.length > 0; else noFeedbacks" class="feedback-table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>S. No</th>
+        <th>Username</th>
         <th>Feedback</th>
-        <th>User ID</th>
         <th>Date</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let feedback of feedbackList">
-        <td>{{feedback.feedbackId}}</td>
+      <tr *ngFor="let feedback of feedbackList; index as i">
+        <td>{{i+1}}</td>
+        <td>{{feedback.user.username}}</td>
         <td>{{feedback.feedbackText}}</td>
-        <td>{{feedback.userId}}</td>
         <td>{{feedback.date | date}}</td>
         <td>
-          <button (click)="confirmDelete(feedback.feedbackId)">Delete</button>
+          <button (click)="viewProfile(feedback.user)">View Profile</button>
         </td>
       </tr>
     </tbody>
@@ -26,9 +26,11 @@
     <p>No feedbacks found.</p>
   </ng-template>
 
-  <div *ngIf="confirmDeleteId !== null" class="popup">
-    <p>Are you sure you want to delete?</p>
-    <button (click)="deleteFeedback()">Yes, Delete</button>
-    <button (click)="cancelDelete()">Cancel</button>
+  <div *ngIf="selectedUser" class="popup">
+    <h3>User Details:</h3>
+    <p><strong>Email:</strong> {{selectedUser.email}}</p>
+    <p><strong>Username:</strong> {{selectedUser.username}}</p>
+    <p><strong>Mobile Number:</strong> {{selectedUser.mobileNumber}}</p>
+    <button (click)="closeProfile()">Close</button>
   </div>
 </div>
