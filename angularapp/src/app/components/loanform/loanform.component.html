@@ -1,0 +1,44 @@
+<h1>Loan Application Form</h1>
+
+<form #loanApplicationForm="ngForm" (ngSubmit)="onSubmit(loanApplicationForm)">
+
+  <button routerLink="/userviewloan">Back</button><br><br>
+
+  <label for="farmLocation">Farm Location*</label><br>
+  <input type="text" name="farmLocation" id="farmLocation" [(ngModel)]="farmLocation" required>
+  <div class="error-message" *ngIf="loanApplicationForm.submitted && !farmLocation">
+    <div>*Farm Location is required</div>
+  </div><br>
+
+  <label for="address">Farmer's Address*</label><br>
+  <input type="text" name="address" id="address" [(ngModel)]="address" required>
+  <div class="error-message" *ngIf="loanApplicationForm.submitted && !address">
+    <div>*Farmer's Address is required</div>
+  </div><br>
+
+  <label for="size">Farm Size (in acres)*</label><br>
+  <input type="text" name="size" id="size" [(ngModel)]="size" required>
+  <div class="error-message" *ngIf="loanApplicationForm.submitted && !size">
+    <div>*Farm Size is required</div>
+  </div><br>
+
+  <label for="purpose">Farm Purpose*</label><br>
+  <input type="text" name="purpose" id="purpose" [(ngModel)]="purpose" required>
+  <div class="error-message" *ngIf="loanApplicationForm.submitted && !purpose">
+    <div>*Farm Purpose is required</div>
+  </div><br>
+
+  <label for="proof">Proof*</label><br>
+  <input type="file" name="proof" id="proof" (change)="onFileSelected($event)" required>
+  <div class="error-message" *ngIf="loanApplicationForm.submitted && !proof">
+    <div>*Proof is required</div>
+  </div><br>
+  
+
+ <br> <button type="submit">Submit</button>
+</form>
+
+<!-- <div *ngIf="formSubmitted">
+  Successfully Added!
+  <button routerLink="/viewuserloan">Ok</button>
+</div> -->
