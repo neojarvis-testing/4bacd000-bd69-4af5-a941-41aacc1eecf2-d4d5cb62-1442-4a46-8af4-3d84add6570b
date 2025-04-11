@@ -17,65 +17,67 @@ export class LoanService {
 
   getAllLoans(): Observable<any> 
   {
-    return this.http.get<any>(this.apiUrl + "/loan");
+    return this.http.get<any>(this.apiUrl + "/api/loan");
   }
 
 
   getLoanById(id: number): Observable<any>
   {
-    return this.http.get<any>(this.apiUrl + "/loan/" + id);
+    return this.http.get<any>(this.apiUrl + "/api/loan/" + id);
   }
 
 
   addLoan(loan:Loan): Observable<any> 
   {
-    return this.http.post<any>(this.apiUrl + "/loan", loan);
+    console.log("=========== Form Value From Service ====================")
+    console.log(loan)
+    return this.http.post<any>(this.apiUrl + "/api/loan", loan);
   }
 
  
   updateLoan(id: number, loan:Loan): Observable<any> 
   {
-    return this.http.put<any>(this.apiUrl + "/loan/" + id, loan);
+    return this.http.put<any>(this.apiUrl + "/api/loan/" + id, loan);
   }
 
  
   deleteLoan(loanId: number): Observable<any> 
   {
-    return this.http.delete(this.apiUrl + "/loan/" + loanId);
+    return this.http.delete(this.apiUrl + "/api/loan/" + loanId);
   }
 
   
   getAppliedLoans(userId: number): Observable<any> 
   {
-    return this.http.get(this.apiUrl + "/loanapplication/user/" + userId);
+    return this.http.get(this.apiUrl + "/api/loanapplication/user/" + userId);
   }
 
  
   deleteLoanApplication(loanId: number): Observable<any> 
   {
-    return this.http.delete(this.apiUrl + "/loanapplication/" + loanId);
+    return this.http.delete(this.apiUrl + "/api/loanapplication/" + loanId);
   }
 
   
   addLoanApplication(loanApplication:LoanApplication): Observable<any> 
   {
-    return this.http.post(this.apiUrl + "/loanapplication", loanApplication);
+    return this.http.post(this.apiUrl + "/api/loanapplication", loanApplication);
   }
 
  
   getAllLoanApplications(): Observable<any> 
   {
-    return this.http.get(this.apiUrl + "/loanapplication");
+    return this.http.get(this.apiUrl + "/api/loanapplication");
   }
 
   getLoanApplicationById(loanApplicationId:number): Observable<any> 
   {
-    return this.http.get(this.apiUrl + "/loanapplication/" +loanApplicationId);
+    return this.http.get(this.apiUrl + "/api/loanapplication/" +loanApplicationId);
   }
   
   updateLoanStatus(id: number, loanApplication:LoanApplication): Observable<any> 
   {
-    return this.http.put(this.apiUrl + "/loanapplication/" + id, loanApplication);
+    return this.http.put(this.apiUrl + "/api/loanapplication/" + id, loanApplication);
   }
   
 }

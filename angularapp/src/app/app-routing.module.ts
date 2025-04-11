@@ -17,9 +17,11 @@ import { CreateloanComponent } from './components/createloan/createloan.componen
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
 
+
 const routes: Routes = [
   {path:'edit-loan/:id',component:AdmineditloanComponent},
   {path:'viewLoan',component:ViewloanComponent},
+  {path:'createloan',component:CreateloanComponent},
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent},
   {path:'loanapplicationform', component:LoanformComponent},
   { path: 'adminviewfeedback', component: AdminviewfeedbackComponent},
