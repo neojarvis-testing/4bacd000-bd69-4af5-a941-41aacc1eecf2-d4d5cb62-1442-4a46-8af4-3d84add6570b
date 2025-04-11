@@ -1,6 +1,8 @@
-<button [routerLink]="['/viewLoan']">Back</button>
+<app-adminnav></app-adminnav>
+
 <div class="container">
-    <h2>Edit Loan</h2>
+    <h1>Edit Loan</h1>
+    
     <form [formGroup]="loanForm" (ngSubmit)="updateLoan()">
 
         <label>Loan Type*</label>
@@ -46,7 +48,7 @@
         </div>
     
         <button type="submit" [disabled]="loanForm.invalid">Submit</button>
+        <button [routerLink]="['/viewLoan']">Back</button>
     </form>
-    
 </div>
 

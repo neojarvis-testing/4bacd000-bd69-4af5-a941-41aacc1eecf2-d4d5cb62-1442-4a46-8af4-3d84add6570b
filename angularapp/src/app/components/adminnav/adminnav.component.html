@@ -1,9 +1,20 @@
-<h2>You logged in as admin</h2>
-
-<span>| |</span>
-<a   routerLink="/createloan" >Add Loan</a>
-<span>| |</span>
-<a   routerLink="/viewLoan" >View Loan</a>
-<span>| |</span>
-<a   routerLink="/adminviewfeedback" >View Feedback</a>
-
+ <nav class="navbar">
+    <div class="navbar-left">
+      <span class="brand-name">FarmAid</span>
+    </div>
+    <div class="navbar-right">
+      <span class="admin-text">admin/Admin</span>
+      <a routerLink="/home">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Loan</button>
+        <div class="dropdown-content">
+          <a routerLink="/createloan">Add Loan</a>
+          <a routerLink="/viewLoan">View Loan</a>
+        </div>
+      </div>
+      <a routerLink="/requestedloan">Loan Requested</a>
+      <a routerLink="/adminviewfeedback">Feedbacks</a>
+      <a routerLink="/login">Logout</a>
+    </div>
+  </nav>
+  

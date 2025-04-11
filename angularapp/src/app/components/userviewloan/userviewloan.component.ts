@@ -38,7 +38,7 @@ export class UserviewloanComponent implements OnInit {
   appliedButton(loanId: number) {
     this.appliedLoans.add(loanId); 
     this.checkAppliedLoan = true;
-    this.router.navigate(['/loanapplicationform']);
+    this.router.navigate(['/loanapplicationform', loanId]);
   }
 
 }

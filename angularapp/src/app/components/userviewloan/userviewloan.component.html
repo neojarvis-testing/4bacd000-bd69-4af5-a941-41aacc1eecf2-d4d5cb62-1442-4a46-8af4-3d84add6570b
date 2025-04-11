@@ -1,3 +1,7 @@
+
+<app-usernav></app-usernav>
+
+<div class="container">
 <h1>Available Loans</h1>
 
 <input 
@@ -34,16 +38,17 @@
       <td>{{ loan.eligibility }}</td>
       <td>{{ loan.documentsRequired }}</td>
       <td>
-        <button *ngIf="!checkAppliedLoan"
+        <button *ngIf="!loan.applied"
           (click)="appliedButton(loan.loanId)" 
           > Apply
         </button>
         <button
-        *ngIf="checkAppliedLoan"
+        *ngIf="loan.applied"
           (click)="appliedButton(loan.loanId)" 
-          [disabled]="checkAppliedLoan"> Applied
+          [disabled]="loan.applied"> Applied
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+</div>

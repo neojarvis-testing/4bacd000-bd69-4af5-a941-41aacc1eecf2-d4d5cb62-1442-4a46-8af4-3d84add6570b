@@ -1,0 +1,91 @@
+General Body Styling
+body {
+    font-family: Arial, sans-serif; /* Clean and readable font */
+    background-color: #f4f4f9; /* Light gray background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
+  }
+  
+  /* Styling for the Form Container */
+  .container {
+    width: 40%; /* Adjust container width */
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #fff; /* White background for contrast */
+    border-radius: 10px; /* Rounded corners for aesthetics */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-sizing: border-box;
+  }
+  
+  /* Centered Title */
+  h1 {
+    text-align: center; /* Center-align the form title */
+    font-size: 2rem;
+    color: #4CAF50; /* Match theme color */
+    margin-bottom: 10px;
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+  }
+  
+  form label {
+    font-weight: bold; /* Bold labels for clarity */
+    margin-bottom: 5px;
+  }
+  
+  form input,
+  form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Light gray border for inputs */
+    border-radius: 5px; /* Rounded corners */
+    width: 100%; /* Full width of container */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  
+  /* Error Message Styling */
+  .error-message {
+    color: red; /* Highlight errors in red */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Submit Button Styling */
+  form button[type="submit"] {
+    background-color: #4CAF50; /* Green background for button */
+    color: white; /* White text for readability */
+    font-weight: bold; /* Emphasized text */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    border: none; /* No border */
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+  }
+  
+  form button[type="submit"]:disabled {
+    background-color: #ccc; /* Gray for disabled button */
+    cursor: not-allowed; /* Show disabled cursor */
+  }
+  
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 90%; /* Expand container to fit smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Reduce title size on smaller screens */
+    }
+  }
+  
+  

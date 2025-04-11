@@ -7,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  userRole;
+  userRole : string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+
     this.userRole = sessionStorage.getItem('userRole');
+
+//  this.userRole = localStorage.getItem('userRole');
+    console.log(this.userRole)
+
   }
+
+
 
 
 

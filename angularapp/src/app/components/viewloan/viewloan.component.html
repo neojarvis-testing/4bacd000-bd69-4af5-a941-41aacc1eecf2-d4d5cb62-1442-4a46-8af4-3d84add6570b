@@ -1,3 +1,6 @@
+<app-adminnav></app-adminnav>
+
+<div class="container">
 <h1>Loan Details</h1>
  
 <table>
@@ -24,8 +27,13 @@
             <td>{{loan.repaymentTenure}}</td>
             <td>{{loan.eligibility}}</td>
             <td>{{loan.documentsRequired}}</td>
-            <td><a [routerLink]="['/edit-loan/'+loan.loanId]">Edit</a></td>
-            <td><button (click)="deleteLoan(loan.loanId)">Delete</button></td>
+            <td>
+                <div class="button-group">
+                  <button class="edit-button" [routerLink]="['/edit-loan/'+loan.loanId]">Edit</button>
+                  <button class="delete-button" (click)="deleteLoan(loan.loanId)">Delete</button>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
+</div>

@@ -26,6 +26,9 @@ export class FeedbackService {
   }
 
   public deleteFeedback(feedbackId: number): Observable<string> {
+
     return this.httpClient.delete(AppConfig.baseUrl + 'api/feedback/' + feedbackId, { responseType: 'text' });
+//     return this.httpClient.delete(this.baseUrl + '/api/feedback/' + feedbackId, { responseType: 'text' });
+
   }  
 }

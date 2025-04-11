@@ -22,9 +22,9 @@ export class LoginComponent {
         sessionStorage.setItem('userRole', response.userRole);
 
         if (response.userRole === 'admin') {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/home']);
         } else {
-          this.router.navigate(['/user']);
+          this.router.navigate(['/home']);
         }
       },
       (error) => {
