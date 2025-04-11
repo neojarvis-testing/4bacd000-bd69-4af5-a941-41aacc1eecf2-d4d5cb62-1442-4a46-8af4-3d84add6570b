@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoanApplication } from 'src/app/models/loanapplication.model';
 import { LoanService } from 'src/app/services/loan.service';
 
@@ -13,14 +13,17 @@ export class UserappliedloanComponent implements OnInit {
   loans: LoanApplication[] = [];
   searchData:string="";
 
-  constructor(private loanService: LoanService, private router:Router) {}
+  constructor(private loanService: LoanService, private router:Router,private activatedRoute:ActivatedRoute) {}
 
+  loanId:number;
   ngOnInit(): void {
+    this.loanId=this.activatedRoute.snapshot.params['id']
     this.getAppliedLoans();
+
   }
 
   getAppliedLoans(): void {
-    this.loanService.getAllLoanApplications().subscribe(data => {
+    this.loanService.getLoanApplicationById(this.loanId).subscribe(data => {
       this.loans = data;
       console.log(this.loans);
     });

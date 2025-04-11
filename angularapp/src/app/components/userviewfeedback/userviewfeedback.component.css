@@ -1,22 +1,160 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif; /* Clean and readable font */
+  background-color: #f4f4f9; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+/* Styling for the Feedback Container */
+.feedback-container {
+  width: 90%; /* Adjust container width */
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #fff; /* White background for contrast */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-sizing: border-box;
+}
+
+/* Centered Title */
+h2 {
+  text-align: center; /* Center-align the table title */
+  font-size: 2rem;
+  color: #4CAF50; /* Matching green theme color */
+  margin-bottom: 20px;
+}
+
+/* Styling for the Table */
 .feedback-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%; /* Full-width table */
+  border-collapse: collapse; /* Remove gaps between cells */
+  margin-top: 20px; /* Space above the table */
+}
+
+.feedback-table thead {
+  background-color: #4CAF50; /* Green background for table headers */
+  color: white; /* White text for headers */
+}
+
+.feedback-table th, .feedback-table td {
+  text-align: left; /* Left-align table content */
+  padding: 12px; /* Add padding inside cells */
+  border: 1px solid #ddd; /* Light gray border between cells */
+}
+
+.feedback-table th {
+  font-weight: bold; /* Emphasize header text */
+}
+
+.feedback-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row background for readability */
+}
+
+.feedback-table tbody tr:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  cursor: pointer; /* Pointer cursor on row hover */
+}
+
+/* Styling for No Feedbacks Message */
+.no-data-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666; /* Muted color for 'no data' message */
+  margin-top: 20px;
+}
+
+/* Action Buttons */
+button {
+  background-color: #42a5f5; /* Blue background for action buttons */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 8px 12px; /* Add padding for size */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button:disabled {
+  background-color: #ccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Disabled cursor */
+}
+
+button:hover:not(:disabled) {
+  background-color: #1e88e5; /* Darker blue on hover */
+}
+
+/* Popup Styling */
+.popup {
+  position: fixed; /* Fix popup on the screen */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to exact center */
+  background-color: white; /* White background for popup */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  width: 50%; /* Adjust popup width */
+  z-index: 1000; /* Ensure it's above other elements */
+  box-sizing: border-box;
+}
+
+.popup p {
+  margin: 10px 0; /* Add spacing between text */
+}
+
+.popup button {
+  margin: 5px; /* Add space between the popup buttons */
+  background-color: #e53935; /* Red background for delete button */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #c62828; /* Darker red on hover */
+}
+
+.popup button:last-child {
+  background-color: #42a5f5; /* Blue for cancel button */
+}
+
+.popup button:last-child:hover {
+  background-color: #1e88e5; /* Darker blue on hover */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .feedback-container {
+    width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Adjust padding */
   }
-  
-  .feedback-table th, .feedback-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
+
+  h2 {
+    font-size: 1.5rem; /* Reduce title font size */
   }
-  
+
+  .feedback-table {
+    font-size: 0.9rem; /* Reduce font size for table content */
+  }
+
   .popup {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
+    width: 90%; /* Adjust popup width for smaller screens */
   }
-  
+
+  .popup button {
+    font-size: 0.8rem;
+    padding: 8px 12px; /* Compact button styling */
+  }
+}

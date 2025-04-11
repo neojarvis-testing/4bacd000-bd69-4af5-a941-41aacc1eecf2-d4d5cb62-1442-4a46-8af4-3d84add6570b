@@ -1,57 +1,126 @@
-/* Styling for the search input field */
-input[type="text"] {
-    width: 250px;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif; /* Clean and readable font */
+  background-color: #f4f4f9; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+/* Styling for the Container */
+.container {
+  width: 90%; /* Adjust container width */
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #fff; /* White background for contrast */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-sizing: border-box;
+}
+
+/* Centered Title */
+h1 {
+  text-align: center; /* Center-align the table title */
+  font-size: 2rem;
+  color: #4CAF50; /* Matching green theme color */
+  margin-bottom: 20px;
+}
+
+/* Styling the Search Input */
+input#searchData {
+  width: 100%; /* Full-width input */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding in width calculation */
+  font-size: 1rem; /* Standard font size */
+}
+
+input#searchData:focus {
+  border-color: #4CAF50; /* Green border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Styling for the Table */
+table {
+  width: 100%; /* Full-width table */
+  border-collapse: collapse; /* Remove gaps between cells */
+  margin-top: 20px; /* Space above the table */
+}
+
+table thead {
+  background-color: #4CAF50; /* Green background for table headers */
+  color: white; /* White text for headers */
+}
+
+table th, table td {
+  text-align: left; /* Left-align table content */
+  padding: 12px; /* Add padding inside cells */
+  border: 1px solid #ddd; /* Light gray border between cells */
+}
+
+table th {
+  font-weight: bold; /* Emphasize header text */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row background for readability */
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  cursor: pointer; /* Pointer cursor on row hover */
+}
+
+/* Apply and Applied Buttons Styling */
+button {
+  background-color: #42a5f5; /* Blue background for action buttons */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 8px 12px; /* Add padding for size */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button:disabled {
+  background-color: #ccc; /* Gray background for disabled buttons */
+  cursor: not-allowed; /* Disabled cursor */
+}
+
+button:hover:not(:disabled) {
+  background-color: #1e88e5; /* Darker blue on hover */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Adjust padding */
   }
-  
-  /* General table styling */
+
+  h1 {
+    font-size: 1.5rem; /* Reduce title font size */
+  }
+
   table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 14px;
-    text-align: left;
+    font-size: 0.9rem; /* Reduce font size for table content */
   }
-  
-  /* Header styling */
-  table th {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
+
+  input#searchData {
+    font-size: 0.9rem; /* Adjust font size for input field */
+    padding: 8px; /* Compact padding for smaller screens */
   }
-  
-  /* Body styling */
-  table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Alternate row styling for better readability */
-  table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Hover effect for rows */
-  table tr:hover {
-    background-color: #ddd;
-  }
-  
-  /* Button styling */
+
   button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    font-size: 12px;
-    border-radius: 3px;
-    cursor: pointer;
+    font-size: 0.8rem; /* Compact button styling */
+    padding: 6px 10px; /* Adjust button padding */
   }
-  
-  button[disabled] {
-    background-color: #aaa;
-    cursor: not-allowed;
-  }
+}

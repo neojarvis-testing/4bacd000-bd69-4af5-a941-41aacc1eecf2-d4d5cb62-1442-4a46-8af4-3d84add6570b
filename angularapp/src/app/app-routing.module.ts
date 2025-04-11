@@ -16,6 +16,8 @@ import { UserappliedloanComponent } from './components/userappliedloan/userappli
 import { CreateloanComponent } from './components/createloan/createloan.component';
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -36,7 +38,10 @@ const routes: Routes = [
   {path:'createloan',component:CreateloanComponent},
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent},
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent},
-  { path: '**', component: SignupComponent }
+  {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
+  {path:'requestedloan', component:RequestedloanComponent},
+  {path:'home',component:HomePageComponent},
+  { path: '**', component: LoginComponent }
 
 ];
 

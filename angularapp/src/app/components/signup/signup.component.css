@@ -1,0 +1,126 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Clean and modern font */
+    background-color: #f4f4f9; /* Light gray background for contrast */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
+  /* Signup Container Styling */
+  .register-container {
+    width: 400px; /* Balanced width for the form */
+    background-color: #fff; /* White background for the container */
+    padding: 20px 30px;
+    margin: 30px auto;
+    border-radius: 12px; /* Rounded corners for aesthetics */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center; /* Center-align text */
+    box-sizing: border-box;
+  }
+  
+  /* Signup Title */
+  .register-container h2 {
+    font-size: 2rem;
+    color: #4CAF50; /* Green theme color */
+    margin-bottom: 20px; /* Space below the title */
+    font-weight: bold;
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 15px; /* Space between form elements */
+  }
+  
+  form label {
+    text-align: left; /* Left-align the labels */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Neutral dark color for readability */
+  }
+  
+  form input,
+  form select {
+    width: 100%; /* Full width of container */
+    padding: 10px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for inputs and selects */
+    font-size: 1rem; /* Standard font size */
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
+  form input:focus,
+  form select:focus {
+    border-color: #4CAF50; /* Green border when focused */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Submit Button Styling */
+  form button[type="submit"] {
+    background-color: #4CAF50; /* Green background for button */
+    color: white; /* White text */
+    border: none; /* Remove borders */
+    padding: 12px 20px;
+    border-radius: 5px; /* Rounded corners for button */
+    font-size: 1rem; /* Standard font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+  }
+  
+  form button[type="submit"]:disabled {
+    background-color: #ccc; /* Gray background for disabled button */
+    cursor: not-allowed; /* Disabled cursor */
+  }
+  
+  /* Link to Login */
+  .register-container p {
+    font-size: 0.9rem;
+    color: #666; /* Subtle gray text */
+    margin-top: 15px; /* Space above the text */
+  }
+  
+  .register-container p a {
+    color: #4CAF50; /* Green link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+  }
+  
+  .register-container p a:hover {
+    text-decoration: underline; /* Underline link on hover */
+  }
+  
+  /* Error Message Styling */
+  .error {
+    color: red; /* Highlight error messages in red */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    margin-top: 10px; /* Space above error message */
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .register-container {
+      width: 90%; /* Adjust width for smaller screens */
+      padding: 15px; /* Compact padding */
+    }
+  
+    h2 {
+      font-size: 1.5rem; /* Reduce title size */
+    }
+  
+    form input,
+    form select,
+    form button[type="submit"] {
+      font-size: 0.9rem; /* Adjust font size for inputs and button */
+      padding: 10px; /* Adjust padding for smaller buttons */
+    }
+  }
+  

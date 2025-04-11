@@ -1,0 +1,126 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+}
+
+/* Styling for the Container */
+.container {
+  width: 90%;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* Centered Title */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+/* Styling for the Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* General Styling for Buttons inside Table Cells */
+td .button-group {
+  display: flex; /* Arrange buttons in a row */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Edit Button Styling */
+button.edit-button {
+  background-color: #42a5f5; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 8px 12px; /* Add padding for size */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button.edit-button:hover {
+  background-color: #1e88e5; /* Darker blue on hover */
+}
+
+/* Delete Button Styling */
+button.delete-button {
+  background-color: #e53935; /* Red background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 8px 12px; /* Add padding for size */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button.delete-button:hover {
+  background-color: #c62828; /* Darker red on hover */
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  button.edit-button,
+  button.delete-button {
+    font-size: 0.8rem;
+    padding: 6px 10px; /* Compact buttons for smaller screens */
+  }
+}
+

@@ -1,33 +1,155 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif; /* Clean and readable font */
+  background-color: #f4f4f9; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+/* Styling for the Container */
+.container {
+  width: 40%; /* Adjust width to fit form */
+  background-color: #fff; /* White background for contrast */
+  padding: 25px;
+  margin: 30px auto;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-sizing: border-box;
+}
+
+/* Feedback Form Styling */
 .feedback-form {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  width: 100%; /* Full width of the container */
 }
 
+.feedback-form h2 {
+  text-align: center; /* Center-align the title */
+  font-size: 2rem;
+  color: #4CAF50; /* Matching green theme */
+  margin-bottom: 20px; /* Space below title */
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px; /* Space between elements */
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333; /* Neutral dark color for labels */
+  display: block;
+  margin-bottom: 5px; /* Space below label */
+}
+
+/* Textarea Styling */
 textarea {
-  width: 100%;
-  height: 100px;
+  width: 100%; /* Full width */
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Standard font size */
+  box-sizing: border-box; /* Include padding in width calculation */
+  resize: vertical; /* Allow vertical resizing */
 }
 
-button {
-  background-color: #007bff;
-  color: white;
+textarea:focus {
+  border-color: #4CAF50; /* Green border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Error Messages */
+.error-messages {
+  color: red; /* Highlight errors in red */
+  font-size: 0.9rem; /* Slightly smaller font */
+  margin-top: -10px; /* Adjust spacing above errors */
+  margin-bottom: 10px; /* Space below errors */
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+  background-color: #4CAF50; /* Green background for button */
+  color: white; /* White text for contrast */
   border: none;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px 20px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Standard font size */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
-button:hover {
-  background-color: #0056b3;
+button[type="submit"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
 }
 
-.error-messages p {
-  color: red;
-  font-size: 14px;
+button[type="submit"]:disabled {
+  background-color: #ccc; /* Gray background for disabled state */
+  cursor: not-allowed; /* Disabled cursor */
+}
+
+/* Popup Styling */
+.popup {
+  position: fixed; /* Fix position on the screen */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to exact center */
+  background-color: white; /* White background for popup */
+  padding: 25px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  width: 50%; /* Adjust width of the popup */
+  box-sizing: border-box;
+  text-align: center; /* Center-align text */
+}
+
+.popup p {
+  font-size: 1.2rem; /* Larger font for readability */
+  color: #333; /* Neutral text color */
+  margin-bottom: 20px;
+}
+
+.popup button {
+  background-color: #42a5f5; /* Blue background */
+  color: white; /* White text for contrast */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem; /* Standard font size */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.popup button:hover {
+  background-color: #1e88e5; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%; /* Adjust container width for smaller screens */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .feedback-form h2 {
+    font-size: 1.5rem; /* Adjust title size for smaller screens */
+  }
+
+  textarea {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  button[type="submit"], .popup button {
+    font-size: 0.8rem; /* Adjust font size for buttons */
+    padding: 8px 15px; /* Adjust padding for buttons */
+  }
+
+  .popup {
+    width: 90%; /* Adjust popup width for smaller screens */
+  }
 }
