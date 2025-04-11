@@ -18,8 +18,8 @@ export class LoginComponent {
     this.authService.login(this.loginData).subscribe(
       (response) => {
         console.log('Login successful', response);
-        localStorage.setItem('jwtToken', response.token);
-        localStorage.setItem('userRole', response.userRole);
+        sessionStorage.setItem('jwtToken', response.token);
+        sessionStorage.setItem('userRole', response.userRole);
 
         if (response.userRole === 'admin') {
           this.router.navigate(['/home']);

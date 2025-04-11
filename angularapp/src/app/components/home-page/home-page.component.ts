@@ -12,8 +12,12 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.userRole = localStorage.getItem('userRole');
+
+    this.userRole = sessionStorage.getItem('userRole');
+
+//  this.userRole = localStorage.getItem('userRole');
     console.log(this.userRole)
+
   }
 
 

@@ -16,6 +16,7 @@ import { UserappliedloanComponent } from './components/userappliedloan/userappli
 import { CreateloanComponent } from './components/createloan/createloan.component';
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+import { CompositeGuard } from './guards/composite-guard/composite.guard';
 
 import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
 
@@ -23,29 +24,31 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 const routes: Routes = [
-  {path:'edit-loan/:id',component:AdmineditloanComponent},
-  {path:'viewLoan',component:ViewloanComponent},
-  {path:'createloan',component:CreateloanComponent},
-  {path:'confirmDelete/:id',component:ConfirmDeleteComponent},
-  {path:'loanapplicationform/:id', component:LoanformComponent},
-  { path: 'adminviewfeedback', component: AdminviewfeedbackComponent},
-  { path: 'useraddfeedback', component: UseraddfeedbackComponent},
-  { path: 'userviewfeedback', component: UserviewfeedbackComponent},
+
+  {path:'edit-loan/:id',component:AdmineditloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  {path:'viewLoan',component:ViewloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  {path:'createloan',component:CreateloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  {path:'confirmDelete/:id',component:ConfirmDeleteComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  {path:'loanapplicationform', component:LoanformComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  { path: 'adminviewfeedback', component: AdminviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  { path: 'useraddfeedback', component: UseraddfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  { path: 'userviewfeedback', component: UserviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
-  { path: 'admin', component: HomePageComponent},
-  { path: 'user', component: HomePageComponent },
-  {path:'userappliedloan', component:UserappliedloanComponent},
-  {path:'userviewloan', component:UserviewloanComponent},
-  {path:'createloan',component:CreateloanComponent},
+  { path: 'admin', component: AdminnavComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  { path: 'user', component: UsernavComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  {path:'userappliedloan', component:UserappliedloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  {path:'userviewloan', component:UserviewloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+ 
   {path:'viewuserloan',component:UserviewloanComponent},
-  {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent},
   {path:'home-page', component:HomePageComponent},
-  {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent},
   {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
   {path:'requestedloan', component:RequestedloanComponent},
   {path:'home',component:HomePageComponent},
   { path: '**', component: LoginComponent }
+
 
 ];
 

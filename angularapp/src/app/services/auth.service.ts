@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
 import { tap } from 'rxjs/operators'
+import { AppConfig } from '../config/app-config';
 import { Login } from '../models/login.model';
 import { User } from '../models/user.model';
 
@@ -10,35 +11,40 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
 
-  baseUrl : string = "https://ide-aefabcebeefdbfeafbdddcbaafdaddb.premiumproject.examly.io/proxy/8080/";
-
   constructor(private httpClient: HttpClient) { }
 
   register(user: User): Observable<any> {
-    return this.httpClient.post(`${this.baseUrl}api/register`, user);
+    return this.httpClient.post(AppConfig.baseUrl + 'api/register', user);
   }
 
   login(login: Login): Observable<any> {
-    return this.httpClient.post(`${this.baseUrl}api/login`, login).pipe(
+    return this.httpClient.post(AppConfig.baseUrl + 'api/login', login).pipe(
         tap((response: any) => {
             if (response.token) {
-                localStorage.setItem('jwtToken', response.token);
+                sessionStorage.setItem('jwtToken', response.token);
                 console.log(response.userId);
-                localStorage.setItem('userId', response.userId);
+                sessionStorage.setItem('userId', response.userId);
+                if (response.role) {
+                  sessionStorage.setItem('userRole', response.role);
+                }
             }
         })
     );
   }
 
   getToken(): string | null {
-    return localStorage.getItem('jwtToken');
+    return sessionStorage.getItem('jwtToken');
   }
 
   getUserId(): string | null {
-    return localStorage.getItem('userId');
+    return sessionStorage.getItem('userId');
   }
 
   logout(): void {
-    localStorage.removeItem('jwtToken');
+    sessionStorage.removeItem('jwtToken');
+  }
+
+  getUserRole(): string | null {
+    return sessionStorage.getItem('userRole');
   }
 }
