@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Column;
 
 @Entity
 @NoArgsConstructor
@@ -31,6 +33,8 @@ public class LoanApplication {
     private String farmerAddress;
     private double farmSizeInAcres;
     private String farmPurpose;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String file;
 
     @ManyToOne

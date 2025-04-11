@@ -13,7 +13,7 @@ import com.examly.springapp.repository.LoanApplicationRepo;
 
 
 import jakarta.persistence.EntityNotFoundException;
-
+import java.util.Base64;
 
 @Service
 public class LoanApplicationServiceImpl implements LoanApplicationService{
@@ -24,7 +24,11 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
     
     @Override
     public LoanApplication addLoanApplication(LoanApplication loanApplication) {
-        return loanApplicationRepo.save(loanApplication); 
+        if (loanApplication.getFile() != null) {
+            String encodedFile = Base64.getEncoder().encodeToString(loanApplication.getFile().getBytes());
+            loanApplication.setFile(encodedFile);
+        }
+        return loanApplicationRepo.save(loanApplication);
     }
 
     
@@ -42,36 +46,46 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 
     @Override
     public LoanApplication getLoanApplicationById(Long loanApplicationId) {
-            Optional<LoanApplication> loanApplication = loanApplicationRepo.findById(loanApplicationId);
-            if(loanApplication.isEmpty()){
-                throw new EntityNotFoundException("LoanApplication with " + loanApplicationId +" not found");
-            }else{
-                return loanApplication.get();
-            }
-         
+        Optional<LoanApplication> loanApplication = loanApplicationRepo.findById(loanApplicationId);
+        if (loanApplication.isEmpty()) {
+            throw new EntityNotFoundException("LoanApplication with " + loanApplicationId + " not found");
+        } else {
+        // Decoding the image file before returning
+        String decodedFile = new String(Base64.getDecoder().decode(loanApplication.get().getFile()));
+        loanApplication.get().setFile(decodedFile);
+        return loanApplication.get();
         }
+    }
 
     @Override
     public List<LoanApplication> getAllLoanApplications() {
         List<LoanApplication> loanApplications = loanApplicationRepo.findAll();
-        if(loanApplications.isEmpty()){
+        if (loanApplications.isEmpty()) {
             throw new EntityNotFoundException("No Loan Applications found");
-        }else{
+        } else {
+            // Decoding files for all applications
+            for (LoanApplication application : loanApplications) {
+                application.setFile(new String(Base64.getDecoder().decode(application.getFile())));
+            }
             return loanApplications;
         }
-    }
+    }    
 
     @Override
     public LoanApplication updateLoanApplication(Long loanApplicationId, LoanApplication updatedLoanApplication) {
         Optional<LoanApplication> loanApplication = loanApplicationRepo.findById(loanApplicationId);
-        if(loanApplication.isEmpty()){
+        if (loanApplication.isEmpty()) {
             throw new EntityNotFoundException("No Loan Applications found");
-        }else{
+        } else {
+            if (updatedLoanApplication.getFile() != null) {
+                String encodedFile = Base64.getEncoder().encodeToString(updatedLoanApplication.getFile().getBytes());
+                updatedLoanApplication.setFile(encodedFile);
+            }
             updatedLoanApplication.setLoanApplicationId(loanApplicationId);
-            return updatedLoanApplication;
+            return loanApplicationRepo.save(updatedLoanApplication);
         }
-        
     }
+    
 
     @Override
     public boolean deleteLoanApplication(Long loanApplicationId) {

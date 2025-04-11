@@ -26,6 +26,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
+import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { FormsModule } from '@angular/forms';
     UserviewfeedbackComponent,
     UserviewloanComponent,
     ViewloanComponent,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    ConfirmDeleteUserAppliedLoanComponent,
+    ViewAppliedLoanDetailsComponent
   ],
   imports: [
     BrowserModule,
