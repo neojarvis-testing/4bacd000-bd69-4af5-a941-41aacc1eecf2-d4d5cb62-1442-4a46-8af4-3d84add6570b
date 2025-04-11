@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'viewLoan',component:ViewloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   {path:'createloan',component:CreateloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
-  {path:'loanapplicationform', component:LoanformComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  {path:'loanapplicationform/:id', component:LoanformComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   { path: 'adminviewfeedback', component: AdminviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   { path: 'useraddfeedback', component: UseraddfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   { path: 'userviewfeedback', component: UserviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
