@@ -12,7 +12,11 @@ import { UserviewloanComponent } from './components/userviewloan/userviewloan.co
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfeedback.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
+import { UserappliedloanComponent } from './components/userappliedloan/userappliedloan.component';
 import { CreateloanComponent } from './components/createloan/createloan.component';
+import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
+import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+
 
 const routes: Routes = [
   {path:'edit-loan/:id',component:AdmineditloanComponent},
@@ -20,7 +24,6 @@ const routes: Routes = [
   {path:'createloan',component:CreateloanComponent},
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent},
   {path:'loanapplicationform', component:LoanformComponent},
-  {path:'viewuserloan', component:UserviewloanComponent},
   { path: 'adminviewfeedback', component: AdminviewfeedbackComponent},
   { path: 'useraddfeedback', component: UseraddfeedbackComponent},
   { path: 'userviewfeedback', component: UserviewfeedbackComponent},
@@ -28,6 +31,11 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'admin', component: AdminnavComponent},
   { path: 'user', component: UsernavComponent },
+  {path:'userappliedloan', component:UserappliedloanComponent},
+  {path:'userviewloan', component:UserviewloanComponent},
+  {path:'createloan',component:CreateloanComponent},
+  {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent},
+  {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent},
   { path: '**', component: SignupComponent }
 
 ];

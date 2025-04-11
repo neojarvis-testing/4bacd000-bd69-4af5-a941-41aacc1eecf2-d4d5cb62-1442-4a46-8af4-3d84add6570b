@@ -1,1 +1,36 @@
-<p>userappliedloan works!</p>
+
+<h1>Applied Loans</h1>
+
+<input 
+  type="text" 
+  placeholder="Search loans..." 
+  (keyup)="search()" 
+  [(ngModel)]="searchData" 
+  name="searchData"
+  id="searchData" 
+/>
+
+<!-- Loans Table -->
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Loan Name</th>
+      <th>Submission Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans;index of i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ loan.loanType }}</td>
+      <td>{{ loan.submissionDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ loan.status }}</td>
+      <td>
+        <button (click)="viewDetails(loan.loanId)">View Details</button>
+        <button (click)="deleteLoan(loan.loanId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

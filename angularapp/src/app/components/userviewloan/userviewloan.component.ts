@@ -10,33 +10,35 @@ import { LoanService } from 'src/app/services/loan.service';
 })
 export class UserviewloanComponent implements OnInit {
 
-  loans:Loan[]=[];
-  buttonName:string='Apply';
-  searchData:string="";
-
-  constructor(private loanService:LoanService,private router:Router) { }
+  loans: Loan[] = [];
+  searchData: string = "";
+  appliedLoans: Set<number> = new Set(); //track applied loans
+  constructor(private loanService: LoanService, private router: Router) {}
+  checkAppliedLoan:boolean = false;
 
   ngOnInit(): void {
     this.getAllLoans();
   }
 
-  search(){
-    this.loanService.getAllLoans().subscribe(data=>{
-      this.loans=data;
-      this.loans.filter(l=>JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase()));
-    })
+  search() {
+    this.loanService.getAllLoans().subscribe(data => {
+      this.loans = data;
+      this.loans = this.loans.filter(l => 
+        JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
+      );
+    });
   }
 
-  getAllLoans(){
-    this.loanService.getAllLoans().subscribe(data=>{
-      this.loans=data;
-    })
+  getAllLoans() {
+    this.loanService.getAllLoans().subscribe(data => {
+      this.loans = data;
+    });
   }
 
-  onButtonClick(){
-    this.buttonName='Applied';
+  appliedButton(loanId: number) {
+    this.appliedLoans.add(loanId); 
+    this.checkAppliedLoan = true;
     this.router.navigate(['/loanapplicationform']);
   }
-
 
 }

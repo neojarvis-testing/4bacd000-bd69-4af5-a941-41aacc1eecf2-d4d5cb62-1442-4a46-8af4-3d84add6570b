@@ -1,32 +1,49 @@
 <h1>Available Loans</h1>
 
-<input type="text" placeholder="Search..." (keyup)="search()" [(ngModel)]="searchData" name="searchData" id="searchData">
+<input 
+  type="text" 
+  placeholder="Search..." 
+  (keyup)="search()" 
+  [(ngModel)]="searchData" 
+  name="searchData" 
+  id="searchData"
+>
 
 <table>
-    <thead>
-        <tr>
-            <th>S.No</th>
-            <th>Loan Type</th>
-            <th>Loan Description</th>
-            <th>Interest Rate</th>
-            <th>Maximum Amount</th>
-            <th>Repayment Tenure (Months)</th>
-            <th>Eligibility</th>
-            <th>Documents Required</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr  *ngFor="let loan of loans" >
-            <td>{{loan.loanId}}</td>
-            <td>{{loan.loanType}}</td>
-            <td>{{loan.description}}</td>
-            <td>{{loan.interestRate}}</td>
-            <td>{{loan.maxAmount}}</td>
-            <td>{{loan.tenure}}</td>
-            <td>{{loan.eligibility}}</td>
-            <td>{{loan.documentsRequired}}</td>
-            <td><button (click)="onButtonClick()">{{buttonName}}</button></td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Loan Type</th>
+      <th>Loan Description</th>
+      <th>Interest Rate</th>
+      <th>Maximum Amount</th>
+      <th>Repayment Tenure (Months)</th>
+      <th>Eligibility</th>
+      <th>Documents Required</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans">
+      <td>{{ loan.loanId }}</td>
+      <td>{{ loan.loanType }}</td>
+      <td>{{ loan.description }}</td>
+      <td>{{ loan.interestRate }}</td>
+      <td>{{ loan.maximumAmount }}</td>
+      <td>{{ loan.repaymentTenure }}</td>
+      <td>{{ loan.eligibility }}</td>
+      <td>{{ loan.documentsRequired }}</td>
+      <td>
+        <button *ngIf="!checkAppliedLoan"
+          (click)="appliedButton(loan.loanId)" 
+          > Apply
+        </button>
+        <button
+        *ngIf="checkAppliedLoan"
+          (click)="appliedButton(loan.loanId)" 
+          [disabled]="checkAppliedLoan"> Applied
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>
