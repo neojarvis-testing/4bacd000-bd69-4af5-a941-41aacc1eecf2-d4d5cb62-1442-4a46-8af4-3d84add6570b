@@ -1,6 +1,33 @@
-<h2>You logged in as a user</h2>
+<!-- <h2>You logged in as a user</h2>
 <a routerLink="/useraddfeedback" >Add Feedback</a>
 <span>| |</span>
 <a routerLink="/userviewfeedback" >My Feedback</a>
 <span>| |</span>
-<a routerLink="/viewuserloan" >View Loan</a>
+<a routerLink="/viewuserloan" >View Loan</a> -->
+
+<nav class="navbar">
+    <div class="navbar-left">
+      <span class="brand-name">FarmAid</span>
+    </div>
+    <div class="navbar-right">
+      <span class="user-text">demouser/User</span>
+      <a routerLink="/home">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Loan</button>
+        <div class="dropdown-content">
+          <a routerLink="/userviewloan">View Loans</a>
+          <a routerLink="/viewAppliedLoans">Applied Loan</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Feedbacks</button>
+        <div class="dropdown-content">
+          <a routerLink="/useraddfeedback">Post Feedback</a>
+          <a routerLink="/userviewfeedback">My Feedbacks</a>
+        </div>
+      </div>
+      <!-- <a routerLink="/feedbacks">Feedbacks</a> -->
+      <a routerLink="/login">Logout</a>
+    </div>
+  </nav>
+  
