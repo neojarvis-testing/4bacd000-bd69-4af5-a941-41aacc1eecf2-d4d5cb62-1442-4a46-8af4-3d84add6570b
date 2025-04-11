@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'viewLoan',component:ViewloanComponent},
   {path:'createloan',component:CreateloanComponent},
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent},
-  {path:'loanapplicationform', component:LoanformComponent},
+  {path:'loanapplicationform/:id', component:LoanformComponent},
   { path: 'adminviewfeedback', component: AdminviewfeedbackComponent},
   { path: 'useraddfeedback', component: UseraddfeedbackComponent},
   { path: 'userviewfeedback', component: UserviewfeedbackComponent},
@@ -34,6 +34,7 @@ const routes: Routes = [
   {path:'userappliedloan', component:UserappliedloanComponent},
   {path:'userviewloan', component:UserviewloanComponent},
   {path:'createloan',component:CreateloanComponent},
+  {path:'viewuserloan',component:UserviewloanComponent},
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent},
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent},
   { path: '**', component: SignupComponent }

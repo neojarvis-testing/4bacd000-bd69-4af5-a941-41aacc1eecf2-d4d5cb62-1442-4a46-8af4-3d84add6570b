@@ -28,4 +28,7 @@ public class Loan {
     private String eligibility;
     private String documentsRequired;
 
+    // 
+    private boolean isApplied;
+
 }

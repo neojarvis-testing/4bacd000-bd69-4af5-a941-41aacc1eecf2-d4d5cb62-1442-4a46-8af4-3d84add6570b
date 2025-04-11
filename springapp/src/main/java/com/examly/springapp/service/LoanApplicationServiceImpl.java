@@ -3,14 +3,15 @@ package com.examly.springapp.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.examly.springapp.model.Loan;
 import com.examly.springapp.model.LoanApplication;
-
+import com.examly.springapp.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.examly.springapp.repository.LoanApplicationRepo;
-
+import com.examly.springapp.repository.LoanRepo;
+import com.examly.springapp.repository.UserRepo;
 
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Base64;
@@ -21,13 +22,40 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
     @Autowired
     private LoanApplicationRepo loanApplicationRepo;
 
+    @Autowired
+    private LoanRepo loanRepo;
+
+    @Autowired
+    private UserRepo userRepo;
+
     
     @Override
     public LoanApplication addLoanApplication(LoanApplication loanApplication) {
+
+        long loanId = loanApplication.getLoan().getLoanId();
+        Loan eloan = loanRepo.findById(loanId).get();
+        eloan.setApplied(true);
+
+        long userId = loanApplication.getUser().getUserId();
+        User eUser = userRepo.findById(userId).get();
+        
+
+
+
+        loanApplication.setLoan(eloan);
+        loanApplication.setUser(eUser);
+
+        
+
+
         if (loanApplication.getFile() != null) {
             String encodedFile = Base64.getEncoder().encodeToString(loanApplication.getFile().getBytes());
             loanApplication.setFile(encodedFile);
         }
+
+
+        System.out.println("=============== Inside the controller ==============");
+        System.out.println(loanApplication);
         return loanApplicationRepo.save(loanApplication);
     }
 
