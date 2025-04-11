@@ -12,17 +12,18 @@ export class CreateloanComponent implements OnInit {
   loanForm: FormGroup;
   formErrorMessage: string = "";
 
-  constructor(private fb: FormBuilder, private loanService: LoanService) {}
+  constructor(private fb: FormBuilder, private loanService: LoanService) { }
+
 
   ngOnInit(): void {
     this.loanForm = this.fb.group({
-      loanType: ["", Validators.required], 
-      description: ["", Validators.required], 
-      interestRate: ["", Validators.required], 
-      maximumAmount: ["", Validators.required], 
-      repaymentTenure: ["", Validators.required], 
-      eligibility: ["", Validators.required], 
-      documentsRequired: ["", Validators.required]
+      loanType: this.fb.control("", Validators.required),
+      description: this.fb.control("", Validators.required),
+      interestRate: this.fb.control("", Validators.required),
+      maximumAmount: this.fb.control("", Validators.required),
+      repaymentTenure: this.fb.control("", Validators.required),
+      eligibility: this.fb.control("", Validators.required),
+      documentsRequired: this.fb.control("", Validators.required)
     });
   }
 
@@ -30,14 +31,21 @@ export class CreateloanComponent implements OnInit {
     if (this.loanForm.invalid) {
       this.formErrorMessage = "All fields are required";
       return;
+    }else{
+      this.formErrorMessage = "";
+      let newLoan: Loan = this.loanForm.value;
+      console.log("=========== Form Value Here ====================")
+      console.log(newLoan)
+  
+      this.loanService.addLoan(newLoan).subscribe(() => {
+        alert("Successfully Added!");
+        this.loanForm.reset();
+      });
+
+  
     }
 
-    this.formErrorMessage = ""; 
-    const newLoan: Loan = this.loanForm.value;
 
-    this.loanService.addLoan(newLoan).subscribe(() => {
-      alert("Successfully Added!");
-      this.loanForm.reset();
-    });
+
   }
 }

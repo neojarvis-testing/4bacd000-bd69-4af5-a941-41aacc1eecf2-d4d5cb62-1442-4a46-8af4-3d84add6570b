@@ -12,10 +12,12 @@ import { UserviewloanComponent } from './components/userviewloan/userviewloan.co
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfeedback.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
+import { CreateloanComponent } from './components/createloan/createloan.component';
 
 const routes: Routes = [
   {path:'edit-loan/:id',component:AdmineditloanComponent},
   {path:'viewLoan',component:ViewloanComponent},
+  {path:'createloan',component:CreateloanComponent},
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent},
   {path:'loanapplicationform', component:LoanformComponent},
   {path:'viewuserloan', component:UserviewloanComponent},
