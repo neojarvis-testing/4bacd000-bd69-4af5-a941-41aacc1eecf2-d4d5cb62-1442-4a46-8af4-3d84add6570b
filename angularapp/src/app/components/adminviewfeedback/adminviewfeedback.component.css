@@ -63,7 +63,7 @@ h2 {
 
 /* Action Buttons */
 .feedback-table td button {
-  background-color: #42a5f5; /* Blue background for action buttons */
+  background-color: #4CAF50; /* Blue background for action buttons */
   color: white; /* White text */
   border: none; /* Remove border */
   padding: 8px 12px; /* Add padding for size */
@@ -75,7 +75,7 @@ h2 {
 }
 
 .feedback-table td button:hover {
-  background-color: #1e88e5; /* Darker blue on hover */
+  background-color: #4CAF50; /* Darker blue on hover */
 }
 
 /* Popup Styling for User Details */

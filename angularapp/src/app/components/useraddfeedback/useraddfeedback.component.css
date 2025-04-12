@@ -114,7 +114,7 @@ button[type="submit"]:disabled {
 }
 
 .popup button {
-  background-color: #42a5f5; /* Blue background */
+  background-color: #4CAF50; /* Blue background */
   color: white; /* White text for contrast */
   border: none;
   padding: 10px 20px;
@@ -126,7 +126,7 @@ button[type="submit"]:disabled {
 }
 
 .popup button:hover {
-  background-color: #1e88e5; /* Darker blue on hover */
+  background-color: #4CAF50; /* Darker blue on hover */
 }
 
 /* Responsive Design */

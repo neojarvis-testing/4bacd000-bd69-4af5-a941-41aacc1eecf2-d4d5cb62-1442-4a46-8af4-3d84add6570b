@@ -76,6 +76,23 @@ body {
     background-color: #ccc; /* Gray background for disabled state */
     cursor: not-allowed; /* Indicate disabled functionality */
   }
+
+   /* Link to Register */
+   .login-container p {
+    font-size: 0.9rem;
+    color: #666; /* Subtle gray text */
+    margin-top: 15px; /* Space above the text */
+  }
+  
+  .login-container p a {
+    color: #4CAF50; /* Green link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+  }
+  
+  .login-container p a:hover {
+    text-decoration: underline; /* Underline link on hover */
+  }
   
   /* Error Message Styling */
   .error {

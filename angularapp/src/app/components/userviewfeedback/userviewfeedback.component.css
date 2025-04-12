@@ -71,7 +71,7 @@ h2 {
 
 /* Action Buttons */
 button {
-  background-color: #42a5f5; /* Blue background for action buttons */
+  background-color: #4CAF50; /* Blue background for action buttons */
   color: white; /* White text */
   border: none; /* Remove border */
   padding: 8px 12px; /* Add padding for size */
@@ -88,7 +88,7 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-  background-color: #1e88e5; /* Darker blue on hover */
+  background-color: #4CAF50; /* Darker blue on hover */
 }
 
 /* Popup Styling */
@@ -127,11 +127,11 @@ button:hover:not(:disabled) {
 }
 
 .popup button:last-child {
-  background-color: #42a5f5; /* Blue for cancel button */
+  background-color: #4CAF50; /* Blue for cancel button */
 }
 
 .popup button:last-child:hover {
-  background-color: #1e88e5; /* Darker blue on hover */
+  background-color: #4CAF50; /* Darker blue on hover */
 }
 
 /* Mobile Responsiveness */
