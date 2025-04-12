@@ -56,4 +56,8 @@ export class AuthService {
     console.log("Sending OTP request for:", email); // Debug log
     return this.httpClient.post(AppConfig.baseUrl + 'api/otp/send', email, { responseType: 'text' });
   }
+
+  validateUser(user: User): Observable<any> {
+    return this.httpClient.post(AppConfig.baseUrl + 'api/validateUser', user);
+  }
 }

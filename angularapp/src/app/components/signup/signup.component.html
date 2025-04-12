@@ -3,33 +3,35 @@
 
 
 <div class="register-container">
-    <h2>Signup</h2>
-    <form (ngSubmit)="onSubmit()">
-      <label for="username">Username:</label>
-      <input type="text" id="username" [(ngModel)]="registerData.username" name="username" required>
-  
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="registerData.email" name="email" required>
-  
-      <label for="mobile">Mobile:</label>
-      <input type="text" id="mobile" [(ngModel)]="registerData.mobileNumber" name="mobileNumber" required>
-  
-      <label for="password">Password:</label>
-      <input type="password" id="password" [(ngModel)]="registerData.password" name="password" required>
-  
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-  
-      <label for="role">Select Role:</label>
-      <select id="role" [(ngModel)]="registerData.userRole" name="userRole">
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-      </select>
-  
-      <button type="submit">Signup</button>
-    </form>
-  
-    <p>Already have an account? <a routerLink="/login">Login</a></p>
-  
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <h2>Signup</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="registerData.username" name="username" (blur)="validateField('username')" required>
+    <p *ngIf="fieldErrors.username" class="error">{{ fieldErrors.username }}</p>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="registerData.email" name="email" (blur)="validateField('email')" required>
+    <p *ngIf="fieldErrors.email" class="error">{{ fieldErrors.email }}</p>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id="mobile" [(ngModel)]="registerData.mobileNumber" name="mobileNumber" (blur)="validateField('mobileNumber')" required>
+    <p *ngIf="fieldErrors.mobileNumber" class="error">{{ fieldErrors.mobileNumber }}</p>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="registerData.password" name="password" required>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+
+    <label for="role">Select Role:</label>
+    <select id="role" [(ngModel)]="registerData.userRole" name="userRole">
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+
+    <button type="submit" [disabled]="!isFormValid()">Signup</button>
+  </form>
+
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 </div>
