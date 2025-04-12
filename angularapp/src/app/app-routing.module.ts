@@ -21,6 +21,7 @@ import { CompositeGuard } from './guards/composite-guard/composite.guard';
 import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { OtpComponent } from './components/otp/otp.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'userviewfeedback', component: UserviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
+  { path: 'otp', component: OtpComponent },
   { path: 'admin', component: AdminnavComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   { path: 'user', component: UsernavComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'userappliedloan', component:UserappliedloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },

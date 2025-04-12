@@ -16,13 +16,15 @@ export class SignupComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.authService.register(this.registerData).subscribe(
-      (response) => {
-        console.log('Signup successful', response);
-        this.router.navigate(['/login']);
+    localStorage.setItem('registerData', JSON.stringify(this.registerData));
+  
+    this.authService.sendOtp(this.registerData.email).subscribe(
+      (otpResponse) => {
+        localStorage.setItem('registeredEmail', this.registerData.email);
+        this.router.navigate(['/otp']);
       },
       (error) => {
-        this.errorMessage = 'Registration failed. Please try again.';
+        this.errorMessage = 'OTP could not be sent. Please try again.';
       }
     );
   }
