@@ -11,11 +11,21 @@ import { LoanService } from 'src/app/services/loan.service';
 export class ViewloanComponent implements OnInit {
 
   loans:Loan[]=[];
+  searchData: string = "";
 
   constructor(private loanService:LoanService,private router:Router) { }
 
   ngOnInit(): void {
       this.getAllLoans();
+  }
+
+  search() {
+    this.loanService.getAllLoans().subscribe(data => {
+      this.loans = data;
+      this.loans = this.loans.filter(l => 
+        JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
+      );
+    });
   }
 
   getAllLoans()

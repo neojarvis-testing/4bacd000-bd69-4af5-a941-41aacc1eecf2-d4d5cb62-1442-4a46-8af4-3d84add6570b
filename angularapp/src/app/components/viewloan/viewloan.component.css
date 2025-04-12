@@ -124,3 +124,12 @@ button.delete-button:hover {
   }
 }
 
+input#searchData {
+  width: 100%; /* Full-width input */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding in width calculation */
+  font-size: 1rem; /* Standard font size */
+}

@@ -1,5 +1,16 @@
 <app-adminnav></app-adminnav>
 
+
+
+<input 
+  type="text" 
+  placeholder="Search..." 
+  (keyup)="search()" 
+  [(ngModel)]="searchData" 
+  name="searchData" 
+  id="searchData"
+>
+
 <div class="container">
 <h1>Loan Details</h1>
  
