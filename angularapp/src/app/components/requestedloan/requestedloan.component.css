@@ -1,0 +1,161 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  app-adminnav {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Container for Content */
+  .container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Centered Title */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  /* Search Input */
+  input#searchData {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  input#searchData:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Styling the Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table thead {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  table th, table td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    font-weight: bold;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  /* Loan Status */
+  td p {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  /* Action Buttons */
+  button {
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Show More Button - Blue */
+  button.bt {
+    background-color: #889c89;
+  }
+  
+  button.bt:hover {
+    background-color: #525c53;
+  }
+  
+  /* Accept Button - Green */
+  button.accept {
+    background-color: #4CAF50;
+  }
+  
+  button.accept:hover {
+    background-color: #388E3C;
+  }
+  
+  /* Reject Button - Red */
+  button.reject {
+    background-color: #e53935;
+  }
+  
+  button.reject:hover {
+    background-color: #c62828;
+  }
+  
+  /* Disabled Button */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    table {
+      font-size: 0.9rem;
+    }
+  
+    input#searchData {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+    }
+  }
+  

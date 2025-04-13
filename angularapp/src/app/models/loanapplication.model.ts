@@ -12,6 +12,6 @@ export interface LoanApplication {
     farmSizeInAcres: number;
     farmPurpose: string;
     file: string;
-    user:User;
-    loan:Loan;
+    user?:User;
+    loan?:Loan;
 }

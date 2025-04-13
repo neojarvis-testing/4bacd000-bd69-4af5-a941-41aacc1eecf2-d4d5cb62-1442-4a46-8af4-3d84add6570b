@@ -15,6 +15,7 @@ public interface LoanApplicationService {
     public List<LoanApplication> getAllLoanApplications();
     public LoanApplication updateLoanApplication(Long loanApplicationId, LoanApplication updatedLoanApplication);
     public boolean deleteLoanApplication(Long loanApplicationId);
+    public LoanApplication changeLoanApplicationStatus(Long loanApplicationId, int status);
 
 
 

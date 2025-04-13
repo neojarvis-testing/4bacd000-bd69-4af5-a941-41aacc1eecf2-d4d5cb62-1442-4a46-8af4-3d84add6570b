@@ -1,6 +1,7 @@
 
 <app-usernav></app-usernav>
 
+<div class="container">
 <h1>Applied Loans</h1>
 
 <input 
@@ -24,15 +25,31 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let loan of loans;index of i">
+    <tr *ngFor="let loan of loans;index as i">
       <td>{{ i + 1 }}</td>
-      <td>{{ loan.loanType }}</td>
+      <td>{{ loan.loan.loanType }}</td>
       <td>{{ loan.submissionDate | date: 'yyyy-MM-dd' }}</td>
-      <td>{{ loan.status }}</td>
       <td>
-        <button (click)="viewDetails(loan.loanId)">View Details</button>
-        <button (click)="deleteLoan(loan.loanId)">Delete</button>
+
+        <p *ngIf="loan.loanStatus == 0"  >
+          Reject
+        </p>
+        <p *ngIf="loan.loanStatus == 1"  >
+          Pending
+        </p>
+        <p *ngIf="loan.loanStatus == 2"  >
+          Accept
+        </p>
+      
+      
+      
+      </td>
+      <td>
+        <button *ngIf="loan.loanStatus != 2" class="view-details" (click)="viewDetails(loan.loanId)">View Details</button>
+        <button *ngIf="loan.loanStatus != 2" class="delete" (click)="deleteLoan(loan.loanId)">Delete</button>
+        <button *ngIf="loan.loanStatus == 2" class="feedback" (click)="sendFeedback()">Rate & Feedback</button>
       </td>
     </tr>
   </tbody>
 </table>
+</div>

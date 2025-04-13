@@ -72,6 +72,12 @@ public class LoanApplicationController {
 
     }
 
+    @PutMapping("api/loanapplication/loan/{loanId}/status/{status}")
+    public ResponseEntity<?> changeLoanApplicationStatus(@PathVariable Long loanId, @PathVariable int status){
+        LoanApplication loanStatusChange = loanApplicationService.changeLoanApplicationStatus(loanId,status);
+        return ResponseEntity.status(200).body(loanStatusChange);
+    }
+
     @DeleteMapping("/api/loanapplication/{loanapplicationid}")
     public ResponseEntity<?> deleteLoanApplication(@PathVariable Long loanapplicationid) {
         try {

@@ -44,7 +44,6 @@ const routes: Routes = [
  
   {path:'viewuserloan',component:UserviewloanComponent},
   {path:'home-page', component:HomePageComponent},
-  {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
   {path:'requestedloan', component:RequestedloanComponent},
   {path:'home',component:HomePageComponent},
   { path: '**', component: LoginComponent }
