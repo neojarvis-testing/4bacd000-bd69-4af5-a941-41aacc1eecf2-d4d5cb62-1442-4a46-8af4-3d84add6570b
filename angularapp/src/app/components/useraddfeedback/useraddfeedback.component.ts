@@ -17,31 +17,32 @@ export class UseraddfeedbackComponent implements OnInit {
     this.userId = parseInt(sessionStorage.getItem('userId'));
   }
 
-  constructor(private feedbackService : FeedbackService) {}
+  constructor(private feedbackService: FeedbackService) { }
 
-  submitFeedback(fm :NgForm): void {
+  submitFeedback(fm: NgForm): void {
     console.log('Submit button clicked');
     console.log("This is the user id")
     console.log(this.userId);
     console.log(fm.value);
-    
+
     if (!this.feedbackText.trim()) {
       this.popupMessage = 'Feedback is required.';
       return;
     }
 
-    const feedback : Feedback = {
+    const feedback: Feedback = {
       feedbackText: this.feedbackText,
-      user:{
-      userId: this.userId
-    },
+      userId: this.userId,
+      user: {
+        userId: this.userId
+      },
       date: new Date()
     };
 
     this.feedbackService.sendFeedback(feedback).subscribe(() => {
-        this.popupMessage = 'Successfully Added!';
-        this.feedbackText = ''; 
-      },
+      this.popupMessage = 'Successfully Added!';
+      this.feedbackText = '';
+    },
       (error) => {
         console.error('Error submitting feedback:', error);
       });
@@ -49,6 +50,6 @@ export class UseraddfeedbackComponent implements OnInit {
 
   closePopup(): void {
     this.popupMessage = null;
-  
+
   }
 }

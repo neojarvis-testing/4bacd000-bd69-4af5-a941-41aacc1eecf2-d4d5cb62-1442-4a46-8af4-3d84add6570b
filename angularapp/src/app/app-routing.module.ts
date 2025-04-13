@@ -52,7 +52,6 @@ const routes: Routes = [
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'viewuserloan',component:UserviewloanComponent},
   {path:'home-page', component:HomePageComponent},
-  {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
   {path:'requestedloan', component:RequestedloanComponent},
   {path:'home',component:HomePageComponent},
   {path:'crop-loan', component: CropLoanComponent },

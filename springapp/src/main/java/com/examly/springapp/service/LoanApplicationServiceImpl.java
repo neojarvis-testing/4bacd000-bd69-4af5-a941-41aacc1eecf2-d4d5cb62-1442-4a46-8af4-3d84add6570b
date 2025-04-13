@@ -125,6 +125,15 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
         }
        
     }
+
+
+
+    @Override
+    public LoanApplication changeLoanApplicationStatus(Long loanApplicationId, int status) {
+       LoanApplication eLoanApp = loanApplicationRepo.findById(loanApplicationId).get();
+       eLoanApp.setLoanStatus(status);
+       return loanApplicationRepo.save(eLoanApp);
+    }
 }
 
 

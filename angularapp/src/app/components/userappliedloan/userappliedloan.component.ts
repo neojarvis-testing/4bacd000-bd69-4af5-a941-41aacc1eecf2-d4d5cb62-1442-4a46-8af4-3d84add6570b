@@ -11,21 +11,22 @@ import { LoanService } from 'src/app/services/loan.service';
 export class UserappliedloanComponent implements OnInit {
 
   loans: LoanApplication[] = [];
+  userId:number;
   searchData:string="";
 
   constructor(private loanService: LoanService, private router:Router,private activatedRoute:ActivatedRoute) {}
-
-  loanId:number;
   ngOnInit(): void {
-    this.loanId=this.activatedRoute.snapshot.params['id']
+    this.userId = parseInt(sessionStorage.getItem("userId"));
+   
     this.getAppliedLoans();
 
   }
 
   getAppliedLoans(): void {
-    this.loanService.getLoanApplicationById(this.loanId).subscribe(data => {
+    this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
       this.loans = data;
       console.log(this.loans);
+  
     });
   }
 
@@ -44,6 +45,10 @@ export class UserappliedloanComponent implements OnInit {
 
   deleteLoan(id:number){
     this.router.navigate(['/confirmDeleteLoan',id]);
+  }
+
+  sendFeedback(){
+    this.router.navigate(['/useraddfeedback']);
   }
 
 }

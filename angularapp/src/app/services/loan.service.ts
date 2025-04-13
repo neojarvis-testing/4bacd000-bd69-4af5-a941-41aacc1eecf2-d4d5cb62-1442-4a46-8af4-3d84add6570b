@@ -72,10 +72,18 @@ export class LoanService {
   {
     return this.http.get(AppConfig.baseUrl + "api/loanapplication/" +loanApplicationId);
   }
+
+  getLoanApplicationByUserId(userId:number):Observable<any>{
+    return this.http.get(AppConfig.baseUrl + "api/loanapplication/user/" +userId);
+  }
   
   updateLoanStatus(id: number, loanApplication:LoanApplication): Observable<any> 
   {
     return this.http.put(AppConfig.baseUrl + "api/loanapplication/" + id, loanApplication);
+  }
+
+  changeStatus(loanId:number, status:number):Observable<any>{
+    return this.http.put(AppConfig.baseUrl + "api/loanapplication/loan/" +loanId+"/status/"+status,"");
   }
   
 }
