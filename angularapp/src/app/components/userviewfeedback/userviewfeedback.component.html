@@ -1,5 +1,18 @@
 <app-usernav></app-usernav>
 
+<div style="background-image: url('/assets/images/background.webp'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: -1; 
+            filter: blur(10px);">
+</div>
+
 <div class="feedback-container">
   <h2>My Feedbacks</h2>
   <table *ngIf="feedbackList.length > 0; else noFeedbacks" class="feedback-table">

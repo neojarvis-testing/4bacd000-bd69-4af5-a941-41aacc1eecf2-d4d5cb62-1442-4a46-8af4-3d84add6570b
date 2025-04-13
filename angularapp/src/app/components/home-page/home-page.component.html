@@ -1,14 +1,40 @@
-<div *ngIf="userRole=='admin'">
-    <app-adminnav></app-adminnav>
+<div *ngIf="userRole === 'admin'">
+  <app-adminnav></app-adminnav>
 </div>
 
-<div *ngIf="userRole=='user'">
-    <app-usernav></app-usernav>
+<div *ngIf="userRole === 'user'">
+  <app-usernav></app-usernav>
 </div>
 
 
-<div class="background-image"></div>
-<div class="content">
-  <h1>Welcome to My Page</h1>
-  <!-- <app-home-page></app-home-page> -->
+<div class="welcome-section">
+  <h1 class="welcome-title">Welcome to FarmAid Home Page</h1>
+  <p class="welcome-subtitle">
+    Explore the tailored loan solutions for your agricultural needs. Check out the options below and find the support you deserve to grow your dreams.
+  </p>
+</div>
+
+
+<div style="background-image: url('/assets/images/background.webp'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: -1; 
+            filter: blur(10px);">
+</div>
+
+<div class="loan-container">
+  <div class="loan-card" *ngFor="let loan of loans">
+    <img [src]="loan.image" class="loan-image" alt="{{loan.title}}">
+    <div class="loan-details">
+      <h3 class="loan-title">{{loan.title}}</h3>
+      <p class="loan-description">{{loan.description}}</p>
+      <button class="btn btn-primary" (click)="navigateToLoanPage(loan.link)">Learn More</button>
+    </div>
+  </div>
 </div>
