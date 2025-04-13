@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -20,8 +22,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+        if (userRepo.findByEmail(user.getEmail()) != null) {
+            throw new UserAlreadyExistsException("Email already exists");
+        }
+        if (userRepo.findByMobileNumber(user.getMobileNumber()) != null) {
+            throw new UserAlreadyExistsException("Mobile number already exists");
+        }
         if (userRepo.findByUsername(user.getUsername()) != null) {
-            throw new UserAlreadyExistsException("User already exists");
+            throw new UserAlreadyExistsException("Username already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
@@ -39,5 +47,24 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUsername(String username) {
         return userRepo.findByUsername(username);
+    }
+
+    @Override
+    public Map<String, String> validateUserData(User user) {
+        Map<String, String> errors = new HashMap<>();
+
+        if (userRepo.findByEmail(user.getEmail()) != null) {
+            errors.put("email", "Email already exists");
+        }
+
+        if (userRepo.findByMobileNumber(user.getMobileNumber()) != null) {
+            errors.put("mobileNumber", "Mobile number already exists");
+        }
+
+        if (userRepo.findByUsername(user.getUsername()) != null) {
+            errors.put("username", "Username already exists");
+        }
+
+        return errors;
     }
 }

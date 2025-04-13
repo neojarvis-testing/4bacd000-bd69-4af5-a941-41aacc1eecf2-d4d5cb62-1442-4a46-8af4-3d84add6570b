@@ -21,11 +21,14 @@ import { CompositeGuard } from './guards/composite-guard/composite.guard';
 import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
+
 import { CropLoanComponent } from './components/crop-loan/crop-loan.component';
 import { FarmEquipmentLoanComponent } from './components/farm-equipment-loan/farm-equipment-loan.component';
 import { LivestockLoanComponent } from './components/livestock-loan/livestock-loan.component';
 import { LandPurchaseLoanComponent } from './components/land-purchase-loan/land-purchase-loan.component';
 import { FarmAlliedLoanComponent } from './components/farm-allied-loan/farm-allied-loan.component';
+import { OtpComponent } from './components/otp/otp.component';
+
 
 
 const routes: Routes = [
@@ -35,13 +38,14 @@ const routes: Routes = [
   {path:'createloan',component:CreateloanComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   {path:'confirmDelete/:id',component:ConfirmDeleteComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
   {path:'loanapplicationform/:id', component:LoanformComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
-  {path:'adminviewfeedback', component: AdminviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
-  {path:'useraddfeedback', component: UseraddfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
-  {path:'userviewfeedback', component: UserviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
-  {path:'login', component: LoginComponent },
-  {path:'register', component: SignupComponent },
-  {path:'admin', component: AdminnavComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
-  {path:'user', component: UsernavComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  { path: 'adminviewfeedback', component: AdminviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  { path: 'useraddfeedback', component: UseraddfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  { path: 'userviewfeedback', component: UserviewfeedbackComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent },
+  { path: 'otp', component: OtpComponent },
+  { path: 'admin', component: AdminnavComponent, canActivate: [CompositeGuard], data: { role: 'admin' } },
+  { path: 'user', component: UsernavComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'userappliedloan', component:UserappliedloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'userviewloan', component:UserviewloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },

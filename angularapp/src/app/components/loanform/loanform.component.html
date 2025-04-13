@@ -18,40 +18,46 @@
 
 <form #loanApplicationForm="ngForm" (ngSubmit)="onSubmit(loanApplicationForm)">
 
-  
 
   <label for="farmLocation">Farm Location*</label>
-  <input type="text" name="farmLocation" id="farmLocation" [(ngModel)]="farmLocation" required>
-  <div class="error-message" *ngIf="loanApplicationForm.submitted && !farmLocation">
+  <input type="text" name="farmLocation" id="farmLocation" [(ngModel)]="farmLocation" required #farmLocationRef="ngModel">
+  <div class="error-message" *ngIf="farmLocationRef.touched && farmLocationRef.invalid">
     <div>*Farm Location is required</div>
   </div>
 
+
   <label for="address">Farmer's Address*</label>
-  <input type="text" name="address" id="address" [(ngModel)]="address" required>
-  <div class="error-message" *ngIf="loanApplicationForm.submitted && !address">
+  <textarea name="address" id="address" [(ngModel)]="address" required rows="4" #addressRef="ngModel"></textarea>
+  <br>
+  <div class="error-message" *ngIf="addressRef.touched && addressRef.invalid">
     <div>*Farmer's Address is required</div>
   </div>
 
+
   <label for="size">Farm Size (in acres)*</label>
-  <input type="text" name="size" id="size" [(ngModel)]="size" required>
-  <div class="error-message" *ngIf="loanApplicationForm.submitted && !size">
+  <input type="number" name="size" id="size" [(ngModel)]="size" required min="0" #sizeRef="ngModel">
+ 
+    
+  <div class="error-message" *ngIf="sizeRef.touched && sizeRef.invalid">
     <div>*Farm Size is required</div>
+  </div>
+  <div class="error-message" *ngIf="sizeRef.touched && size !== undefined && +size < 0">
+    <div>*Farm Size must be a non-negative number</div>
   </div>
 
   <label for="purpose">Farm Purpose*</label>
-  <input type="text" name="purpose" id="purpose" [(ngModel)]="purpose" required>
-  <div class="error-message" *ngIf="loanApplicationForm.submitted && !purpose">
+  <input type="text" name="purpose" id="purpose" [(ngModel)]="purpose" required #purposeRef="ngModel">
+  <div class="error-message" *ngIf="purposeRef.touched && purposeRef.invalid">
     <div>*Farm Purpose is required</div>
   </div>
 
   <label for="proof">Proof*</label>
-  <input type="file" name="proof" id="proof" (change)="onFileSelected($event)" required>
-  <div class="error-message" *ngIf="loanApplicationForm.submitted && !proof">
-    <div>*Proof is required</div>
-  </div>
+  <input type="file" name="proof" id="proof" (change)="onFileSelected($event)">
+  
 
  <button type="submit">Submit</button>
  <button routerLink="/userviewloan">Back</button>
 </form>
 </div>
+
 

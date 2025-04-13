@@ -18,9 +18,9 @@ export class AdmineditloanComponent implements OnInit {
       loanId: fb.control(""), 
       loanType: fb.control("", Validators.required), 
       description: fb.control("", Validators.required), 
-      interestRate: fb.control("", Validators.required), 
-      maximumAmount: fb.control("", Validators.required), 
-      repaymentTenure: fb.control("", Validators.required), 
+      interestRate: fb.control("", [Validators.required,Validators.min(1)]), 
+      maximumAmount: fb.control("",[Validators.required,Validators.min(1)]), 
+      repaymentTenure: fb.control("", [Validators.required,Validators.min(1)]), 
       eligibility: fb.control("", Validators.required), 
       documentsRequired:fb.control ("", Validators.required) 
     });

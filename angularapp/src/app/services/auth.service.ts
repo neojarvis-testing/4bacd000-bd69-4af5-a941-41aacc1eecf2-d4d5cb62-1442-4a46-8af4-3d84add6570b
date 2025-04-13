@@ -47,4 +47,17 @@ export class AuthService {
   getUserRole(): string | null {
     return sessionStorage.getItem('userRole');
   }
+
+  verifyOtp(otpRequest: { email: string; otp: string }) {
+    return this.httpClient.post(AppConfig.baseUrl + 'api/otp/verify', otpRequest, { responseType: 'text' });
+  }   
+
+  sendOtp(email: string) {
+    console.log("Sending OTP request for:", email); // Debug log
+    return this.httpClient.post(AppConfig.baseUrl + 'api/otp/send', email, { responseType: 'text' });
+  }
+
+  validateUser(user: User): Observable<any> {
+    return this.httpClient.post(AppConfig.baseUrl + 'api/validateUser', user);
+  }
 }

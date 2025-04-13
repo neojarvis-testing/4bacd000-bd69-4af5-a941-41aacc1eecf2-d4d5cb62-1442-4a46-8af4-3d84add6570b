@@ -1,5 +1,6 @@
 <app-adminnav></app-adminnav>
 
+
 <div style="background-image: url('/assets/images/background.webp'); 
             background-size: cover; 
             background-position: center; 
@@ -14,39 +15,56 @@
 </div>
 
 <div class="container">
-<h1>Loan Details</h1>
- 
-<table>
-    <thead>
-        <tr>
-            <th>S.No</th>
-            <th>Loan Type</th>
-            <th>Loan Description</th>
-            <th>Interest Rate</th>
-            <th>Maximum Amount</th>
-            <th>Repayment Tenure (Months)</th>
-            <th>Eligibility</th>
-            <th>Documents Required</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr  *ngFor="let loan of loans; index as i" >
-            <td>{{i+1}}</td>
-            <td>{{loan.loanType}}</td>
-            <td>{{loan.description}}</td>
-            <td>{{loan.interestRate}}</td>
-            <td>{{loan.maximumAmount}}</td>
-            <td>{{loan.repaymentTenure}}</td>
-            <td>{{loan.eligibility}}</td>
-            <td>{{loan.documentsRequired}}</td>
-            <td>
-                <div class="button-group">
-                  <button class="edit-button" [routerLink]="['/edit-loan/'+loan.loanId]">Edit</button>
-                  <button class="delete-button" (click)="deleteLoan(loan.loanId)">Delete</button>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
+    <h1>Loan Details</h1>
+  
+    <input 
+      type="text" 
+      placeholder="Search..." 
+      (keyup)="search()" 
+      [(ngModel)]="searchData" 
+      name="searchData" 
+      id="searchData"
+    />
+  
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Loan Type</th>
+                <th>Loan Description</th>
+                <th>Interest Rate</th>
+                <th>Maximum Amount</th>
+                <th>Repayment Tenure (Months)</th>
+                <th>Eligibility</th>
+                <th>Documents Required</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let loan of loans; index as i">
+                <td>{{i+1}}</td>
+                <td>{{loan.loanType}}</td>
+                <td>{{loan.description}}</td>
+                <td>{{loan.interestRate}}</td>
+                <td>{{loan.maximumAmount}}</td>
+                <td>{{loan.repaymentTenure}}</td>
+                <td>{{loan.eligibility}}</td>
+                <td>{{loan.documentsRequired}}</td>
+                <td>
+                    <div class="button-group">
+                      <button class="edit-button" [routerLink]="['/edit-loan/'+loan.loanId]">Edit</button>
+                      <button class="delete-button" (click)="confirmDelete(loan.loanId)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  
+  
+  <div *ngIf="showConfirmDialog" class="confirm-dialog">
+    <p>Are you sure you want to delete this loan?</p>
+    <button (click)="deleteLoan()">Yes</button>
+    <button (click)="cancelDelete()">Cancel</button>
+  </div>
+  
