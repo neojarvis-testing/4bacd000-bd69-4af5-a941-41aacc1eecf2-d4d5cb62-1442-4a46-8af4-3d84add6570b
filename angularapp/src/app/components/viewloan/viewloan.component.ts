@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Loan } from 'src/app/models/loan.model';
 import { LoanService } from 'src/app/services/loan.service';
+import { Loan } from 'src/app/models/loan.model';
 
 @Component({
   selector: 'app-viewloan',
@@ -10,36 +9,45 @@ import { LoanService } from 'src/app/services/loan.service';
 })
 export class ViewloanComponent implements OnInit {
 
-  loans:Loan[]=[];
+  loans: Loan[] = [];
   searchData: string = "";
+  showConfirmDialog: boolean = false;
+  selectedLoanId: number | null = null;
 
-  constructor(private loanService:LoanService,private router:Router) { }
+  constructor(private loanService: LoanService) {}
 
   ngOnInit(): void {
-      this.getAllLoans();
+    this.getAllLoans();
   }
 
   search() {
     this.loanService.getAllLoans().subscribe(data => {
-      this.loans = data;
-      this.loans = this.loans.filter(l => 
+      this.loans = data.filter(l => 
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
       );
     });
   }
 
-  getAllLoans()
-  {
-    this.loanService.getAllLoans().subscribe(data=>{
-      this.loans=data;
-    })
+  getAllLoans() {
+    this.loanService.getAllLoans().subscribe(data => {
+      this.loans = data;
+    });
   }
 
-  deleteLoan(id:number)
-  {
-    this.router.navigate(['/confirmDelete',id])
-
+  confirmDelete(id: number) {
+    this.selectedLoanId = id;
+    this.showConfirmDialog = true;
   }
 
+  deleteLoan() {
+      this.loanService.deleteLoan(this.selectedLoanId).subscribe((data) => {
+        this.getAllLoans();
+        this.showConfirmDialog = false;
+      }); 
+  }
 
+  cancelDelete() {
+    this.showConfirmDialog = false;
+  }
+  
 }

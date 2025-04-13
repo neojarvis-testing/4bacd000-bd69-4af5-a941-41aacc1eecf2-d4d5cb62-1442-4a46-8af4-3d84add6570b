@@ -9,13 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  registerData: User = { username: '', email: '', mobileNumber: '', password: '', userRole: '' };
+  registerData = {
+    username: '',
+    email: '',
+    mobileNumber: '',
+    password: '',
+    userRole: ''
+  };
+
+  confirmPassword: string = '';  
   errorMessage: string = '';
-  confirmPassword = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
+
+    // Validate if passwords match
+    if (this.registerData.password !== this.confirmPassword) {
+      this.errorMessage = "Passwords do not match!";
+      return;
+    }
+  
+    this.errorMessage = "";
+  
+    // Call authentication service to register the user
     this.authService.register(this.registerData).subscribe(
       (response) => {
         console.log('Signup successful', response);
@@ -26,4 +43,5 @@ export class SignupComponent {
       }
     );
   }
+  
 }

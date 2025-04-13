@@ -133,3 +133,23 @@ input#searchData {
   box-sizing: border-box; /* Include padding in width calculation */
   font-size: 1rem; /* Standard font size */
 }
+
+
+.confirm-dialog {
+  position: fixed;
+  width: 300px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+}
+.confirm-dialog button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

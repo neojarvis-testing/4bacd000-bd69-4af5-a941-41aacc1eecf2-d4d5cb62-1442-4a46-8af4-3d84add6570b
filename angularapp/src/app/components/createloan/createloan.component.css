@@ -103,3 +103,10 @@ form button[type="submit"]:disabled {
     font-size: 0.9rem; /* Adjust font size for inputs and buttons */
   }
 }
+
+.error-message {
+  color: red; /* Highlight errors in red */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

@@ -100,10 +100,13 @@ body {
   
   /* Error Message Styling */
   .error {
-    color: red; /* Highlight error messages in red */
+    color: red; /* Highlight errors in red */
     font-size: 0.9rem; /* Slightly smaller font size */
-    margin-top: 10px; /* Space above error message */
+    margin-top: -10px;
+    margin-bottom: 10px;
+    align-self: baseline;
   }
+
   
   /* Responsive Design */
   @media screen and (max-width: 768px) {
