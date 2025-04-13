@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.examly.springapp.config.*;
 
+import java.util.*;
+
 @RestController
 public class AuthController {
     
@@ -51,6 +53,17 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(400).body(new LoginResponseDTO(null, null, "Bad Request", null));
         }
+    }
+
+    @PostMapping("/api/validateUser")
+    public ResponseEntity<?> validateUser(@RequestBody User user) {
+        Map<String, String> validationErrors = userService.validateUserData(user);
+
+        if (!validationErrors.isEmpty()) {
+            return ResponseEntity.badRequest().body(validationErrors);
+        }
+
+        return ResponseEntity.ok().build();
     }
 }
 
