@@ -9,14 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  registerData: User = { username: '', email: '', mobileNumber: '', password: '', userRole: '' };
+  registerData = {
+    username: '',
+    email: '',
+    mobileNumber: '',
+    password: '',
+    userRole: ''
+  };
+
+  confirmPassword: string = '';  
   errorMessage: string = '';
-  confirmPassword = '';
   fieldErrors: { [key: string]: string } = {}; 
+
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
+
     this.fieldErrors = {};
     this.errorMessage = '';
   
@@ -46,7 +55,6 @@ export class SignupComponent {
 
   validateField(field: string) {
     const fieldData = { [field]: this.registerData[field] };
-  
     this.authService.validateUser(fieldData).subscribe(
       (response) => {
         if (this.fieldErrors[field]) {
@@ -61,12 +69,13 @@ export class SignupComponent {
     );
   }
 
+
   isFormValid(): boolean {
     const { username, email, mobileNumber, password, userRole } = this.registerData;
     const isComplete = username && email && mobileNumber && password && userRole;
     const hasErrors = Object.keys(this.fieldErrors).length > 0;
-  
     return isComplete && !hasErrors;
   }
+
   
 }

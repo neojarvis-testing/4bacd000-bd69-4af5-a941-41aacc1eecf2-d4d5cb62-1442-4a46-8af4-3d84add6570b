@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 
-
-
 <div class="register-container">
+
   <h2>Signup</h2>
   <form (ngSubmit)="onSubmit()">
     <label for="username">Username:</label>
@@ -35,3 +34,4 @@
 
   <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 </div>
+

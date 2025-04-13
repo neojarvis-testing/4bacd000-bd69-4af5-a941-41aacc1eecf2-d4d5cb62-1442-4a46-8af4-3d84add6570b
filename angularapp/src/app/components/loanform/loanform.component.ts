@@ -26,7 +26,7 @@ export class LoanformComponent implements OnInit {
   ngOnInit(): void {
 
     this.loanId = parseInt(this.activatedRoute.snapshot.paramMap.get("id"));
-    this.userId = parseInt(localStorage.getItem("userId"));
+    this.userId = parseInt(sessionStorage.getItem("userId"));
     console.log("============ Inside loanForm  ==========================")
     console.log(this.loanId)
     console.log(this.userId)
