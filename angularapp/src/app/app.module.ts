@@ -28,6 +28,7 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
 import { FormsModule } from '@angular/forms';
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+import { OtpComponent } from './components/otp/otp.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-
     ViewloanComponent,
     ConfirmDeleteComponent,
     ConfirmDeleteUserAppliedLoanComponent,
-    ViewAppliedLoanDetailsComponent
+    ViewAppliedLoanDetailsComponent,
+    OtpComponent
   ],
   imports: [
     BrowserModule,

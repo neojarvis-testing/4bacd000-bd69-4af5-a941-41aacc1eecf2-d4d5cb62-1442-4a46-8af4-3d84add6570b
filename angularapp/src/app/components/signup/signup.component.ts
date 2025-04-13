@@ -19,29 +19,63 @@ export class SignupComponent {
 
   confirmPassword: string = '';  
   errorMessage: string = '';
+  fieldErrors: { [key: string]: string } = {}; 
+
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
 
-    // Validate if passwords match
-    if (this.registerData.password !== this.confirmPassword) {
-      this.errorMessage = "Passwords do not match!";
-      return;
-    }
+    this.fieldErrors = {};
+    this.errorMessage = '';
   
-    this.errorMessage = "";
+    this.authService.validateUser(this.registerData).subscribe(
+      (validationResponse) => {
+        localStorage.setItem('registerData', JSON.stringify(this.registerData));
   
-    // Call authentication service to register the user
-    this.authService.register(this.registerData).subscribe(
-      (response) => {
-        console.log('Signup successful', response);
-        this.router.navigate(['/login']);
+        this.authService.sendOtp(this.registerData.email).subscribe(
+          (otpResponse) => {
+            localStorage.setItem('registeredEmail', this.registerData.email);
+            this.router.navigate(['/otp']);
+          },
+          (otpError) => {
+            this.errorMessage = 'OTP could not be sent. Please try again.';
+          }
+        );
       },
-      (error) => {
-        this.errorMessage = 'Registration failed. Please try again.';
+      (validationError) => {
+        if (validationError.error) {
+          this.fieldErrors = validationError.error;
+        } else {
+          this.errorMessage = 'Validation failed. Please check your input.';
+        }
       }
     );
   }
+
+  validateField(field: string) {
+    const fieldData = { [field]: this.registerData[field] };
+    this.authService.validateUser(fieldData).subscribe(
+      (response) => {
+        if (this.fieldErrors[field]) {
+          delete this.fieldErrors[field];
+        }
+      },
+      (error) => {
+        if (error.error && error.error[field]) {
+          this.fieldErrors[field] = error.error[field];
+        }
+      }
+    );
+  }
+
+
+  isFormValid(): boolean {
+    const { username, email, mobileNumber, password, userRole } = this.registerData;
+    const isComplete = username && email && mobileNumber && password && userRole;
+    const hasErrors = Object.keys(this.fieldErrors).length > 0;
+    return isComplete && !hasErrors;
+  }
+
   
 }
