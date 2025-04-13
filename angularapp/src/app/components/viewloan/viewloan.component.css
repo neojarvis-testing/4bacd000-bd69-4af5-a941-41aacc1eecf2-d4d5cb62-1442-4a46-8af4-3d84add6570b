@@ -69,7 +69,7 @@ td .button-group {
 
 /* Edit Button Styling */
 button.edit-button {
-  background-color: #42a5f5; /* Blue background */
+  background-color: #4CAF50; /* Blue background */
   color: white; /* White text */
   border: none; /* No border */
   padding: 8px 12px; /* Add padding for size */
@@ -81,7 +81,7 @@ button.edit-button {
 }
 
 button.edit-button:hover {
-  background-color: #1e88e5; /* Darker blue on hover */
+  background-color: #4CAF50; /* Darker blue on hover */
 }
 
 /* Delete Button Styling */

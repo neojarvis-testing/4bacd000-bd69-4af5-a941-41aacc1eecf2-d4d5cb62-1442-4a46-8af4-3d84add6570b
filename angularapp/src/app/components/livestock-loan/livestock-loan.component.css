@@ -1,0 +1,80 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light gray for a clean look */
+  }
+  
+  /* Livestock Loan Container */
+  .livestock-loan-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white for a professional feel */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  }
+  
+  /* Header Section */
+  .livestock-loan-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .livestock-loan-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40; /* Dark gray for the title */
+    margin-bottom: 10px;
+  }
+  
+  .livestock-loan-header p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #6c757d; /* Muted gray for the subtitle */
+    margin: 0;
+  }
+  
+  /* Details Section */
+  .livestock-loan-details {
+    margin-top: 20px;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #343a40; /* Dark gray for details */
+  }
+  
+  .livestock-loan-details ul {
+    margin-top: 15px;
+    padding-left: 20px;
+  }
+  
+  .livestock-loan-details ul li {
+    font-size: 1rem;
+    color: #6c757d; /* Muted gray for list items */
+    margin-bottom: 10px;
+  }
+  
+  /* Apply Now Button */
+  .livestock-loan-button-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .apply-now-button {
+    background-color: #28a745; /* Golden yellow for action button */
+    color: #ffffff; /* White text for contrast */
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .apply-now-button:hover {
+    background-color: #218838; /* Darker golden yellow on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+  

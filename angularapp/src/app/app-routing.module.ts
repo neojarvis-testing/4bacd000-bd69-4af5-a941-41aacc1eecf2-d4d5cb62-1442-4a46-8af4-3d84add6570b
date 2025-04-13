@@ -21,7 +21,14 @@ import { CompositeGuard } from './guards/composite-guard/composite.guard';
 import { RequestedloanComponent } from './components/requestedloan/requestedloan.component';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
+
+import { CropLoanComponent } from './components/crop-loan/crop-loan.component';
+import { FarmEquipmentLoanComponent } from './components/farm-equipment-loan/farm-equipment-loan.component';
+import { LivestockLoanComponent } from './components/livestock-loan/livestock-loan.component';
+import { LandPurchaseLoanComponent } from './components/land-purchase-loan/land-purchase-loan.component';
+import { FarmAlliedLoanComponent } from './components/farm-allied-loan/farm-allied-loan.component';
 import { OtpComponent } from './components/otp/otp.component';
+
 
 
 const routes: Routes = [
@@ -43,13 +50,18 @@ const routes: Routes = [
   {path:'userviewloan', component:UserviewloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
- 
   {path:'viewuserloan',component:UserviewloanComponent},
   {path:'home-page', component:HomePageComponent},
   {path:'viewAppliedLoans',component:ViewAppliedLoanDetailsComponent},
   {path:'requestedloan', component:RequestedloanComponent},
   {path:'home',component:HomePageComponent},
-  { path: '**', component: LoginComponent }
+  {path:'crop-loan', component: CropLoanComponent },
+  {path:'farm-equipment-loan', component: FarmEquipmentLoanComponent},
+  {path:'livestock-loan', component: LivestockLoanComponent},
+  {path:'land-purchase-loan', component: LandPurchaseLoanComponent},
+  {path:'farm-allied-loan', component: FarmAlliedLoanComponent },
+  {path:'loanapplicationform',component:LoanformComponent},
+  {path:'**', component: LoginComponent }
 
 
 ];

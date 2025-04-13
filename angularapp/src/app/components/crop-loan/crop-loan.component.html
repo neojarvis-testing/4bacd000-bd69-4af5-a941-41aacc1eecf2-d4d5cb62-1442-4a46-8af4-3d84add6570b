@@ -1,0 +1,39 @@
+<app-usernav></app-usernav>
+
+<div style="background-image: url('/assets/images/background.webp'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: -1; 
+            filter: blur(10px);">
+</div>
+
+<div class="crop-loan-container">
+    <div class="crop-loan-header">
+      <h1>Crop Loan</h1>
+      <p>Empowering farmers with short-term financial solutions for agricultural success.</p>
+    </div>
+  
+    <div class="crop-loan-details">
+      <p>
+        Crop loans are short-term loans provided to farmers to cover expenses related to crop production, such as purchasing seeds, fertilizers, and machinery. These loans are typically repaid after the harvest, often in a single installment. Borrowers may receive a Kisan Credit Card, which allows them to access funds easily and even purchase farm supplies. Interest rates for crop loans can vary, but timely repayment often qualifies borrowers for interest subvention benefits. Additionally, crop insurance is often included to protect against unforeseen losses.
+      </p>
+      <ul>
+        <li>Flexible repayment terms tied to the harvest cycle.</li>
+        <li>Access funds with ease via Kisan Credit Cards.</li>
+        <li>Eligible for government-provided interest subvention benefits.</li>
+        <li>Includes crop insurance to protect against unforeseen losses.</li>
+      </ul>
+    </div>
+  
+    <div class="crop-loan-button-container">
+      <button class="apply-now-button" [routerLink]="['/loanapplicationform']" >Apply Now</button>
+      <button class="apply-now-button" routerLink="/home">Back</button>
+    </div>
+  </div>
+  

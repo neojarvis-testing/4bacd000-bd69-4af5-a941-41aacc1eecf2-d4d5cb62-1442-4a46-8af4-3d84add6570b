@@ -28,7 +28,14 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
 import { FormsModule } from '@angular/forms';
 import { ConfirmDeleteUserAppliedLoanComponent } from './components/confirm-delete-user-applied-loan/confirm-delete-user-applied-loan.component';
 import { ViewAppliedLoanDetailsComponent } from './components/view-applied-loan-details/view-applied-loan-details.component';
+
+import { CropLoanComponent } from './components/crop-loan/crop-loan.component';
+import { FarmEquipmentLoanComponent } from './components/farm-equipment-loan/farm-equipment-loan.component';
+import { LivestockLoanComponent } from './components/livestock-loan/livestock-loan.component';
+import { LandPurchaseLoanComponent } from './components/land-purchase-loan/land-purchase-loan.component';
+import { FarmAlliedLoanComponent } from './components/farm-allied-loan/farm-allied-loan.component';
 import { OtpComponent } from './components/otp/otp.component';
+
 
 
 @NgModule({
@@ -55,7 +62,13 @@ import { OtpComponent } from './components/otp/otp.component';
     ConfirmDeleteComponent,
     ConfirmDeleteUserAppliedLoanComponent,
     ViewAppliedLoanDetailsComponent,
+    CropLoanComponent,
+    FarmEquipmentLoanComponent,
+    LivestockLoanComponent,
+    LandPurchaseLoanComponent,
+    FarmAlliedLoanComponent,
     OtpComponent
+
   ],
   imports: [
     BrowserModule,
