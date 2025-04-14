@@ -31,7 +31,7 @@ export class UserappliedloanComponent implements OnInit {
   }
 
   search() {
-    this.loanService.getAllLoans().subscribe(data => {
+    this.loanService.getAllLoanApplications().subscribe(data => {
       this.loans = data;
       this.loans = this.loans.filter(l => 
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())

@@ -64,7 +64,7 @@
   
   <div *ngIf="showConfirmDialog" class="confirm-dialog">
     <p>Are you sure you want to delete this loan?</p>
-    <button (click)="deleteLoan()">Yes</button>
-    <button (click)="cancelDelete()">Cancel</button>
+    <button class="yes" (click)="deleteLoan()">Yes</button>
+    <button class="cancel" (click)="cancelDelete()">Cancel</button>
   </div>
   

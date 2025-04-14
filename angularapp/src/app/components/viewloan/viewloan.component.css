@@ -134,22 +134,56 @@ input#searchData {
   font-size: 1rem; /* Standard font size */
 }
 
-
 .confirm-dialog {
   position: fixed;
-  width: 300px;
-  background: white;
-  padding: 20px;
-  border: 1px solid #ccc;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 300px;
   text-align: center;
-  z-index: 1000;
+  z-index: 1000; /* Ensures the dialog is above other elements */
 }
-.confirm-dialog button {
-  margin: 5px;
-  padding: 5px 10px;
+
+.confirm-dialog p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+button.yes {
+  background-color: #4CAF50; /* Green for Yes */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  margin: 0 5px; /* Add spacing between the buttons */
+  transition: background-color 0.3s ease;
+}
+
+button.yes:hover {
+  background-color: #388E3C; /* Darker green on hover */
+}
+
+button.cancel {
+  background-color: #f44336; /* Red for Cancel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 5px; /* Add spacing between the buttons */
+  transition: background-color 0.3s ease;
+}
+
+button.cancel:hover {
+  background-color: #d32f2f; /* Darker red on hover */
 }

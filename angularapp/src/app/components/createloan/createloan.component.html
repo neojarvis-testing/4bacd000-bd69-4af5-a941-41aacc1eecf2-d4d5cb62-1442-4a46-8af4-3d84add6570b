@@ -1,5 +1,6 @@
 <app-adminnav></app-adminnav>
 
+<div [ngClass]="{ 'blur-container': showSuccessPopup }">
 <div style="background-image: url('/assets/images/background.webp'); 
             background-size: cover; 
             background-position: center; 
@@ -71,8 +72,14 @@
             *Documents Required is required
         </div>
 
-    
         <button type="submit" [disabled]="loanForm.invalid">Submit</button>
     </form>
-    
 </div>
+</div>
+
+<div *ngIf="showSuccessPopup" class="popup">
+    <div class="popup-content">
+      <p>Loan successfully added!</p>
+      <button (click)="closePopup()">OK</button>
+    </div>
+  </div>

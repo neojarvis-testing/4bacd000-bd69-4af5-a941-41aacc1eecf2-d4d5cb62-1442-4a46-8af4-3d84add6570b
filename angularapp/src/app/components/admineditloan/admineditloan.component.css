@@ -1,147 +1,173 @@
-General Body Styling
+/* General Body Styling */
 body {
-    font-family: Arial, sans-serif; /* Clean and readable font */
-    background-color: #f4f4f9; /* Light gray background */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 100vh; /* Full viewport height */
-    box-sizing: border-box; /* Ensures padding is included in width/height */
-  }
-  
-  /* Styling for the Form Container */
-  .container {
-    width: 40%; /* Adjust container width */
-    padding: 20px;
-    margin: 30px auto;
-    background-color: #fff; /* White background for contrast */
-    border-radius: 10px; /* Rounded corners for aesthetics */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    box-sizing: border-box;
-  }
-  
-  /* Centered Title */
-  h1 {
-    text-align: center; /* Center-align the form title */
-    font-size: 2rem;
-    color: #4CAF50; /* Match theme color */
-    margin-bottom: 10px;
-  }
-  
-  /* Form Styling */
-  form {
-    display: flex;
-    flex-direction: column; /* Stack form elements vertically */
-  }
-  
-  form label {
-    font-weight: bold; /* Bold labels for clarity */
-    margin-bottom: 5px;
-  }
-  
-  form input,
-  form button {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd; /* Light gray border for inputs */
-    border-radius: 5px; /* Rounded corners */
-    width: 100%; /* Full width of container */
-    box-sizing: border-box; /* Include padding in width calculation */
-  }
-  
-  /* Error Message Styling */
-  .error-message {
-    color: red; /* Highlight errors in red */
-    font-size: 0.9rem; /* Slightly smaller font size */
-    margin-top: -10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Submit Button Styling */
-  form button[type="submit"] {
-    background-color: #4CAF50; /* Green background for button */
-    color: white; /* White text for readability */
-    font-weight: bold; /* Emphasized text */
-    cursor: pointer; /* Pointer cursor for interactivity */
-    border: none; /* No border */
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: #3e8e41; /* Darker green on hover */
-  }
-  
-  form button[type="submit"]:disabled {
-    background-color: #ccc; /* Gray for disabled button */
-    cursor: not-allowed; /* Show disabled cursor */
-  }
-  
-  /* Mobile Responsiveness */
-  @media screen and (max-width: 768px) {
-    .container {
-      width: 90%; /* Expand container to fit smaller screens */
-    }
-  
-    h1 {
-      font-size: 1.5rem; /* Reduce title size on smaller screens */
-    }
-  }
-  
-  /* Modal Overlay */
-.modal {
-  display: none; /* Hidden by default */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9; /* Light gray background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Image with Blur */
+div[style*="background-image"] {
   position: fixed;
-  z-index: 1;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4); /* Dim background */
+  z-index: -1; /* Below everything else */
+  filter: blur(10px); /* Apply blur to background */
 }
 
-/* Modal Content Box */
-.modal-content {
-  background-color: white;
-  margin: 15% auto; /* Centered */
-  padding: 20px;
-  border: 1px solid #888;
+/* Form Container Styling */
+.container {
   width: 40%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Button Styling */
+form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+form button[routerLink] {
+  background-color: #f44336;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+form button[routerLink]:hover {
+  background-color: #d32f2f;
+}
+
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Modal Overlay (Blurs everything except the modal) */
+.modal-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px); /* Blur effect */
+  z-index: 999; /* Below modal */
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height:30%;
+  text-align: center;
+  z-index: 1000;
 }
 
-/* Buttons Inside the Modal */
+.modal-content p {
+  font-size: 1.2rem;
+  text-align: center;
+  
+}
+
+/* Modal Buttons Section */
 .modal-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
 }
 
 .modal-buttons button {
-  padding: 10px 20px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
 }
 
+/* Positive Action Button */
 #confirmYes {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   color: white;
 }
 
 #confirmYes:hover {
-  background-color: #3e8e41; /* Darker green */
+  background-color: #3e8e41;
 }
 
+/* Negative Action Button */
 #confirmNo {
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
   color: white;
 }
 
 #confirmNo:hover {
-  background-color: #d32f2f; /* Darker red */
+  background-color: #d32f2f;
 }
 
-  
+.modal-content{
+  border: none;
+}

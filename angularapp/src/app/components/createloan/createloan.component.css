@@ -1,112 +1,112 @@
-/* General Body Styling */
-body {
-  font-family: Arial, sans-serif; /* Clean and modern font */
-  background-color: #f4f4f9; /* Light gray background */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  height: 100vh; /* Full viewport height to prevent scrolling */
-  box-sizing: border-box; /* Ensures padding is included in width/height */
+/* Fullscreen background blur */
+.blur-container {
+  filter: blur(10px); /* Apply blur effect */
+  pointer-events: none; /* Disable interactions with blurred elements */
 }
 
-/* Styling for the Form Container */
-.container {
-  width: 40%; /* Adjust container width */
+app-adminnav {
+  position: relative;
+  z-index: 1000; /* Ensure it's not blurred */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  z-index: 999; /* Ensure it's below the popup */
+}
+
+/* Popup styling */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
   padding: 20px;
-  margin:30px auto;
-  background-color: #fff; /* White background for contrast */
-  border-radius: 10px; /* Rounded corners for aesthetics */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  box-sizing: border-box; /* Include padding in the element’s width/height */
-  overflow: hidden; /* Prevent unnecessary overflow inside the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+  z-index: 1000; /* Make sure it's above the overlay */
 }
 
-/* Centered Title */
+.popup-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.popup-content button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-content button:hover {
+  background-color: #3e8e41;
+}
+
+/* Form container styling */
+.container {
+  margin: 100px auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 h2 {
-  text-align: center; /* Center-align the form title */
-  font-size: 2rem; /* Larger font for emphasis */
-  color: #4CAF50; /* Matching green theme color */
-  margin-bottom: 20px; /* Space below the title */
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* Form Styling */
 form {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
-  gap: 15px; /* Add space between fields */
+  flex-direction: column;
 }
 
-form label {
-  font-weight: bold; /* Bold labels for better readability */
-  color: #333; /* Neutral dark color for labels */
+label {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-form input,
-form button {
+input,
+textarea {
+  margin-top: 5px;
   padding: 10px;
-  border: 1px solid #ddd; /* Light gray border for inputs */
-  border-radius: 5px; /* Rounded corners for aesthetics */
-  width: 100%; /* Full width of container */
-  font-size: 1rem; /* Standard font size */
-  box-sizing: border-box; /* Include padding in width calculation */
-}
-
-form input:focus {
-  border-color: #4CAF50; /* Green border on focus */
-  outline: none; /* Remove default focus outline */
-}
-
-/* Error Messages */
-form div {
-  color: red; /* Highlight error messages in red */
-  font-size: 0.85rem; /* Slightly smaller font for compact layout */
-}
-
-/* Submit Button Styling */
-form button[type="submit"] {
-  background-color: #4CAF50; /* Green background for button */
-  color: white; /* White text for readability */
-  font-weight: bold; /* Emphasized text */
-  cursor: pointer; /* Pointer cursor for interactivity */
-  border: none; /* No border */
-  transition: background-color 0.2s ease; /* Smooth hover effect */
-}
-
-form button[type="submit"]:hover {
-  background-color: #3e8e41; /* Darker green on hover */
-}
-
-form button[type="submit"]:disabled {
-  background-color: #ccc; /* Gray for disabled button */
-  cursor: not-allowed; /* Show disabled cursor */
-}
-
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-  .container {
-    width: 90%; /* Expand container to fit smaller screens */
-    padding: 15px; /* Adjust padding */
-  }
-
-  h2 {
-    font-size: 1.5rem; /* Reduce title size on smaller screens */
-  }
-
-  form label {
-    font-size: 0.9rem; /* Reduce label size for compact layout */
-  }
-
-  form input,
-  form button {
-    font-size: 0.9rem; /* Adjust font size for inputs and buttons */
-  }
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .error-message {
-  color: red; /* Highlight errors in red */
-  font-size: 0.9rem; /* Slightly smaller font size */
-  margin-top: -10px;
-  margin-bottom: 10px;
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
