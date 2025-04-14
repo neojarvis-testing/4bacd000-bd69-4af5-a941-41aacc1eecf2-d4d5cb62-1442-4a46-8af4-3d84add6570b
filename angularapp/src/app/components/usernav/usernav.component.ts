@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 })
 export class UsernavComponent implements OnInit {
   showLogoutModal: boolean = false;
+
+  userId:number=parseInt(sessionStorage.getItem('userId'));
+  username:string=sessionStorage.getItem('userName');
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

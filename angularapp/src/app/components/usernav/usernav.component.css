@@ -1,130 +1,233 @@
 /* General Navbar Styling */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50; /* Green background */
-    padding: 10px 20px;
-    color: white;
-  }
-  
-  /* Left Section (Brand Name) */
-  .navbar-left .brand-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  /* Right Section (User Details and Links) */
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between elements */
-  }
-  
-  .navbar-right .user-text {
-    font-weight: bold;
-  }
-  
-  /* Styling for Anchor Links */
-  .navbar-right a {
-    text-decoration: none;
-    color: white; /* White text */
-    padding: 5px 10px; /* Padding for clickable area */
-    border-radius: 5px; /* Rounded corners */
-  }
-  
-  .navbar-right a:hover {
-    background-color: #3e8e41; /* Darker green on hover */
-  }
-  
-  /* Dropdown Menu Styling */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropbtn {
-    background-color: #4CAF50; /* Same as navbar */
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 5px; /* Rounded corners */
-  }
-  
-  .dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    z-index: 1;
-    min-width: 150px; /* Dropdown width */
-    flex-direction: column;
-  }
-  
-  .dropdown-content a {
-    padding: 10px;
-    text-decoration: none;
-    color: #000; /* Black text */
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd; /* Light gray background on hover */
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: flex; /* Show dropdown on hover */
-  }
-  
-
-  .logout-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    width: 300px;
-    z-index: 1000;
-    text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adds spacing inside the navbar */
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Left Section (Brand Name) */
+.navbar-left .brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Right Section (Links and Dropdowns) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between navbar items */
+}
+
+/* User Text Styling */
+.navbar-right .user-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Styling Links */
+.navbar-right a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px; /* Adds padding inside links */
+  border-radius: 5px; /* Rounded corners for better style */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar-right a:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #3e8e41; /* Darker green for hover effect */
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+  border-radius: 5px; /* Rounded edges for dropdown */
+  z-index: 1; /* Ensures dropdown appears above other content */
+  min-width: 150px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333; /* Dark text for dropdown items */
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0f0f0; /* Separator between items */
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none; /* Remove separator for the last item */
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9; /* Light gray hover effect */
+  color: #333;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Admin Dropdown Styling */
+.admin-dropdown {
+  position: relative;
+}
+
+.admin-dropdown .admin-dropbtn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.admin-dropdown .admin-dropbtn:hover {
+  color: #dff0d8; /* Subtle hover effect for Admin button */
+}
+
+.admin-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Adds shadow */
+  border-radius: 5px;
+  margin-top: 1px; /* Reduce space between button and dropdown */
+  z-index: 1;
+}
+
+.admin-dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333; /* Neutral dark gray text */
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0f0f0; /* Separator between options */
+  transition: background-color 0.3s ease;
+}
+
+.admin-dropdown-content a:last-child {
+  border-bottom: none; /* No separator for last item */
+}
+
+.admin-dropdown-content a:hover {
+  background-color: #f0f0f0; /* Light gray hover effect */
+}
+
+/* Ensure the dropdown is displayed when hovering */
+.admin-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Logout Modal Styling */
+.logout-modal {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+  background-color: white; /* White background for modal */
+  padding: 25px;
+  border-radius: 12px; /* Smooth rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  width: 300px; /* Modal width */
+  text-align: center; /* Align text centrally */
+  z-index: 1000; /* Ensure modal is above all other elements */
+}
+
+/* Text Content Styling */
 .modal-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+  font-size: 1.2rem; /* Larger font size for prominence */
+  color: #333; /* Neutral dark gray for clarity */
+  margin-bottom: 20px; /* Space below the text */
 }
 
+/* Buttons Container */
 .modal-buttons {
-    display: flex;
-    justify-content: space-around;
+  display: flex; /* Align buttons side by side */
+  justify-content: center; /* Center them */
+  gap: 5px; /* Reduce space between buttons */
 }
 
-.modal-buttons button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Styling for "Yes" Button */
+button.yes {
+  background-color: #4CAF50; /* Green for "Yes" */
+  color: white; /* White text for contrast */
+  border: none; /* Clean design */
+  padding: 10px 20px; /* Comfortable size */
+  border-radius: 5px; /* Rounded edges */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth interaction effects */
 }
 
-.modal-buttons button:hover {
-    background-color: #3e8e41;
+button.yes:hover {
+  background-color: #388E3C; /* Darker green for hover */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
-.modal-buttons button:last-child {
-    background-color: #e53935;
+/* Styling for "No" Button */
+button.cancel {
+  background-color: #f44336; /* Red for "No" */
+  color: white; /* White text for contrast */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Smooth corners */
+  font-size: 1rem;
+  font-weight: bold; /* Emphasize cancel button */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth interaction effects */
 }
 
-.modal-buttons button:last-child:hover {
-    background-color: #c62828;
+button.cancel:hover {
+  background-color: #d32f2f; /* Darker red for hover */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 768px) {
+  .logout-modal {
+    width: 90%; /* Make modal wider for smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
 
+  .modal-content p {
+    font-size: 1rem; /* Adjust font size for small devices */
+  }
 
-
-
+  button.yes, button.cancel {
+    font-size: 0.9rem; /* Adjust button text size */
+    padding: 8px 10px; /* Reduce button padding */
+  }
+}

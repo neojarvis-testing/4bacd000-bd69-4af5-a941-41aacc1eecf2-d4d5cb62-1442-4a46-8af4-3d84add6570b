@@ -24,6 +24,7 @@ export class AuthService {
                 sessionStorage.setItem('jwtToken', response.token);
                 console.log(response.userId);
                 sessionStorage.setItem('userId', response.userId);
+                sessionStorage.setItem('userName', response.username);
                 if (response.role) {
                   sessionStorage.setItem('userRole', response.role);
                 }

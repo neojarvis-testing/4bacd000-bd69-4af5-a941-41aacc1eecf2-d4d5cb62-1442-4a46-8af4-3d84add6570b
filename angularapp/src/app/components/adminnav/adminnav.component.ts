@@ -7,27 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminnav.component.css']
 })
 export class AdminnavComponent implements OnInit {
-  showLogoutModal: boolean = false;
+  showLogoutModal: boolean = false; // For logout confirmation modal
+  userId: number = parseInt(sessionStorage.getItem('userId'));
+  username: string = sessionStorage.getItem('userName');
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
   
+
+  // Handle Logout
   logout(): void {
-    this.showLogoutModal = true;
+    this.showLogoutModal = true; // Show confirmation modal
   }
+
   confirmLogout(): void {
-    this.showLogoutModal = false;
-    sessionStorage.clear();
-    this.router.navigate(['/login']); 
+    this.showLogoutModal = false; // Close modal
+    sessionStorage.clear(); // Clear session storage
+    this.router.navigate(['/login']); // Redirect to login page
   }
+
   cancelLogout(): void {
-    this.showLogoutModal = false;
+    this.showLogoutModal = false; // Close modal
   }
 }
-
-
-
-
-
