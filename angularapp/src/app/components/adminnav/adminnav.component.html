@@ -1,31 +1,39 @@
- <nav class="navbar">
-    <div class="navbar-left">
-      <span class="brand-name">FarmAid</span>
-    </div>
-    <div class="navbar-right">
-      <span class="admin-text">admin/Admin</span>
-      <a routerLink="/home">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Loan</button>
-        <div class="dropdown-content">
-          <a routerLink="/createloan">Add Loan</a>
-          <a routerLink="/viewLoan">View Loan</a>
-        </div>
-      </div>
-      <a routerLink="/requestedloan">Loan Requested</a>
-      <a routerLink="/adminviewfeedback">Feedbacks</a>
-      <a (click)="logout()">Logout</a>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="brand-name">FarmAid</span>
+  </div>
+  <div class="navbar-right">
+    <a routerLink="/home">Home</a>
 
-  <div *ngIf="showLogoutModal" class="logout-modal">
-    <div class="modal-content">
-      <p>Are you sure you want to logout?</p>
-      <div class="modal-buttons">
-        <button (click)="confirmLogout()">Yes</button>
-        <button (click)="cancelLogout()">No</button>
+    <div class="dropdown">
+      <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Loan</button>
+      <div class="dropdown-content">
+        <a routerLink="/createloan">Add Loan</a>
+        <a routerLink="/viewLoan">View Loan</a>
+      </div>
+    </div>
+
+    <a routerLink="/requestedloan">Loan Requested</a>
+    <a routerLink="/adminviewfeedback">Feedbacks</a>
+
+    <div class="admin-dropdown">
+      <button class="admin-dropbtn" aria-haspopup="true" aria-expanded="false">{{username}}/Admin</button>
+      <div class="dropdown-content">
+        <a routerLink="/viewprofile">View Profile</a>
+        <a (click)="logout()">Logout</a>
       </div>
     </div>
   </div>
-  
-  
+</nav>
+
+<div *ngIf="showLogoutModal" class="logout-modal" aria-hidden="false">
+  <div class="confirm-dialog">
+    <header>
+      <p>Are you sure you want to logout?</p>
+    </header>
+    <div class="modal-buttons">
+      <button class="yes" (click)="confirmLogout()">Yes</button>
+      <button class="cancel" (click)="cancelLogout()">No</button>
+    </div>
+  </div>
+</div>
