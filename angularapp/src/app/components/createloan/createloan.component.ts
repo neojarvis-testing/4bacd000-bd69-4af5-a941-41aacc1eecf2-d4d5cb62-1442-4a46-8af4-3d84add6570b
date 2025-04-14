@@ -12,6 +12,8 @@ import { LoanService } from 'src/app/services/loan.service';
 export class CreateloanComponent implements OnInit {
   loanForm: FormGroup;
   formErrorMessage: string = "";
+  showSuccessPopup: boolean = false;
+  
 
   constructor(private fb: FormBuilder, private loanService: LoanService,private router:Router) { }
 
@@ -39,15 +41,13 @@ export class CreateloanComponent implements OnInit {
       console.log(newLoan)
   
       this.loanService.addLoan(newLoan).subscribe(() => {
-        alert("Successfully Added!");
-        this.router.navigate(['/viewLoan']);
-        this.loanForm.reset();
+        this.showSuccessPopup = true; // Show success pop-up
       });
-
-  
     }
+  }
 
-
-
+  closePopup(): void {
+    this.showSuccessPopup = false; // Close the success pop-up
+    this.router.navigate(['/viewLoan']); // Navigate to the loan list
   }
 }

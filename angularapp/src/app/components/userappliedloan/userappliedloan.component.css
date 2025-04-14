@@ -113,6 +113,7 @@ button {
 /* View Details Button - Green */
 button.view-details {
   background-color: #4CAF50;
+  margin-right: 8px;
 }
 
 button.view-details:hover {

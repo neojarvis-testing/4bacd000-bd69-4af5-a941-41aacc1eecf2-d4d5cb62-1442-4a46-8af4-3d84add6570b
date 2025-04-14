@@ -17,14 +17,11 @@ export class LoanformComponent implements OnInit {
   proof: string = '';
   loanId: number;
   userId: number;
-
-
-  formSubmitted: boolean = false;
+  showSuccessPopup: boolean = false;
 
   constructor(private loanService: LoanService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     this.loanId = parseInt(this.activatedRoute.snapshot.paramMap.get("id"));
     this.userId = parseInt(sessionStorage.getItem("userId"));
     console.log("============ Inside loanForm  ==========================")
@@ -36,16 +33,12 @@ export class LoanformComponent implements OnInit {
   onSubmit(loanApplicationForm: NgForm): void {
     if (loanApplicationForm.valid) {
       const loanApplicationData: LoanApplication = {
-        // loanApplicationId: undefined,
-
         user:{
           userId: this.userId,
         },
-
         loan :{
           loanId: this.loanId,
         },
-
         userId: this.userId,
         loanId: this.loanId,
         submissionDate: new Date().toISOString(),
@@ -63,19 +56,18 @@ export class LoanformComponent implements OnInit {
 
       this.loanService.addLoanApplication(loanApplicationData).subscribe({
         next: (data) => {
-          this.formSubmitted = true;
-          alert("Successfully Added!");
+          this.showSuccessPopup = true;
           loanApplicationForm.reset();
-          this.router.navigate(['/userviewloan']);
         },
         error: (err) => {
           console.error('Error while submitting the loan application:', err);
         }
       });
-
-
-
     }
+  }
+  closePopup() : void{
+    this.showSuccessPopup = false;
+    this.router.navigate(['/userviewloan']);
   }
 
   onFileSelected(event: any): void {

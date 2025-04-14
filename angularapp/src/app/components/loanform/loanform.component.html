@@ -59,5 +59,9 @@
  <button routerLink="/userviewloan">Back</button>
 </form>
 </div>
-
-
+<div *ngIf="showSuccessPopup" class="popup">
+  <div class="popup-content">
+    <p>Loan successfully added!</p>
+    <button (click)="closePopup()">OK</button>
+  </div>
+</div>
