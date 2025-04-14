@@ -47,6 +47,10 @@ export class RequestedloanComponent implements OnInit {
       })
   }
 
+  viewDetails(id:number){
+    this.router.navigate(['/viewAppliedLoanDetails',id]);
+  }
+
 
 
 }

@@ -1,5 +1,35 @@
-<app-usernav></app-usernav>
+<div *ngIf="role == 'user'  ">
+    <app-usernav></app-usernav>
+</div>
+<div *ngIf="role == 'admin'  ">
+    <app-adminnav></app-adminnav>
+</div>
 
 
-<h1>Applied Details</h1>
+<div class="container" style="text-align: center;">
 
+    <h1>Loan Details</h1>
+    <p>Loan Name: <span> {{loanApplication.loan.loanType}}</span></p>
+    <p>Submission Date: <span>{{loanApplication.submissionDate}}</span></p>
+    <p>Loan Status:
+        <span *ngIf="loanApplication.loanStatus == 0">
+            Reject
+        </span>
+        <span *ngIf="loanApplication.loanStatus == 1">
+            Pending
+        </span>
+        <span *ngIf="loanApplication.loanStatus == 2">
+            Accept
+        </span>
+
+    </p>
+    <p>Farm Location: <span>{{loanApplication.farmLocation}}</span></p>
+    <p>Farmer Address: <span>{{loanApplication.farmerAddress}}</span></p>
+    <p>Farm Size (In Acres): <span>{{loanApplication.farmSizeInAcres}}</span></p>
+    <p>Farm Purpose: <span>{{loanApplication.farmPurpose}}</span></p>
+
+    <button *ngIf="role == 'user'  " (click)="backButtonForUser()">Back</button>
+    <button *ngIf="role == 'admin'  " (click)="backButtonForAdmin()">Back</button>
+
+
+</div>

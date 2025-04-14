@@ -1,0 +1,42 @@
+.container {
+    width: 90%;
+    /* Adjust container width */
+    padding: 20px;
+    margin: 30px auto;
+    background-color: #fff;
+    /* White background for contrast */
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+    box-sizing: border-box;
+}
+
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+
+p{
+    font-weight: 700;
+}
+
+span{
+    font-weight: 500;
+}
