@@ -104,8 +104,11 @@ body {
     font-size: 0.9rem; /* Slightly smaller font size */
     margin-top: -10px;
     margin-bottom: 10px;
-    align-self: baseline;
+    align-items: baseline;
+    text-align: left;
   }
+
+  
 
   
   /* Responsive Design */
