@@ -19,6 +19,7 @@ export class UserappliedloanComponent implements OnInit {
     this.userId = parseInt(sessionStorage.getItem("userId"));
    
     this.getAppliedLoans();
+    
 
   }
 

@@ -45,10 +45,4 @@ public class LoanApplication {
     @JoinColumn(name="loanId")
     private Loan loan;
 
-
-
-
-
-    
-
 }

@@ -23,13 +23,13 @@ export class ConfirmDeleteUserAppliedLoanComponent implements OnInit {
   confirmDelete(): void {
     console.log("Attempting to delete loan with ID:", this.id); 
 
-    this.loanService.deleteLoan(this.id).subscribe(() => {
+    this.loanService.deleteLoanApplication(this.id).subscribe(() => {
         alert("Loan deleted successfully!");
-        this.router.navigate(['/viewloan']); 
+        this.router.navigate(['/userappliedloan']); 
     });
   }
 
   cancelDelete(): void {
-    this.router.navigate(['/viewloan']);
+    this.router.navigate(['/userappliedloan']);
   }
 }

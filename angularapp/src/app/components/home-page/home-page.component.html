@@ -8,7 +8,7 @@
 
 
 <div class="welcome-section">
-  <h1 class="welcome-title">Welcome to FarmAid</h1>
+  <h1 class="welcome-title"> <span style="color: white;"  >Welcome to </span>    FarmAid</h1>
   <p class="welcome-subtitle">
     Explore the tailored loan solutions for your agricultural needs. Check out the options below and find the support you deserve to grow your dreams.
   </p>
@@ -28,7 +28,7 @@
             filter: blur(10px);">
 </div>
 
-<div class="loan-container">
+<div class="loan-container" *ngIf="userRole === 'user'">
   <div class="loan-card" *ngFor="let loan of loans">
     <img [src]="loan.image" class="loan-image" alt="{{loan.title}}">
     <div class="loan-details">
