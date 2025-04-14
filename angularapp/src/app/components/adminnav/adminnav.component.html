@@ -14,7 +14,18 @@
       </div>
       <a routerLink="/requestedloan">Loan Requested</a>
       <a routerLink="/adminviewfeedback">Feedbacks</a>
-      <a routerLink="/login">Logout</a>
+      <a (click)="logout()">Logout</a>
     </div>
   </nav>
+
+  <div *ngIf="showLogoutModal" class="logout-modal">
+    <div class="modal-content">
+      <p>Are you sure you want to logout?</p>
+      <div class="modal-buttons">
+        <button (click)="confirmLogout()">Yes</button>
+        <button (click)="cancelLogout()">No</button>
+      </div>
+    </div>
+  </div>
+  
   

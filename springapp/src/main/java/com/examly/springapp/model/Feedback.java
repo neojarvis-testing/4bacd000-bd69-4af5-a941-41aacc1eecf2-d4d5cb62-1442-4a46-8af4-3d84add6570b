@@ -25,10 +25,9 @@ public class Feedback {
     private Long feedbackId;
     private String feedbackText;
     private LocalDate date;
+    private Integer rating;
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
-    private User user;
-
-    
+    private User user;   
 }

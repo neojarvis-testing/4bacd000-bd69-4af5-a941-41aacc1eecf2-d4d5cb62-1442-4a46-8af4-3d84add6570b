@@ -10,6 +10,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class UseraddfeedbackComponent implements OnInit {
   feedbackText: string = '';
+  rating : number | null = null;
   popupMessage: string | null = null;
   userId: number;
 
@@ -36,12 +37,14 @@ export class UseraddfeedbackComponent implements OnInit {
       user: {
         userId: this.userId
       },
-      date: new Date()
+      date: new Date(),
+      rating : this.rating
     };
 
     this.feedbackService.sendFeedback(feedback).subscribe(() => {
       this.popupMessage = 'Successfully Added!';
       this.feedbackText = '';
+      this.rating = null;
     },
       (error) => {
         console.error('Error submitting feedback:', error);

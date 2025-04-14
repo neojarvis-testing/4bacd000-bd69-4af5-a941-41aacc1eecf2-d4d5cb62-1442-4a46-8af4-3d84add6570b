@@ -6,4 +6,5 @@ export interface Feedback {
     feedbackText?:string;
     date?:Date;
     userId:number;
+    rating?:number;
 }

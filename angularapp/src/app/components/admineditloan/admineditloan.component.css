@@ -88,4 +88,60 @@ body {
     }
   }
   
+  /* Modal Overlay */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Dim background */
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: white;
+  margin: 15% auto; /* Centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons Inside the Modal */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#confirmYes {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+#confirmYes:hover {
+  background-color: #3e8e41; /* Darker green */
+}
+
+#confirmNo {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+#confirmNo:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
   
