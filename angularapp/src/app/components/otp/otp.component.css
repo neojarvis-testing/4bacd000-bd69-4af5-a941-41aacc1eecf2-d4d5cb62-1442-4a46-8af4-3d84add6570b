@@ -1,0 +1,114 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #eef2f3, #d5dde6); /* Subtle gradient background */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+  }
+  
+  /* OTP Container Styling */
+  .otp-container {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Restrict maximum width */
+    text-align: center; /* Center align content */
+  }
+  
+  /* Header Styling */
+  .otp-container h2 {
+    font-size: 1.8rem;
+    color: #333; /* Dark gray for the header text */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Label Styling */
+  .otp-container label {
+    font-size: 1rem;
+    color: #555; /* Medium gray for labels */
+    display: block;
+    margin-bottom: 10px;
+    text-align: left; /* Align label to the left */
+  }
+  
+  /* Input Field Styling */
+  .otp-container input[type="text"] {
+    width: 100%; /* Full width */
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 6px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Light background for input */
+    color: #333; /* Dark text for visibility */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+  }
+  
+  .otp-container input[type="text"]:focus {
+    border-color: #3e8e41; /* Green border on focus */
+    box-shadow: 0 0 8px rgba(62, 142, 65, 0.5); /* Green glow for focus */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  /* Button Styling */
+  .otp-container button {
+    background-color: #3e8e41; /* Green for call-to-action button */
+    color: #ffffff; /* White text for contrast */
+    border: 1px solid #3e8e41; /* Thin green border */
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px; /* Subtle rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+  }
+  
+  .otp-container button:hover {
+    background-color: #2d6f31; /* Darker green on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+  
+  .otp-container button:active {
+    background-color: #274d28; /* Even darker green when clicked */
+    transform: translateY(0); /* Reset lift effect */
+  }
+  
+  /* Error Message Styling */
+  .otp-container .error {
+    color: #d9534f; /* Red for error messages */
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .otp-container {
+      padding: 20px; /* Reduce padding for smaller screens */
+      width: 90%; /* Adjust width for small devices */
+    }
+  
+    .otp-container h2 {
+      font-size: 1.5rem; /* Smaller font size for the header */
+    }
+  
+    .otp-container input[type="text"] {
+      font-size: 0.9rem; /* Adjust input font size */
+      padding: 10px; /* Compact padding for smaller screens */
+    }
+  
+    .otp-container button {
+      font-size: 0.9rem; /* Adjust button font size */
+      padding: 10px 15px; /* Compact button padding */
+    }
+  }
+  

@@ -12,12 +12,14 @@ body {
 .welcome-section {
   text-align: center;
   padding: 20px;
-  background: rgba(52, 58, 64, 0.8); /* Classy dark gray background with transparency */
-  color: #ffffff; /* White font color for contrast */
+  /* Classy dark gray background with transparency */
+  color: #4a4a4a; /* Professional and visible dark gray color */
   border-radius: 10px;
   margin: 20px;
   backdrop-filter: blur(6px); /* Adds blur effect to blend with background */
-  font-family: 'Playfair Display', serif; /* Elegant serif font for titles */
+  font-family: 'Roboto', sans-serif; /* Retains the chosen font */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth and readability */
+   /* Elegant serif font for titles */
 }
 
 .welcome-title {
@@ -116,3 +118,12 @@ body {
   background-color: #3e8e41; /* Dark blue hover effect */
 }
 
+h1 {
+  font-size: 3rem; /* Large and prominent font size */
+  font-weight: bold; /* Emphasize the title */
+  text-align: center; /* Center-align the title */
+  color: #3e8e41; /* Dark green color for the title */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Space below the title */
+  font-family: 'Roboto', sans-serif; /* Clean and professional font */
+}
