@@ -32,6 +32,7 @@ export class UserviewloanComponent implements OnInit {
   getAllLoans() {
     this.loanService.getAllLoans().subscribe(data => {
       this.loans = data;
+      console.log(this.loans);
     });
   }
 

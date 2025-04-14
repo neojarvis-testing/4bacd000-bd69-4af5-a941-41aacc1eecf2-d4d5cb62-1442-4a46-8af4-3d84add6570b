@@ -34,7 +34,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 
         long loanId = loanApplication.getLoan().getLoanId();
         Loan eloan = loanRepo.findById(loanId).get();
-        eloan.setApplied(true);
+        // eloan.setApplied(true);
 
         long userId = loanApplication.getUser().getUserId();
         User eUser = userRepo.findById(userId).get();

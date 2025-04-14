@@ -41,8 +41,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let loan of loans">
-      <td>{{ loan.loanId }}</td>
+    <tr *ngFor="let loan of loans; index as i">
+      <td>{{ i+1 }}</td>
       <td>{{ loan.loanType }}</td>
       <td>{{ loan.description }}</td>
       <td>{{ loan.interestRate }}</td>
