@@ -36,6 +36,24 @@
       <p *ngIf="feedbackTextRef.errors?.minlength">Feedback must be at least 5 characters long.</p>
     </div>
 
+    <div class="form-group">
+      <label for="rating">Rating *</label>
+      <select
+        id="rating"
+        name="rating"
+        [(ngModel)]="rating"
+        required
+        #ratingRef="ngModel"
+      >
+        <option value="" disabled>Select Rating</option>
+        <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">{{num}}</option>
+      </select>
+    </div>
+    
+    <div *ngIf="ratingRef.invalid && ratingRef.touched" class="error-messages">
+      <p *ngIf="ratingRef.errors?.required">Rating is required.</p>
+    </div>
+    
     <button type="submit" [disabled]="feedbackForm.invalid">Submit</button>
   </form>
 

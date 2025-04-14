@@ -1,5 +1,4 @@
 <app-adminnav></app-adminnav>
-
 <div style="background-image: url('/assets/images/background.webp'); 
             background-size: cover; 
             background-position: center; 
@@ -70,9 +69,16 @@
         <div class="error-message" *ngIf="loanForm.controls.documentsRequired.invalid && loanForm.controls.documentsRequired.touched">
             *Documents Required is required
         </div>
-
-    
         <button type="submit" [disabled]="loanForm.invalid">Submit</button>
     </form>
 </div>
 
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <p>Do you want to save the changes?</p>
+      <div class="modal-buttons">
+        <button id="confirmYes" (click)="onConfirm()">Yes</button>
+        <button id="confirmNo" (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </div>

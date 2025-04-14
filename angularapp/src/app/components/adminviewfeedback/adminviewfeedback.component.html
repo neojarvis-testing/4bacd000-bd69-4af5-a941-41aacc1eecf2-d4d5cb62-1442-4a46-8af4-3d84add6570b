@@ -21,6 +21,7 @@
         <th>S. No</th>
         <th>Username</th>
         <th>Feedback</th>
+        <th>Rating</th>
         <th>Date</th>
         <th>Actions</th>
       </tr>
@@ -30,6 +31,7 @@
         <td>{{i+1}}</td>
         <td>{{feedback.user.username}}</td>
         <td>{{feedback.feedbackText}}</td>
+        <td>{{feedback.rating}}</td>
         <td>{{feedback.date | date}}</td>
         <td>
           <button (click)="viewProfile(feedback.user)">View Profile</button>

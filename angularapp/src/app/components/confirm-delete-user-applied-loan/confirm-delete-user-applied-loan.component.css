@@ -1,0 +1,52 @@
+/* Style for the container */
+.container {
+    width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  /* Style for the confirmation message */
+  .container p {
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 15px 0;
+  }
+  
+  /* Style for the buttons */
+  .container button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* "Yes, Delete" button */
+  .container button.confirmDelete {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  /* "Cancel" button */
+  .container button.cancelDelete {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  /* Hover effects for buttons */
+  .container button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Focus styles for accessibility */
+  .container button:focus {
+    outline: 2px solid #333;
+  }
+  
