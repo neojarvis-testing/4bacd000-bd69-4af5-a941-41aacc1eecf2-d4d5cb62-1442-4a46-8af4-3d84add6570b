@@ -44,7 +44,7 @@
         </p>
       </td>
       <td>
-        <button class="bt" (click)="viewDetails(loan.loanId)">Show More</button>    
+        <button class="bt" (click)="viewDetails(loan.loanApplicationId)">Show More</button>    
         <button class="accept" *ngIf=" loan.loanStatus == 1 || loan.loanStatus == 0 "     (click)="acceptButton(loan.loanApplicationId
         )">Accept</button>
         <button class="reject" *ngIf=" loan.loanStatus == 1 || loan.loanStatus == 2 "    (click)="rejectButton(loan.loanApplicationId
