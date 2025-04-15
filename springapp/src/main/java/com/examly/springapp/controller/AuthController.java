@@ -39,6 +39,7 @@ public class AuthController {
         }
     }
     
+    
     @PostMapping("/api/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO) {
         try {
@@ -65,5 +66,12 @@ public class AuthController {
 
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/api/userProfile/{userId}")
+    public ResponseEntity<?> getUserProfile(@PathVariable Long userId){
+        User eUser = userService.getUserProfile(userId);
+        return ResponseEntity.status(200).body(eUser);
+    }
+
 }
 

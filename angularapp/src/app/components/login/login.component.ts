@@ -32,4 +32,12 @@ export class LoginComponent {
       }
     );
   }
+
+  togglePasswordVisibility(fieldId: string, isVisible: boolean): void {
+    const field = document.getElementById(fieldId) as HTMLInputElement;
+    if (field) {
+      field.type = isVisible ? 'text' : 'password';
+    }
+  }
+  
 }

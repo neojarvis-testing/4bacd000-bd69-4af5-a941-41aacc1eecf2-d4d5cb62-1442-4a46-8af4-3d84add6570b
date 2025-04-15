@@ -1,4 +1,6 @@
 <app-adminnav></app-adminnav>
+
+<div [ngClass]="{ 'blur-container': confirmModal }">
 <div style="background-image: url('/assets/images/background.webp'); 
             background-size: cover; 
             background-position: center; 
@@ -73,10 +75,11 @@
         <button routerLink="/viewLoan">Back</button>
     </form>
 </div>
+</div>
 
 <div id="confirmModal" class="modal">
     <div class="modal-content">
-      <p>Do you want to save the changes?</p>
+      <p>Do you want to save the changes?</p><br>
       <div class="modal-buttons">
         <button id="confirmYes" (click)="onConfirm()">Yes</button>
         <button id="confirmNo" (click)="onCancel()">Cancel</button>

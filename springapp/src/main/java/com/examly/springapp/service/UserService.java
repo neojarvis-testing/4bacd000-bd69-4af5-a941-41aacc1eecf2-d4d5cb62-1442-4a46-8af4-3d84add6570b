@@ -10,4 +10,5 @@ public interface UserService {
     boolean loginUser(LoginDTO loginDTO);
     User getUserByUsername(String username);
     Map<String, String> validateUserData(User user);
+    User getUserProfile(Long userId);
 }

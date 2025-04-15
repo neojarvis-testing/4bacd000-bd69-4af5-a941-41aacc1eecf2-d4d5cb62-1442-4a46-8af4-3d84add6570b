@@ -27,6 +27,15 @@
 />
 
 
+<select id="status" [(ngModel)]="selectedStatus" (change)="filterLoans()">
+      <option value="">All</option>
+      <option value="2">Accept</option>
+      <option value="0">Reject</option>
+      <option value="1">Pending</option>
+</select>
+  
+
+
 <table>
   <thead>
     <tr>
