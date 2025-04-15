@@ -63,7 +63,7 @@ export class SignupComponent {
     this.fieldErrors = {};
     this.errorMessage = '';
 
-    // Validate all fields before submission
+    
     Object.keys(this.registerData).forEach((field) => this.validateField(field));
     this.validateField('confirmPassword');
 
@@ -98,4 +98,15 @@ export class SignupComponent {
   isFormValid(): boolean {
     return Object.keys(this.fieldErrors).length === 0 && Object.values(this.registerData).every(value => value);
   }
+
+  togglePasswordVisibility(fieldId: string, isVisible: boolean): void {
+    const field = document.getElementById(fieldId) as HTMLInputElement;
+    if (field) {
+      field.type = isVisible ? 'text' : 'password';
+    }
+  }
+  
+
+
+
 }

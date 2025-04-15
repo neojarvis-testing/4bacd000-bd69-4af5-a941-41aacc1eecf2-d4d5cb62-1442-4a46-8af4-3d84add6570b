@@ -14,6 +14,13 @@ export class UserappliedloanComponent implements OnInit {
   userId:number;
   searchData:string="";
 
+  confirmDeleteId: number | null = null;
+
+  filter : string="All";
+  filteredLoans: LoanApplication[] = [];
+  selectedStatus: string = '';
+
+
   constructor(private loanService: LoanService, private router:Router,private activatedRoute:ActivatedRoute) {}
   ngOnInit(): void {
     this.userId = parseInt(sessionStorage.getItem("userId"));
@@ -44,12 +51,45 @@ export class UserappliedloanComponent implements OnInit {
     this.router.navigate(['/viewAppliedLoanDetails',id]);
   }
 
-  deleteLoan(id:number){
-    this.router.navigate(['/confirmDeleteLoan',id]);
-  }
-
   sendFeedback(){
     this.router.navigate(['/useraddfeedback']);
   }
 
+
+  confirmDelete(loanApplicationId: number): void {
+    this.confirmDeleteId = loanApplicationId;
+  }
+
+  deleteLoan(){
+    if (this.confirmDeleteId !== null) {
+      this.loanService.deleteLoanApplication(this.confirmDeleteId).subscribe(data =>{
+        this.getAppliedLoans();
+        this.confirmDeleteId = null;
+      })
+    }
+  }
+
+  cancelDelete(): void {
+    this.confirmDeleteId = null;
+  }
+    filterLoans(){
+      this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
+        this.loans = data;
+        this.loans= this.loans.filter(loan=>loan.loanStatus==parseInt(this.selectedStatus));
+      });
+    
+      
+    };
+
 }
+
+  
+  
+    
+ 
+  
+  
+  
+    
+
+

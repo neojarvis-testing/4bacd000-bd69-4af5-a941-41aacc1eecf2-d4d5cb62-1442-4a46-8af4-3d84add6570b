@@ -168,3 +168,47 @@ button:disabled {
     padding: 6px 10px;
   }
 }
+
+
+/* Edit by Tarun */
+.popup {
+  position: fixed; /* Fix popup on the screen */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to exact center */
+  background-color: white; /* White background for popup */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  width: 31%; /* Adjust popup width */
+  z-index: 1000; /* Ensure it's above other elements */
+  box-sizing: border-box;
+}
+
+.popup p {
+  margin: 10px 0; /* Add spacing between text */
+}
+
+.popup button {
+  margin: 5px; /* Add space between the popup buttons */
+  background-color: #e53935; /* Red background for delete button */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #c62828; /* Darker red on hover */
+}
+
+.popup button:last-child {
+  background-color: #4CAF50; /* Blue for cancel button */
+}
+
+.popup button:last-child:hover {
+  background-color: #4CAF50; /* Darker blue on hover */
+}

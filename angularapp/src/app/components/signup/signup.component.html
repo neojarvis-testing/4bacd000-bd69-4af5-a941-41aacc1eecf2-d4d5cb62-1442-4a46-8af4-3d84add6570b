@@ -16,11 +16,21 @@
     <div *ngIf="fieldErrors.mobileNumber" class="error">{{ fieldErrors.mobileNumber }}</div>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="registerData.password" name="password" (blur)="validateField('password')" required>
+    <div class="password-wrapper">
+      <input type="password" id="password" [(ngModel)]="registerData.password" name="password" (blur)="validateField('password')" required>
+      <span class="password-icon" (mouseover)="togglePasswordVisibility('password', true)" (mouseout)="togglePasswordVisibility('password', false)">
+        <i class="fa-solid fa-eye"></i>
+      </span>
+    </div>
     <div *ngIf="fieldErrors.password" class="error">{{ fieldErrors.password }}</div>
 
     <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" (blur)="validateField('confirmPassword')" required>
+    <div class="password-wrapper">
+      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" (blur)="validateField('confirmPassword')" required>
+      <span class="password-icon" (mouseover)="togglePasswordVisibility('confirmPassword', true)" (mouseout)="togglePasswordVisibility('confirmPassword', false)">
+        <i class="fa-solid fa-eye"></i>
+      </span>
+    </div>
     <div *ngIf="fieldErrors.confirmPassword" class="error">{{ fieldErrors.confirmPassword }}</div>
 
     <label for="role">Select Role:</label>

@@ -27,6 +27,15 @@
 />
 
 
+<select id="status" [(ngModel)]="selectedStatus" (change)="filterLoans()">
+      <option value="">All</option>
+      <option value="2">Accept</option>
+      <option value="0">Reject</option>
+      <option value="1">Pending</option>
+</select>
+  
+
+
 <table>
   <thead>
     <tr>
@@ -59,10 +68,16 @@
       </td>
       <td>
         <button *ngIf="loan.loanStatus != 2" class="view-details" (click)="viewDetails(loan.loanApplicationId)">View Details</button>
-        <button *ngIf="loan.loanStatus != 2" class="delete" (click)="deleteLoan(loan.loanApplicationId)">Delete</button>
+        <button *ngIf="loan.loanStatus != 2" class="delete" (click)="confirmDelete(loan.loanApplicationId)">Delete</button>
         <button *ngIf="loan.loanStatus == 2" class="feedback" (click)="sendFeedback()">Rate & Feedback</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="confirmDeleteId !== null" class="popup">
+  <p>Are you sure you want to delete this Loan Application?</p>
+  <button (click)="deleteLoan()">Yes, Delete</button>
+  <button (click)="cancelDelete()">Cancel</button>
+</div>
 </div>
