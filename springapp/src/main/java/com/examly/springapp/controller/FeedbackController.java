@@ -16,8 +16,12 @@ import com.examly.springapp.service.FeedbackService;
 @RestController
 public class FeedbackController {
 
+    private final FeedbackService feedbackService;
+
     @Autowired
-    private FeedbackService feedbackService;
+    public FeedbackController(FeedbackService feedbackService) {
+        this.feedbackService = feedbackService;
+    }
 
     @PostMapping("/api/feedback")
     public ResponseEntity<?> createFeedback(@RequestBody Feedback feedback) {
@@ -44,7 +48,7 @@ public class FeedbackController {
     public ResponseEntity<?> getAllFeedbacks() {
         try {
             List<Feedback> feedbackList = feedbackService.getAllFeedbacks();
-            
+
             return ResponseEntity.status(200).body(feedbackList);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("An error occurred.");
@@ -65,7 +69,7 @@ public class FeedbackController {
     public ResponseEntity<?> getFeedbacksByUserId(@PathVariable Long userId) {
         try {
             List<Feedback> feedbackList = feedbackService.getFeedbacksByUserId(userId);
-            return ResponseEntity.status(200).body(feedbackList); 
+            return ResponseEntity.status(200).body(feedbackList);
         } catch (Exception e) {
             return ResponseEntity.status(404).body("No feedbacks found for this user.");
         }

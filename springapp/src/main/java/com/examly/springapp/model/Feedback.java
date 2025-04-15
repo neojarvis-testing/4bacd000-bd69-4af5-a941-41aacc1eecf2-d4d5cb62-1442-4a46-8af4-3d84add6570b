@@ -1,4 +1,5 @@
 package com.examly.springapp.model;
+import java.io.Serializable;
 import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Feedback {
+public class Feedback implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
