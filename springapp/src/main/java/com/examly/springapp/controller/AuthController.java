@@ -2,6 +2,7 @@ package com.examly.springapp.controller;
 
 import com.examly.springapp.dto.LoginDTO;
 import com.examly.springapp.dto.LoginResponseDTO;
+import com.examly.springapp.dto.UserProfileDTO;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.UserService;
@@ -68,9 +69,9 @@ public class AuthController {
     }
 
     @GetMapping("/api/userProfile/{userId}")
-    public ResponseEntity<?> getUserProfile(@PathVariable Long userId){
-        User eUser = userService.getUserProfile(userId);
-        return ResponseEntity.status(200).body(eUser);
+    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+        UserProfileDTO userProfileDTO = userService.getUserProfileDTO(userId);
+        return ResponseEntity.status(200).body(userProfileDTO);
     }
 
 }
