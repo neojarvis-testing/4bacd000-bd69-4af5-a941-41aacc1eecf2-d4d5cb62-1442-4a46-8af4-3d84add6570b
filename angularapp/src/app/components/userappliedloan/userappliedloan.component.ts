@@ -13,6 +13,10 @@ export class UserappliedloanComponent implements OnInit {
   loans: LoanApplication[] = [];
   userId:number;
   searchData:string="";
+  filter : string="All";
+  filteredLoans: LoanApplication[] = [];
+  selectedStatus: string = '';
+
 
   constructor(private loanService: LoanService, private router:Router,private activatedRoute:ActivatedRoute) {}
   ngOnInit(): void {
@@ -52,4 +56,23 @@ export class UserappliedloanComponent implements OnInit {
     this.router.navigate(['/useraddfeedback']);
   }
 
-}
+  
+
+  filterLoans(){
+      this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
+        this.loans = data;
+        this.loans= this.loans.filter(loan=>loan.loanStatus==parseInt(this.selectedStatus));
+      });
+    
+      
+    };
+
+  }
+  
+    
+ 
+  
+  
+  
+    
+

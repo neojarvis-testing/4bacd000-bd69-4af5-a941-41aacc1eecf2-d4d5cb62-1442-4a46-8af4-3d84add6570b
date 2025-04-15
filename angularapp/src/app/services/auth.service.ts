@@ -61,4 +61,10 @@ export class AuthService {
   validateUser(user: User): Observable<any> {
     return this.httpClient.post(AppConfig.baseUrl + 'api/validateUser', user);
   }
+
+  getUserProfile(userId:number):Observable<any>{
+    return this.httpClient.get(AppConfig.baseUrl + "/api/userProfile/"+userId);
+  }
+
+
 }
