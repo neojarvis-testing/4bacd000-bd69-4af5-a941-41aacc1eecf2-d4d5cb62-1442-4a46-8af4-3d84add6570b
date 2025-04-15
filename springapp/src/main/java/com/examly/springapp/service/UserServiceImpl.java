@@ -67,4 +67,10 @@ public class UserServiceImpl implements UserService {
 
         return errors;
     }
+
+    @Override
+    public User getUserProfile(Long userId) {
+        Optional<User> userProfile = userRepo.findById(userId);
+        return userProfile.get();
+    }
 }
