@@ -1,0 +1,39 @@
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.fa-circle-user {
+  font-size: 150px; /* Large profile icon */
+  color: rgb(94 167 63); /* Neutral professional tone */
+  margin-bottom: 20px; /* Space between icon and details */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Enhances visibility */
+}
+
+.user-details {
+  text-align: center;
+}
+
+.user-name {
+  font-size: 26px; /* Font size for username */
+  font-weight: bold; /* Makes "Username:" bold */
+  color: #ffffff; /* White for high contrast against the background */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Improves readability */
+}
+
+.user-email {
+  font-size: 26px; /* Font size for email */
+  font-weight: bold; /* Makes "Email:" bold */
+  color: #ffffff; /* White for high contrast against the background */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Improves readability */
+}
+
+/* Data-specific adjustments */
+.user-name::after, .user-email::after {
+  font-weight: normal; /* Keeps the data non-bold */
+  color: rgb(56, 95, 56); /* Slightly lighter tone for data */
+  content: attr(data-value); /* Pulls data dynamically */
+}
