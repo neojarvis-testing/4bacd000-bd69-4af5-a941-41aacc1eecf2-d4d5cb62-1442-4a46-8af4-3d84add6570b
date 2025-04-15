@@ -11,22 +11,22 @@ import { LoanService } from 'src/app/services/loan.service';
 export class UserappliedloanComponent implements OnInit {
 
   loans: LoanApplication[] = [];
-  userId:number;
-  searchData:string="";
+  userId: number;
+  searchData: string = "";
 
   confirmDeleteId: number | null = null;
 
-  filter : string="All";
+  filter: string = "All";
   filteredLoans: LoanApplication[] = [];
   selectedStatus: string = '';
 
 
-  constructor(private loanService: LoanService, private router:Router,private activatedRoute:ActivatedRoute) {}
+  constructor(private loanService: LoanService, private router: Router, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.userId = parseInt(sessionStorage.getItem("userId"));
-   
+
     this.getAppliedLoans();
-    
+
 
   }
 
@@ -34,24 +34,24 @@ export class UserappliedloanComponent implements OnInit {
     this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
       this.loans = data;
       console.log(this.loans);
-  
+
     });
   }
 
   search() {
     this.loanService.getAllLoanApplications().subscribe(data => {
       this.loans = data;
-      this.loans = this.loans.filter(l => 
+      this.loans = this.loans.filter(l =>
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
       );
     });
   }
 
-  viewDetails(id:number){
-    this.router.navigate(['/viewAppliedLoanDetails',id]);
+  viewDetails(id: number) {
+    this.router.navigate(['/viewAppliedLoanDetails', id]);
   }
 
-  sendFeedback(){
+  sendFeedback() {
     this.router.navigate(['/useraddfeedback']);
   }
 
@@ -60,9 +60,9 @@ export class UserappliedloanComponent implements OnInit {
     this.confirmDeleteId = loanApplicationId;
   }
 
-  deleteLoan(){
+  deleteLoan() {
     if (this.confirmDeleteId !== null) {
-      this.loanService.deleteLoanApplication(this.confirmDeleteId).subscribe(data =>{
+      this.loanService.deleteLoanApplication(this.confirmDeleteId).subscribe(data => {
         this.getAppliedLoans();
         this.confirmDeleteId = null;
       })
@@ -72,24 +72,37 @@ export class UserappliedloanComponent implements OnInit {
   cancelDelete(): void {
     this.confirmDeleteId = null;
   }
-    filterLoans(){
+
+  filterLoans() {
+
+    if(this.selectedStatus){
       this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
         this.loans = data;
-        this.loans= this.loans.filter(loan=>loan.loanStatus==parseInt(this.selectedStatus));
+        this.loans = this.loans.filter(loan => loan.loanStatus == parseInt(this.selectedStatus));
       });
-    
-      
-    };
+    }else{
+      this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data=>{
+        this.loans = data;
+      })
+    }
+
+
+
+
+
+
+
+  };
 
 }
 
-  
-  
-    
- 
-  
-  
-  
-    
+
+
+
+
+
+
+
+
 
 

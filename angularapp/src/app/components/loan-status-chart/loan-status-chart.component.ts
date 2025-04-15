@@ -53,9 +53,9 @@ export class LoanStatusChartComponent implements OnInit {
   
           this.loanService.getLoanApplications().subscribe(loans => {
             this.totalLoans = loans.length;
-            this.pendingLoans = loans.filter(loan => loan.loanStatus === 0).length;
+            this.pendingLoans = loans.filter(loan => loan.loanStatus === 1).length;
             this.approvedLoans = loans.filter(loan => loan.loanStatus === 2).length;
-            this.rejectedLoans = loans.filter(loan => loan.loanStatus === 1).length;
+            this.rejectedLoans = loans.filter(loan => loan.loanStatus === 0).length;
 
             this.pieChartData.datasets[0].data = [this.pendingLoans, this.approvedLoans, this.rejectedLoans];
           }); 
