@@ -122,4 +122,24 @@ body {
       padding: 10px; /* Compact padding for buttons */
     }
   }
+
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-wrapper input[type="password"] {
+    width: 100%; /* Full width for the input field */
+    padding-right: 30px; /* Space for the icon */
+  }
+  
+  .password-icon {
+    position: absolute;
+    right: 10px; /* Place the icon at the end of the input field */
+    cursor: pointer;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: #888; /* Subtle color for the icon */
+  }
+  
   
