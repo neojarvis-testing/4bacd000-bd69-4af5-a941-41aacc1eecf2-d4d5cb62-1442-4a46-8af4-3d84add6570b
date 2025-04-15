@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Loan Application Status Overview</h2>
+
+  <div class="content-row">
+    <div class="chart-container">
+      <canvas baseChart [datasets]="pieChartData.datasets" 
+                        [labels]="pieChartData.labels" 
+                        [options]="pieChartOptions"
+                        [chartType]="'pie'">
+      </canvas>
+    </div>
+
+    <div class="analytics-container">
+      <div class="analytics-card">
+        <h3>Applied Loans</h3>
+        <p>{{ totalLoans }}</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Pending Loans</h3>
+        <p>{{ pendingLoans }}</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Approved Loans</h3>
+        <p>{{ approvedLoans }}</p>
+      </div>
+      <div class="analytics-card">
+        <h3>Rejected Loans</h3>
+        <p>{{ rejectedLoans }}</p>
+      </div>
+    </div>
+  </div>
+</div>

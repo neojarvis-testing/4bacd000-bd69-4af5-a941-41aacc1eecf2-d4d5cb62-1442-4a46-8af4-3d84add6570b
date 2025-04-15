@@ -1,0 +1,103 @@
+/* General Container Styling */
+.container {
+  max-width: 900px; /* Reduce the overall container size */
+  height: 30%;
+  margin: auto;
+  padding: 20px;
+  background: #f8f9fa; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading Styling */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50; /* Professional dark blue */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Modern style */
+}
+
+/* Content Row Styling */
+.content-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for better responsiveness */
+  gap: 30px; /* Space between pie chart and cards */
+  justify-content: center; /* Center-align content */
+  align-items: flex-start; /* Align items to the top */
+  margin-top: 15px auto;
+}
+
+/* Chart Container Styling */
+.chart-container {
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px auto;
+}
+
+canvas {
+  width: 550px !important; /* Larger pie chart */
+  height: 300px !important; /* Larger pie chart */
+}
+
+/* Analytics Cards Container Styling */
+.analytics-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create 2 columns for cards */
+  gap: 20px; /* Space between cards */
+  flex: 1; /* Allow it to take more space */
+  margin-top: 25px; /* Adds space from the top */
+  margin-right: 15px;
+}
+
+/* Individual Analytics Card Styling */
+.analytics-card {
+  background: #ffffff; /* Clean white background */
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  transition: transform 0.3s ease-in-out; /* Adds hover effect */
+}
+
+.analytics-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Analytics Card Heading Styling */
+.analytics-card h3 {
+  font-size: 18px;
+  color: #2c3e50; /* Professional dark blue */
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Analytics Card Text Styling */
+.analytics-card p {
+  font-size: 20px;
+  color: #34495e; /* Muted blue for text */
+  font-weight: 500; /* Slightly bold for emphasis */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .content-row {
+    flex-direction: column; /* Stack pie chart and cards vertically */
+    align-items: center; /* Center-align content */
+  }
+
+  .analytics-container {
+    grid-template-columns: 1fr; /* Display one card per row on smaller screens */
+  }
+
+  canvas {
+    width: 300px !important; /* Reduce pie chart size for smaller screens */
+    height: 300px !important; /* Reduce pie chart size for smaller screens */
+  }
+}

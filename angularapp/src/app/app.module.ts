@@ -35,7 +35,8 @@ import { LivestockLoanComponent } from './components/livestock-loan/livestock-lo
 import { LandPurchaseLoanComponent } from './components/land-purchase-loan/land-purchase-loan.component';
 import { FarmAlliedLoanComponent } from './components/farm-allied-loan/farm-allied-loan.component';
 import { OtpComponent } from './components/otp/otp.component';
-
+import { LoanStatusChartComponent } from './components/loan-status-chart/loan-status-chart.component';
+import { ChartsModule } from 'ng2-charts'
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { OtpComponent } from './components/otp/otp.component';
     LivestockLoanComponent,
     LandPurchaseLoanComponent,
     FarmAlliedLoanComponent,
-    OtpComponent
+    OtpComponent,
+    LoanStatusChartComponent
 
   ],
   imports: [
@@ -75,7 +77,8 @@ import { OtpComponent } from './components/otp/otp.component';
     AppRoutingModule, 
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

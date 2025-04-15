@@ -28,6 +28,7 @@ import { LivestockLoanComponent } from './components/livestock-loan/livestock-lo
 import { LandPurchaseLoanComponent } from './components/land-purchase-loan/land-purchase-loan.component';
 import { FarmAlliedLoanComponent } from './components/farm-allied-loan/farm-allied-loan.component';
 import { OtpComponent } from './components/otp/otp.component';
+import { LoanStatusChartComponent } from './components/loan-status-chart/loan-status-chart.component';
 
 
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'land-purchase-loan', component: LandPurchaseLoanComponent},
   {path:'farm-allied-loan', component: FarmAlliedLoanComponent },
   {path:'loanapplicationform',component:LoanformComponent},
+  { path: 'analytics', component: LoanStatusChartComponent},
   {path:'**', component: LoginComponent }
 
 

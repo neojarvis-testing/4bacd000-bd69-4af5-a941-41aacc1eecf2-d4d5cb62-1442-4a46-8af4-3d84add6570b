@@ -85,6 +85,11 @@ export class LoanService {
   changeStatus(loanId:number, status:number):Observable<any>{
     return this.http.put(AppConfig.baseUrl + "api/loanapplication/loan/" +loanId+"/status/"+status,"");
   }
+
+  getLoanApplications(): Observable<LoanApplication[]> {
+    return this.http.get<LoanApplication[]>(AppConfig.baseUrl + "api/loanapplication"); // ✅ Corrected Endpoint
+  }
+  
   
 }
  

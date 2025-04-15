@@ -15,12 +15,17 @@
 
     <a routerLink="/requestedloan">Loan Requested</a>
     <a routerLink="/adminviewfeedback">Feedbacks</a>
+    <a routerLink="/analytics">Loan Analytics</a>
+   
+    
 
     <div class="admin-dropdown">
       <button class="admin-dropbtn" aria-haspopup="true" aria-expanded="false">{{username}}/Admin</button>
       <div class="dropdown-content">
         <a routerLink="/viewprofile">View Profile</a>
         <a (click)="logout()">Logout</a>
+       
+
       </div>
     </div>
   </div>
