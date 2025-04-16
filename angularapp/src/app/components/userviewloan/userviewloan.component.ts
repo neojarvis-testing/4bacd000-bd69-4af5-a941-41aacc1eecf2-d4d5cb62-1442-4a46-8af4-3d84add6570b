@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Loan } from 'src/app/models/loan.model';
 import { LoanApplication } from 'src/app/models/loanapplication.model';
 import { LoanService } from 'src/app/services/loan.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-userviewloan',
@@ -10,6 +12,9 @@ import { LoanService } from 'src/app/services/loan.service';
   styleUrls: ['./userviewloan.component.css']
 })
 export class UserviewloanComponent implements OnInit {
+  subscription1: Subscription;
+  subscription2: Subscription;
+  subscription3: Subscription;
 
   loans: Loan[] = [];
   loansApplied: LoanApplication[] = [];
@@ -27,21 +32,21 @@ export class UserviewloanComponent implements OnInit {
 
   }
 
-  getAllLoans() {
-    this.loanService.getAllLoans().subscribe(data => {
+  public getAllLoans() {
+    this.subscription1=this.loanService.getAllLoans().subscribe(data => {
       this.loans = data;
       console.log(this.loans);
     });
   }
 
-  getAppliedLoans() {
-    this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
+  public getAppliedLoans() {
+    this,this.subscription2=this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
       this.loansApplied = data;
       console.log(this.loansApplied);
     })
   }
 
-  isApplied(loanId: number) {
+  public isApplied(loanId: number) {
   console.log("inside the is Applied");
   console.log(loanId);
 
@@ -57,19 +62,31 @@ export class UserviewloanComponent implements OnInit {
 
   }
 
-  appliedButton(loanId: number) {
+  public appliedButton(loanId: number) {
     this.appliedLoans.add(loanId);
     this.checkAppliedLoan = true;
     this.router.navigate(['/loanapplicationform', loanId]);
   }
 
-  search() {
-    this.loanService.getAllLoans().subscribe(data => {
+  public search() {
+    this.subscription3=this.loanService.getAllLoans().subscribe(data => {
       this.loans = data;
       this.loans = this.loans.filter(l =>
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
       );
     });
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription3){
+      this.subscription3.unsubscribe();
+    }
   }
 
 }

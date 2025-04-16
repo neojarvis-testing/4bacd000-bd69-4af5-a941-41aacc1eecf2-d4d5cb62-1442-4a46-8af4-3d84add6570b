@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanApplication } from 'src/app/models/loanapplication.model';
 import { LoanService } from 'src/app/services/loan.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-view-applied-loan-details',
@@ -9,6 +11,7 @@ import { LoanService } from 'src/app/services/loan.service';
   styleUrls: ['./view-applied-loan-details.component.css']
 })
 export class ViewAppliedLoanDetailsComponent implements OnInit {
+  subscription: Subscription;
 
 
   loanApplication:LoanApplication ={
@@ -37,19 +40,25 @@ export class ViewAppliedLoanDetailsComponent implements OnInit {
     
   }
 
-  getLoanApp(){
-    this.loanService.getLoanApplicationById(this.loanAppId).subscribe(data=>{
+  public getLoanApp(){
+    this.subscription=this.loanService.getLoanApplicationById(this.loanAppId).subscribe(data=>{
       this.loanApplication = data;
       console.log(this.loanApplication)
     })
   }
 
-  backButtonForUser(){
+  public backButtonForUser(){
     this.router.navigate(['/userappliedloan'])
   }
 
-  backButtonForAdmin(){
+  public backButtonForAdmin(){
     this.router.navigate(['/requestedloan'])
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
 
 }

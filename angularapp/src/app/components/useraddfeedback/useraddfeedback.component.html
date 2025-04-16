@@ -15,47 +15,40 @@
 
 <div class="container" *ngIf="!popupMessage">
   <div class="feedback-form">
-    <form (ngSubmit)="submitFeedback(feedbackForm)" #feedbackForm="ngForm">
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
       <h2>Add Feedback</h2>
+      
       <div class="form-group">
         <label for="feedbackText">Feedback *</label>
         <textarea
           id="feedbackText"
-          name="feedbackText"
-          [(ngModel)]="feedbackText"
-          required
-          minlength="5"
+          formControlName="feedbackText"
           placeholder="Write your feedback here..."
-          #feedbackTextRef="ngModel"
         ></textarea>
       </div>
 
-      <div *ngIf="feedbackTextRef.invalid && feedbackTextRef.touched" class="error-messages">
-        <p *ngIf="feedbackTextRef.errors?.required">Feedback is required.</p>
-        <p *ngIf="feedbackTextRef.errors?.minlength">Feedback must be at least 5 characters long.</p>
+      <div *ngIf="feedbackForm.get('feedbackText')?.invalid && feedbackForm.get('feedbackText')?.touched" class="error-messages">
+        <p *ngIf="feedbackForm.get('feedbackText')?.errors?.required">Feedback is required.</p>
+        <p *ngIf="feedbackForm.get('feedbackText')?.errors?.minlength">Feedback must be at least 5 characters long.</p>
       </div>
 
       <div class="form-group">
         <label for="rating">Rating *</label>
-        <select
-          id="rating"
-          name="rating"
-          [(ngModel)]="rating"
-          required
-          #ratingRef="ngModel">
+        <select id="rating" formControlName="rating">
           <option value="" disabled>Select Rating</option>
           <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">{{num}}</option>
         </select>
       </div>
       
-      <div *ngIf="ratingRef.invalid && ratingRef.touched" class="error-messages">
-        <p *ngIf="ratingRef.errors?.required">Rating is required.</p>
+      <div *ngIf="feedbackForm.get('rating')?.invalid && feedbackForm.get('rating')?.touched" class="error-messages">
+        <p *ngIf="feedbackForm.get('rating')?.errors?.required">Rating is required.</p>
       </div>
       
       <button type="submit" [disabled]="feedbackForm.invalid">Submit</button>
     </form>
   </div>
 </div>
+
 
 <div *ngIf="popupMessage" class="popup">
   <p>{{popupMessage}}</p>
