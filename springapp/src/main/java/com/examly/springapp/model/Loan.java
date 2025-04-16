@@ -1,5 +1,7 @@
 package com.examly.springapp.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +18,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class Loan {
+public class Loan implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long loanId; 
@@ -28,7 +30,6 @@ public class Loan {
     private String eligibility;
     private String documentsRequired;
 
-    // 
     private boolean isApplied;
 
 }

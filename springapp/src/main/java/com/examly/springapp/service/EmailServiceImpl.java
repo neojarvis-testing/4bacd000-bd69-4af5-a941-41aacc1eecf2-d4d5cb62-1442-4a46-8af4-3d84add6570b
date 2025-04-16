@@ -1,11 +1,9 @@
 package com.examly.springapp.service;
 
 import com.examly.springapp.model.LoanApplication;
-
 import jakarta.mail.internet.MimeMessage;
 import java.io.File;
 import java.nio.file.Files;
-
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -15,8 +13,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailServiceImpl implements EmailService {
-    @Autowired
-    private JavaMailSender mailSender;
+    private final JavaMailSender mailSender;
+
+    public EmailServiceImpl(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
+    }
 
     @Value("${admin.email}")
     private String adminEmail;

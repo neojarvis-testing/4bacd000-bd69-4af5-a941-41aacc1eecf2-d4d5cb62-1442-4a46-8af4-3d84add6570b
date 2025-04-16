@@ -2,7 +2,6 @@ package com.examly.springapp.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examly.springapp.model.LoanApplication;
@@ -18,18 +18,21 @@ import com.examly.springapp.service.LoanApplicationService;
 import jakarta.persistence.EntityNotFoundException;
 
 @RestController
+@RequestMapping("/api/loanapplication")
 public class LoanApplicationController {
 
-    @Autowired
-    private LoanApplicationService loanApplicationService;
+    private final LoanApplicationService loanApplicationService;
 
-    @PostMapping("/api/loanapplication")
+    public LoanApplicationController(LoanApplicationService loanApplicationService) {
+        this.loanApplicationService = loanApplicationService;
+    }
+    @PostMapping
     public ResponseEntity<?> addLoanApplication(@RequestBody LoanApplication loanApplication) {
         LoanApplication loanApp = loanApplicationService.addLoanApplication(loanApplication);
         return ResponseEntity.status(201).body(loanApp);
     }
 
-    @GetMapping("/api/loanapplication/user/{userId}")
+    @GetMapping("/user/{userId}")
     public ResponseEntity<?> getLoanApplicationsByUserId(@PathVariable Long userId){
         try{
             List<LoanApplication> loanApps = loanApplicationService.getLoanApplicationByUserId(userId);
@@ -39,7 +42,7 @@ public class LoanApplicationController {
         } 
     }
 
-    @GetMapping("/api/loanapplication/{loanApplicationId}")
+    @GetMapping("/{loanApplicationId}")
     public ResponseEntity<?> getLoanApplicationById(@PathVariable Long loanApplicationId) {
         try {
             LoanApplication loanApp = loanApplicationService.getLoanApplicationById(loanApplicationId);
@@ -49,7 +52,7 @@ public class LoanApplicationController {
         }
     }
 
-    @GetMapping("/api/loanapplication")
+    @GetMapping
     public ResponseEntity<?> getAllLoanApplications() {
         try {
             List<LoanApplication> loanApplications = loanApplicationService.getAllLoanApplications();
@@ -59,7 +62,7 @@ public class LoanApplicationController {
         }
     }
 
-    @PutMapping("/api/loanapplication/{loanapplicationid}")
+    @PutMapping("/{loanapplicationid}")
     public ResponseEntity<?> updateLoanApplication(@PathVariable Long loanapplicationid,
             @RequestBody LoanApplication loanApplication) {
         try {
@@ -72,13 +75,13 @@ public class LoanApplicationController {
 
     }
 
-    @PutMapping("api/loanapplication/loan/{loanId}/status/{status}")
+    @PutMapping("/loan/{loanId}/status/{status}")
     public ResponseEntity<?> changeLoanApplicationStatus(@PathVariable Long loanId, @PathVariable int status){
         LoanApplication loanStatusChange = loanApplicationService.changeLoanApplicationStatus(loanId,status);
         return ResponseEntity.status(200).body(loanStatusChange);
     }
 
-    @DeleteMapping("/api/loanapplication/{loanapplicationid}")
+    @DeleteMapping("/{loanapplicationid}")
     public ResponseEntity<?> deleteLoanApplication(@PathVariable Long loanapplicationid) {
         try {
             loanApplicationService.deleteLoanApplication(loanapplicationid);
