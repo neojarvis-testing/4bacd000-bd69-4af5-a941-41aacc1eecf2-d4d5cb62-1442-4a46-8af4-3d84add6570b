@@ -7,6 +7,7 @@ import com.examly.springapp.model.LoanApplication;
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.EmailService;
 import com.examly.springapp.service.PdfService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.examly.springapp.repository.LoanApplicationRepo;
 import com.examly.springapp.repository.LoanRepo;
@@ -17,14 +18,11 @@ import java.util.Base64;
 @Service
 public class LoanApplicationServiceImpl implements LoanApplicationService{
 
-
     @Autowired
     private EmailService emailService;
 
     @Autowired
     private PdfService pdfService;
-
-
 
     private final LoanApplicationRepo loanApplicationRepo;
     private final LoanRepo loanRepo;
