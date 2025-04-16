@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanService } from 'src/app/services/loan.service';
 import { Loan } from 'src/app/models/loan.model';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-viewloan',
@@ -8,6 +10,10 @@ import { Loan } from 'src/app/models/loan.model';
   styleUrls: ['./viewloan.component.css']
 })
 export class ViewloanComponent implements OnInit {
+  subscription1: Subscription;
+  subscription2: Subscription;
+  subscription3: Subscription;
+
 
   loans: Loan[] = [];
   searchData: string = "";
@@ -24,37 +30,37 @@ export class ViewloanComponent implements OnInit {
     this.getAllLoans();
   }
 
-  search() {
-    this.loanService.getAllLoans().subscribe(data => {
+  public search() {
+    this.subscription1=this.loanService.getAllLoans().subscribe(data => {
       this.loans = data.filter(l => 
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
       );
     });
   }
 
-  getAllLoans() {
-    this.loanService.getAllLoans().subscribe(data => {
+  public getAllLoans() {
+    this.subscription2=this.loanService.getAllLoans().subscribe(data => {
       this.loans = data;
     });
   }
 
-  confirmDelete(id: number) {
+  public confirmDelete(id: number) {
     this.selectedLoanId = id;
     this.showConfirmDialog = true;
   }
 
-  deleteLoan() {
-      this.loanService.deleteLoan(this.selectedLoanId).subscribe((data) => {
+  public deleteLoan() {
+      this.subscription3=this.loanService.deleteLoan(this.selectedLoanId).subscribe((data) => {
         this.getAllLoans();
         this.showConfirmDialog = false;
       }); 
   }
 
-  cancelDelete() {
+  public cancelDelete() {
     this.showConfirmDialog = false;
   }
 
-  sortByInterest(){
+  public sortByInterest(){
     if(this.order=='ASC'){
       this.loans.sort((i1,i2)=>i1.interestRate - i2.interestRate);
       this.order='DSC';
@@ -64,7 +70,7 @@ export class ViewloanComponent implements OnInit {
     }
   }
 
-  sortByMaximumAmount(){
+  public sortByMaximumAmount(){
     if(this.order2=='ASC'){
       this.loans.sort((i1,i2)=>i1.maximumAmount - i2.maximumAmount);
       this.order2='DSC';
@@ -75,7 +81,7 @@ export class ViewloanComponent implements OnInit {
     
   }
 
-  sortByTenure(){
+  public sortByTenure(){
     if(this.order3=='ASC'){
       this.loans.sort((i1,i2)=>i1.repaymentTenure - i2.repaymentTenure);
       this.order3='DSC';
@@ -84,6 +90,18 @@ export class ViewloanComponent implements OnInit {
       this.order3='ASC';
     }
     
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription3){
+      this.subscription3.unsubscribe();
+    }
   }
   
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
 import { LoanService } from 'src/app/services/loan.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-loan-status-chart',
@@ -8,6 +10,10 @@ import { LoanService } from 'src/app/services/loan.service';
   styleUrls: ['./loan-status-chart.component.css']
 })
 export class LoanStatusChartComponent implements OnInit {
+  subscription1: Subscription;
+  subscription2: Subscription;
+  subscription3: Subscription;
+
 
   totalLoans = 0;
   pendingLoans = 0;
@@ -36,8 +42,8 @@ export class LoanStatusChartComponent implements OnInit {
   ngOnInit() {
     this.fetchLoanAnalytics();
   }
-  testApiCall() {
-    this.loanService.getLoanApplications().subscribe({
+  public testApiCall() {
+    this.subscription1=this.loanService.getLoanApplications().subscribe({
       next: (loans) => {
         console.log("Test API Call - Loan Data:", loans); 
       },
@@ -47,11 +53,11 @@ export class LoanStatusChartComponent implements OnInit {
     });
   }
   
-  fetchLoanAnalytics() {
-    this.loanService.getLoanApplications().subscribe(loans => {
+  public fetchLoanAnalytics() {
+    this.subscription2=this.loanService.getLoanApplications().subscribe(loans => {
       console.log("Fetched Loan Data:", loans); // Debugging Output
   
-          this.loanService.getLoanApplications().subscribe(loans => {
+          this.subscription3=this.loanService.getLoanApplications().subscribe(loans => {
             this.totalLoans = loans.length;
             this.pendingLoans = loans.filter(loan => loan.loanStatus === 1).length;
             this.approvedLoans = loans.filter(loan => loan.loanStatus === 2).length;
@@ -64,6 +70,19 @@ export class LoanStatusChartComponent implements OnInit {
         this.pieChartData = { ...this.pieChartData };
       }, 0); //  Refresh Chart Data
     });
+  }
+  
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription3){
+      this.subscription3.unsubscribe();
+    }
+
   }
   
 }

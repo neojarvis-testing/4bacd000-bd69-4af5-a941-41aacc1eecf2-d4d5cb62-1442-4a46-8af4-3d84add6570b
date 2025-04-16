@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-useraddfeedback',
@@ -10,50 +12,67 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./useraddfeedback.component.css']
 })
 export class UseraddfeedbackComponent implements OnInit {
+  subscription: Subscription;
   feedbackText: string = '';
   rating : number | null = null;
   popupMessage: string | null = null;
   userId: number;
+  feedbackForm: FormGroup;
 
   ngOnInit(): void {
     this.userId = parseInt(sessionStorage.getItem('userId'));
   }
 
-  constructor(private feedbackService: FeedbackService, private router:Router) { }
 
-  submitFeedback(fm: NgForm): void {
+  constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private router:Router) {
+    this.feedbackForm = this.fb.group({
+      feedbackText: ['', [Validators.required, Validators.minLength(5)]],
+      rating: ['', Validators.required]
+    });
+   }
+
+
+   public submitFeedback(): void {
     console.log('Submit button clicked');
-    console.log("This is the user id")
+    console.log("This is the user id:");
     console.log(this.userId);
-    console.log(fm.value);
+    console.log(this.feedbackForm.value);
 
-    if (!this.feedbackText.trim()) {
+    if (this.feedbackForm.invalid) {
       this.popupMessage = 'Feedback is required.';
       return;
     }
 
     const feedback: Feedback = {
-      feedbackText: this.feedbackText,
+      feedbackText: this.feedbackForm.get('feedbackText')?.value,
       userId: this.userId,
       user: {
         userId: this.userId
       },
       date: new Date(),
-      rating : this.rating
+      rating: this.feedbackForm.get('rating')?.value
     };
 
-    this.feedbackService.sendFeedback(feedback).subscribe(() => {
-      this.popupMessage = 'Successfully Added!';
-      this.feedbackText = '';
-      this.rating = null;
-    },
-      (error) => {
-        console.error('Error submitting feedback:', error);
-      });
-  }
+    this.subscription=this.feedbackService.sendFeedback(feedback).subscribe({
+      next: () => {
+        this.popupMessage = 'Successfully Added!';
+        this.feedbackForm.reset();
+      },
+      error: (err) => {
+        console.error('Error submitting feedback:', err);
+      }
+    });
+}
 
-  closePopup(): void {
+
+public closePopup(): void {
     this.popupMessage = null;
     this.router.navigate(['/userviewfeedback'])
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -15,28 +15,25 @@
 
 <div class="container" *ngIf="!popupMessage">
   <div class="feedback-form">
-    <form (ngSubmit)="submitFeedback(feedbackForm)" #feedbackForm="ngForm">
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
       <h2>Add Feedback</h2>
       
       <div class="form-group">
         <label for="feedbackText">Feedback *</label>
         <textarea
           id="feedbackText"
-          name="feedbackText"
-          [(ngModel)]="feedbackText"
-          required
-          minlength="5"
+          formControlName="feedbackText"
           placeholder="Write your feedback here..."
-          #feedbackTextRef="ngModel"
         ></textarea>
       </div>
 
-      <div *ngIf="feedbackTextRef.invalid && feedbackTextRef.touched" class="error-messages">
-        <p *ngIf="feedbackTextRef.errors?.required">Feedback is required.</p>
-        <p *ngIf="feedbackTextRef.errors?.minlength">Feedback must be at least 5 characters long.</p>
+      <div *ngIf="feedbackForm.get('feedbackText')?.invalid && feedbackForm.get('feedbackText')?.touched" class="error-messages">
+        <p *ngIf="feedbackForm.get('feedbackText')?.errors?.required">Feedback is required.</p>
+        <p *ngIf="feedbackForm.get('feedbackText')?.errors?.minlength">Feedback must be at least 5 characters long.</p>
       </div>
 
       <div class="form-group">
+
         <label>Rate Your Experience *</label>
         <div class="star-rating">
           <input type="radio" id="star1" name="rating" value="5" [(ngModel)]="rating" required />
@@ -54,6 +51,7 @@
           <input type="radio" id="star5" name="rating" value="1" [(ngModel)]="rating" />
           <label for="star5" class="star">&#9734;</label> <!-- Star for rating 5 -->
         </div>
+
       </div>
       
 
@@ -65,6 +63,7 @@
     </form>
   </div>
 </div>
+
 
 <div *ngIf="popupMessage" class="popup">
   <p>{{popupMessage}}</p>

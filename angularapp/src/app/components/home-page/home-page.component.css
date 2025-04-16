@@ -23,6 +23,7 @@ body {
 }
 
 .welcome-title {
+  margin-top: 50px;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 10px;

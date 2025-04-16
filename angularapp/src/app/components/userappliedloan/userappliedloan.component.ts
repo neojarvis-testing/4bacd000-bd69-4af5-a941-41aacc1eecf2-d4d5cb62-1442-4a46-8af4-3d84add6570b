@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanApplication } from 'src/app/models/loanapplication.model';
 import { LoanService } from 'src/app/services/loan.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-userappliedloan',
@@ -9,6 +11,14 @@ import { LoanService } from 'src/app/services/loan.service';
   styleUrls: ['./userappliedloan.component.css']
 })
 export class UserappliedloanComponent implements OnInit {
+
+  subscription1: Subscription;
+  subscription2: Subscription;
+  subscription3: Subscription;
+  subscription4: Subscription;
+  subscription5: Subscription;
+
+
 
   loans: LoanApplication[] = [];
   userId: number;
@@ -30,16 +40,16 @@ export class UserappliedloanComponent implements OnInit {
 
   }
 
-  getAppliedLoans(): void {
-    this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
+  public getAppliedLoans(): void {
+    this.subscription1=this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
       this.loans = data;
       console.log(this.loans);
 
     });
   }
 
-  search() {
-    this.loanService.getAllLoanApplications().subscribe(data => {
+  public search() {
+    this.subscription2=this.loanService.getAllLoanApplications().subscribe(data => {
       this.loans = data;
       this.loans = this.loans.filter(l =>
         JSON.stringify(l).toLowerCase().includes(this.searchData.toLowerCase())
@@ -47,47 +57,67 @@ export class UserappliedloanComponent implements OnInit {
     });
   }
 
-  viewDetails(id: number) {
+  public viewDetails(id: number) {
     this.router.navigate(['/viewAppliedLoanDetails', id]);
   }
 
-  sendFeedback() {
+  public sendFeedback() {
     this.router.navigate(['/useraddfeedback']);
   }
 
 
-  confirmDelete(loanApplicationId: number): void {
+  public confirmDelete(loanApplicationId: number): void {
     this.confirmDeleteId = loanApplicationId;
   }
 
-  deleteLoan() {
+  public deleteLoan() {
     if (this.confirmDeleteId !== null) {
-      this.loanService.deleteLoanApplication(this.confirmDeleteId).subscribe(data => {
+      this.subscription3=this.loanService.deleteLoanApplication(this.confirmDeleteId).subscribe(data => {
         this.getAppliedLoans();
         this.confirmDeleteId = null;
       })
     }
   }
 
-  cancelDelete(): void {
+  public cancelDelete(): void {
     this.confirmDeleteId = null;
   }
 
-  filterLoans() {
+  public filterLoans() {
 
     if(this.selectedStatus){
-      this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
+      this.subscription4=this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data => {
         this.loans = data;
         this.loans = this.loans.filter(loan => loan.loanStatus == parseInt(this.selectedStatus));
       });
     }else{
-      this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data=>{
+      this.subscription5=this.loanService.getLoanApplicationByUserId(this.userId).subscribe(data=>{
         this.loans = data;
       })
     }
 
 
   };
+  
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription3){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription4){
+      this.subscription2.unsubscribe();
+    }
+    if(this.subscription5){
+      this.subscription2.unsubscribe();
+    }
+
+  }
+
 
   downloadPdf(loanApplicationId: number): void {
     this.loanService.downloadLoanApplicationPdf(loanApplicationId).subscribe((response: Blob) => {

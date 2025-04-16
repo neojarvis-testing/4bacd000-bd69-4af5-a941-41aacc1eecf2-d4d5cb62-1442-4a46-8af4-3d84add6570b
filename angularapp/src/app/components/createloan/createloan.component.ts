@@ -30,7 +30,7 @@ export class CreateloanComponent implements OnInit {
     });
   }
 
-  createLoan() {
+  public createLoan() {
     if (this.loanForm.invalid) {
       this.formErrorMessage = "All fields are required";
       return;
@@ -46,7 +46,7 @@ export class CreateloanComponent implements OnInit {
     }
   }
 
-  closePopup(): void {
+  public closePopup(): void {
     this.showSuccessPopup = false; // Close the success pop-up
     this.router.navigate(['/viewLoan']); // Navigate to the loan list
   }

@@ -17,17 +17,17 @@ export class AdminnavComponent implements OnInit {
   
 
   // Handle Logout
-  logout(): void {
+  public logout(): void {
     this.showLogoutModal = true; // Show confirmation modal
   }
 
-  confirmLogout(): void {
+  public confirmLogout(): void {
     this.showLogoutModal = false; // Close modal
     sessionStorage.clear(); // Clear session storage
     this.router.navigate(['/login']); // Redirect to login page
   }
 
-  cancelLogout(): void {
+  public cancelLogout(): void {
     this.showLogoutModal = false; // Close modal
   }
 }

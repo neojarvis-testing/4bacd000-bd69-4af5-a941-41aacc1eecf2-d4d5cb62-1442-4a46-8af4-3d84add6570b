@@ -19,7 +19,7 @@ export class UserviewfeedbackComponent implements OnInit {
     this.getFeedbacksByUserId();
   }
 
-  getFeedbacksByUserId(): void {
+  public getFeedbacksByUserId(): void {
     console.log("=============Inside FeedBacks By User==============")
     console.log(this.userId);
     this.feedbackService.getFeedbacksByUserId(this.userId).subscribe((data) => {
@@ -30,11 +30,11 @@ export class UserviewfeedbackComponent implements OnInit {
       });
   }
 
-  confirmDelete(feedbackId: number): void {
+  public confirmDelete(feedbackId: number): void {
     this.confirmDeleteId = feedbackId;
   }
 
-  deleteFeedback(): void {
+  public deleteFeedback(): void {
     if (this.confirmDeleteId !== null) {
       this.feedbackService.deleteFeedback(this.confirmDeleteId).subscribe(
         (response) => {
@@ -51,7 +51,7 @@ export class UserviewfeedbackComponent implements OnInit {
     }
   }
 
-  cancelDelete(): void {
+  public cancelDelete(): void {
     this.confirmDeleteId = null;
   }
 }

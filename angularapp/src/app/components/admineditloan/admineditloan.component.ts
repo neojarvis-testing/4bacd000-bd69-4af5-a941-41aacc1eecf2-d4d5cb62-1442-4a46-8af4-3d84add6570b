@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanService } from 'src/app/services/loan.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admineditloan',
@@ -9,6 +10,8 @@ import { LoanService } from 'src/app/services/loan.service';
   styleUrls: ['./admineditloan.component.css']
 })
 export class AdmineditloanComponent implements OnInit {
+  subscription1: Subscription;
+  subscription2: Subscription;
 
   loanForm: FormGroup;
   id:number=0;
@@ -30,43 +33,52 @@ export class AdmineditloanComponent implements OnInit {
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get("id"));
     if (this.id){
-      this.loanService.getLoanById(this.id).subscribe(data=>{
+      this.subscription1 = this.loanService.getLoanById(this.id).subscribe(data=>{
         this.loanForm.setValue(data);
       });
     }
     console.log("====================Admin Edit Loan========================");
     console.log(this.id);
     console.log(this.loanForm.value);
-   
+     
   }
 
-  showConfirmation(){
+  public showConfirmation(){
     const modal = document.getElementById('confirmModal');
     if (modal) {
       modal.style.display = 'block';
     }
   }
 
-  onCancel(){
+  public onCancel(){
     const modal = document.getElementById('confirmModal');
     if (modal) {
       modal.style.display = 'none';
     }
   }
   
-  onConfirm(){
+  public onConfirm(){
     this.onCancel();
-    this.loanService.updateLoan(this.id, this.loanForm.value).subscribe(() => {
+    this.subscription2 = this.loanService.updateLoan(this.id, this.loanForm.value).subscribe(() => {
         this.router.navigate(["/viewLoan"]);
     });
   }
 
-  updateLoan()
+  public updateLoan()
   {
     if (this.loanForm.invalid) {
       alert("Please fill in all required fields!");
       return;
     }
     this.showConfirmation();
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
   }
 }

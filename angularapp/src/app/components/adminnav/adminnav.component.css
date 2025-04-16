@@ -1,13 +1,20 @@
 /* General Navbar Styling */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px; /* Adds spacing inside the navbar */
+  display: flex; /* Align items horizontally */
+  justify-content: space-between; /* Space out content */
+  align-items: center; /* Vertically center items */
+  padding: 10px 20px; /* Inner spacing */
   background-color: #4CAF50; /* Green background */
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  color: white; /* Text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  position: fixed; /* Make navbar fixed at the top */
+  top: 0; /* Align it to the very top */
+  width: 100%; /* Full width across the page */
+  z-index: 1000; /* Ensure it stays above other content */
 }
+
+/* Add margin or padding to the body or main content to avoid overlapping */
+
 
 /* Left Section (Brand Name) */
 .navbar-left .brand-name {

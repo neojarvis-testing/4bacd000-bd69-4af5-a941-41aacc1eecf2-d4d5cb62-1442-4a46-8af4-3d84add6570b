@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 import { User } from 'src/app/models/user.model';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-otp',
@@ -10,13 +12,16 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./otp.component.css']
 })
 export class OtpComponent{
+  subscription1: Subscription;
+  subscription2: Subscription;
+
 
   otp: string = '';
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onVerifyOtp() {
+  public onVerifyOtp() {
     const email = localStorage.getItem('registeredEmail'); // Get email
     const userData = localStorage.getItem('registerData'); // Get full user details
     const registerData: User = userData ? JSON.parse(userData) : null; // Parse user details
@@ -26,9 +31,9 @@ export class OtpComponent{
       return;
     }
   
-    this.authService.verifyOtp({ email, otp: this.otp }).subscribe(
+    this.subscription1=this.authService.verifyOtp({ email, otp: this.otp }).subscribe(
       (otpResponse) => {
-        this.authService.register(registerData).subscribe(
+        this.subscription2=this.authService.register(registerData).subscribe(
           (registerResponse) => {
             localStorage.removeItem('registerData');
             this.router.navigate(['/login']);
@@ -42,5 +47,14 @@ export class OtpComponent{
         this.errorMessage = 'Invalid OTP. Please try again.';
       }
     );
-  }  
+  }
+  
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
+    }
+  }
 }

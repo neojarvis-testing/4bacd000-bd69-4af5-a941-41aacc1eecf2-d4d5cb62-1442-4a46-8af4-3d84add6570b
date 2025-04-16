@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  navigateToLoanPage(link: string): void {
+  public navigateToLoanPage(link: string): void {
     this.router.navigate([link]);
   }
  

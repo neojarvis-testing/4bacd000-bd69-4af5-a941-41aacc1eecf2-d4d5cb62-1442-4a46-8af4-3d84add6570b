@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-userprofile',
@@ -8,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./userprofile.component.css']
 })
 export class UserprofileComponent implements OnInit {
+  subscription: Subscription;
 
 
   userId:number;
@@ -26,10 +29,15 @@ export class UserprofileComponent implements OnInit {
     this.getUserProfile(this.userId);
   }
 
-  getUserProfile(userId){
-    this.authService.getUserProfile(userId).subscribe(data=>{
+  public getUserProfile(userId){
+    this.subscription=this.authService.getUserProfile(userId).subscribe(data=>{
       this.userProfile = data;
     })
   }
 
+  public ngOnDestroy(){
+    if(this.subscription){
+      this.subscription.unsubscribe();
+    }
+  }
 }

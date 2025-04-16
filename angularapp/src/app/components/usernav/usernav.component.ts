@@ -17,15 +17,15 @@ export class UsernavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(): void {
+   public logout(): void {
     this.showLogoutModal = true;
   }
-  confirmLogout(): void {
+  public confirmLogout(): void {
     this.showLogoutModal = false;
     sessionStorage.clear();
     this.router.navigate(['/login']); 
   }
-  cancelLogout(): void {
+  public cancelLogout(): void {
     this.showLogoutModal = false;
   }
 }

@@ -13,11 +13,11 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  register(user: User): Observable<any> {
+  public register(user: User): Observable<any> {
     return this.httpClient.post(AppConfig.baseUrl + 'api/register', user);
   }
 
-  login(login: Login): Observable<any> {
+  public login(login: Login): Observable<any> {
     return this.httpClient.post(AppConfig.baseUrl + 'api/login', login).pipe(
         tap((response: any) => {
             if (response.token) {
@@ -33,36 +33,36 @@ export class AuthService {
     );
   }
 
-  getToken(): string | null {
+  public getToken(): string | null {
     return sessionStorage.getItem('jwtToken');
   }
 
-  getUserId(): string | null {
+  public getUserId(): string | null {
     return sessionStorage.getItem('userId');
   }
 
-  logout(): void {
+  public logout(): void {
     sessionStorage.removeItem('jwtToken');
   }
 
-  getUserRole(): string | null {
+  public getUserRole(): string | null {
     return sessionStorage.getItem('userRole');
   }
 
-  verifyOtp(otpRequest: { email: string; otp: string }) {
+  public verifyOtp(otpRequest: { email: string; otp: string }) {
     return this.httpClient.post(AppConfig.baseUrl + 'api/otp/verify', otpRequest, { responseType: 'text' });
   }   
 
-  sendOtp(email: string) {
+  public sendOtp(email: string) {
     console.log("Sending OTP request for:", email); // Debug log
     return this.httpClient.post(AppConfig.baseUrl + 'api/otp/send', email, { responseType: 'text' });
   }
 
-  validateUser(user: User): Observable<any> {
+  public validateUser(user: User): Observable<any> {
     return this.httpClient.post(AppConfig.baseUrl + 'api/validateUser', user);
   }
 
-  getUserProfile(userId:number):Observable<any>{
+  public getUserProfile(userId:number):Observable<any>{
     return this.httpClient.get(AppConfig.baseUrl + "/api/userProfile/"+userId);
   }
 

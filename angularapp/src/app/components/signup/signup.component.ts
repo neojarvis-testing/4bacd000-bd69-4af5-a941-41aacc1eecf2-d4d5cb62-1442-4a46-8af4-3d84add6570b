@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  subscription1: Subscription;
+  subscription2: Subscription;
+
   registerData = {
     username: '',
     email: '',
@@ -22,7 +27,7 @@ export class SignupComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  validateField(field: string) {
+  public validateField(field: string) {
     const value = field === 'confirmPassword' ? this.confirmPassword : this.registerData[field];
 
     // Required field validation
@@ -59,7 +64,7 @@ export class SignupComponent {
     delete this.fieldErrors[field];
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.fieldErrors = {};
     this.errorMessage = '';
 
@@ -71,11 +76,11 @@ export class SignupComponent {
       return;
     }
 
-    this.authService.validateUser(this.registerData).subscribe(
+    this.subscription1=this.authService.validateUser(this.registerData).subscribe(
       (validationResponse) => {
         localStorage.setItem('registerData', JSON.stringify(this.registerData));
 
-        this.authService.sendOtp(this.registerData.email).subscribe(
+        this.subscription2=this.authService.sendOtp(this.registerData.email).subscribe(
           (otpResponse) => {
             localStorage.setItem('registeredEmail', this.registerData.email);
             this.router.navigate(['/otp']);
@@ -95,14 +100,23 @@ export class SignupComponent {
     );
   }
 
-  isFormValid(): boolean {
+  public isFormValid(): boolean {
     return Object.keys(this.fieldErrors).length === 0 && Object.values(this.registerData).every(value => value);
   }
 
-  togglePasswordVisibility(fieldId: string, isVisible: boolean): void {
+  public togglePasswordVisibility(fieldId: string, isVisible: boolean): void {
     const field = document.getElementById(fieldId) as HTMLInputElement;
     if (field) {
       field.type = isVisible ? 'text' : 'password';
+    }
+  }
+
+  public ngOnDestroy(){
+    if(this.subscription1){
+      this.subscription1.unsubscribe();
+    }
+    if(this.subscription2){
+      this.subscription2.unsubscribe();
     }
   }
   

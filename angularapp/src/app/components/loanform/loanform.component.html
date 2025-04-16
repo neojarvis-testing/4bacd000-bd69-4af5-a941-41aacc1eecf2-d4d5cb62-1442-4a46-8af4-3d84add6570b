@@ -15,49 +15,43 @@
 
 <div class="container">
 <h1>Loan Application Form</h1>
-
-<form #loanApplicationForm="ngForm" (ngSubmit)="onSubmit(loanApplicationForm)">
-
-
+<form [formGroup]="loanApplicationForm" (ngSubmit)="onSubmit()">
+  
   <label for="farmLocation">Farm Location*</label>
-  <input type="text" name="farmLocation" id="farmLocation" [(ngModel)]="farmLocation" required #farmLocationRef="ngModel">
-  <div class="error-message" *ngIf="farmLocationRef.touched && farmLocationRef.invalid">
+  <input type="text" id="farmLocation" formControlName="farmLocation">
+  <div class="error-message" *ngIf="loanApplicationForm.get('farmLocation')?.touched && loanApplicationForm.get('farmLocation')?.invalid">
     <div>*Farm Location is required</div>
   </div>
 
-
   <label for="address">Farmer's Address*</label>
-  <textarea name="address" id="address" [(ngModel)]="address" required rows="4" #addressRef="ngModel"></textarea>
-  <br>
-  <div class="error-message" *ngIf="addressRef.touched && addressRef.invalid">
+  <textarea id="address" formControlName="address" rows="4"></textarea>
+  <div class="error-message" *ngIf="loanApplicationForm.get('address')?.touched && loanApplicationForm.get('address')?.invalid">
     <div>*Farmer's Address is required</div>
   </div>
 
-
   <label for="size">Farm Size (in acres)*</label>
-  <input type="number" name="size" id="size" [(ngModel)]="size" required min="0" #sizeRef="ngModel">
- 
-    
-  <div class="error-message" *ngIf="sizeRef.touched && sizeRef.invalid">
+  <input type="number" id="size" formControlName="size">
+  <div class="error-message" *ngIf="loanApplicationForm.get('size')?.touched && loanApplicationForm.get('size')?.hasError('required')">
     <div>*Farm Size is required</div>
   </div>
-  <div class="error-message" *ngIf="sizeRef.touched && size !== undefined && +size < 0">
+  <div class="error-message" *ngIf="loanApplicationForm.get('size')?.touched && loanApplicationForm.get('size')?.hasError('min')">
     <div>*Farm Size must be a non-negative number</div>
   </div>
 
   <label for="purpose">Farm Purpose*</label>
-  <input type="text" name="purpose" id="purpose" [(ngModel)]="purpose" required #purposeRef="ngModel">
-  <div class="error-message" *ngIf="purposeRef.touched && purposeRef.invalid">
+  <input type="text" id="purpose" formControlName="purpose">
+  <div class="error-message" *ngIf="loanApplicationForm.get('purpose')?.touched && loanApplicationForm.get('purpose')?.invalid">
     <div>*Farm Purpose is required</div>
   </div>
 
   <label for="proof">Proof*</label>
-  <input type="file" name="proof" id="proof" (change)="onFileSelected($event)">
-  
+  <input type="file" id="proof" (change)="onFileSelected($event)">
 
- <button type="submit">Submit</button>
- <button routerLink="/userviewloan">Back</button>
+  <button type="submit">Submit</button>
+  <button routerLink="/userviewloan">Back</button>
+
 </form>
+
 </div>
 <div *ngIf="showSuccessPopup" class="popup">
   <div class="popup-content">
