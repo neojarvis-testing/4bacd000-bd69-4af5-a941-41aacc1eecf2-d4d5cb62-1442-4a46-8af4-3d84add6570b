@@ -2,32 +2,35 @@ package com.examly.springapp.controller;
 
 import com.examly.springapp.dto.LoginDTO;
 import com.examly.springapp.dto.LoginResponseDTO;
+import com.examly.springapp.dto.UserProfileDTO;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.examly.springapp.config.*;
 
 import java.util.*;
-
+@RequestMapping("/api")
 @RestController
 public class AuthController {
     
-    @Autowired
+
     private UserService userService;
-    
-    @Autowired
     private JwtUtils jwtUtils;
 
-    @PostMapping("/api/authenticate")
+    public AuthController(UserService userService, JwtUtils jwtUtils){
+        this.userService = userService;
+        this.jwtUtils = jwtUtils;
+    }
+    @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(@RequestParam String username) {
         String token = jwtUtils.generateToken(username);
         return ResponseEntity.ok(token);
     }
 
-    @PostMapping("/api/register")
+    @PostMapping("/register")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         try {
             User createdUser = userService.createUser(user);
@@ -40,7 +43,7 @@ public class AuthController {
     }
     
     
-    @PostMapping("/api/login")
+    @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO) {
         try {
             boolean isLoggedIn = userService.loginUser(loginDTO);
@@ -56,7 +59,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/api/validateUser")
+    @PostMapping("/validateUser")
     public ResponseEntity<?> validateUser(@RequestBody User user) {
         Map<String, String> validationErrors = userService.validateUserData(user);
 
@@ -68,9 +71,9 @@ public class AuthController {
     }
 
     @GetMapping("/api/userProfile/{userId}")
-    public ResponseEntity<?> getUserProfile(@PathVariable Long userId){
-        User eUser = userService.getUserProfile(userId);
-        return ResponseEntity.status(200).body(eUser);
+    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+        UserProfileDTO userProfileDTO = userService.getUserProfileDTO(userId);
+        return ResponseEntity.status(200).body(userProfileDTO);
     }
 
 }

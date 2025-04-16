@@ -1,29 +1,31 @@
 package com.examly.springapp.controller;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examly.springapp.model.Feedback;
 import com.examly.springapp.service.FeedbackService;
 
 @RestController
+@RequestMapping("api/feedback")
+
 public class FeedbackController {
 
     private final FeedbackService feedbackService;
 
-    @Autowired
     public FeedbackController(FeedbackService feedbackService) {
         this.feedbackService = feedbackService;
     }
 
-    @PostMapping("/api/feedback")
+    @PostMapping
     public ResponseEntity<?> createFeedback(@RequestBody Feedback feedback) {
         try {
             Feedback savedFeedback = feedbackService.createFeedback(feedback);
@@ -34,7 +36,7 @@ public class FeedbackController {
 
     }
 
-    @GetMapping("/api/feedback/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getFeedbackById(@PathVariable Long id) {
         try {
             Feedback feedback = feedbackService.getFeedbackById(id);
@@ -44,7 +46,7 @@ public class FeedbackController {
         }
     }
 
-    @GetMapping("/api/feedback")
+    @GetMapping
     public ResponseEntity<?> getAllFeedbacks() {
         try {
             List<Feedback> feedbackList = feedbackService.getAllFeedbacks();
@@ -55,7 +57,7 @@ public class FeedbackController {
         }
     }
 
-    @DeleteMapping("/api/feedback/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteFeedback(@PathVariable Long id) {
         try {
             feedbackService.deleteFeedback(id);
@@ -65,7 +67,7 @@ public class FeedbackController {
         }
     }
 
-    @GetMapping("/api/feedback/user/{userId}")
+    @GetMapping("/user/{userId}")
     public ResponseEntity<?> getFeedbacksByUserId(@PathVariable Long userId) {
         try {
             List<Feedback> feedbackList = feedbackService.getFeedbacksByUserId(userId);

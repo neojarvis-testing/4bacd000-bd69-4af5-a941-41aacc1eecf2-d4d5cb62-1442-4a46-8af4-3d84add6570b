@@ -31,6 +31,7 @@
     <tr>
       <th>S.No</th>
       <th>User Name</th>
+      <th>Loan Type</th>
       <th>Farm Location</th>
       <th>Submission Date</th>
       <th>Farm Size (Acres)</th>
@@ -42,6 +43,7 @@
     <tr *ngFor="let loan of loans;index as i">
       <td>{{ i + 1 }}</td>
       <td>{{ loan.user.username }}</td>
+      <td>{{loan.loan.loanType}}</td>
       <td>{{ loan.farmLocation  }}</td>
       <td>{{ loan.submissionDate | date: 'yyyy-MM-dd' }}</td>
       <td>{{ loan.farmSizeInAcres  }}</td>

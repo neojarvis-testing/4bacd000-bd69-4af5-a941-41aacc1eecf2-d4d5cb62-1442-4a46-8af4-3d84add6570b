@@ -98,7 +98,7 @@ export class UserappliedloanComponent implements OnInit {
 
 
   };
-
+  
   public ngOnDestroy(){
     if(this.subscription1){
       this.subscription1.unsubscribe();
@@ -118,6 +118,17 @@ export class UserappliedloanComponent implements OnInit {
 
   }
 
+
+  downloadPdf(loanApplicationId: number): void {
+    this.loanService.downloadLoanApplicationPdf(loanApplicationId).subscribe((response: Blob) => {
+      const url = window.URL.createObjectURL(response);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `LoanApplication_${loanApplicationId}.pdf`;
+      anchor.click();
+      window.URL.revokeObjectURL(url);
+    });
+  }
 }
 
 

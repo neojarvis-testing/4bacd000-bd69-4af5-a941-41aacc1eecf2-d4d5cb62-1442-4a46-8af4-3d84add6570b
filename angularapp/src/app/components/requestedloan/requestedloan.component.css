@@ -18,7 +18,7 @@ body {
   /* Container for Content */
   .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 1200px;
     padding: 20px;
     margin: 70px auto;
     background-color: #fff;

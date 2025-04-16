@@ -89,7 +89,9 @@ export class LoanService {
   public getLoanApplications(): Observable<LoanApplication[]> {
     return this.http.get<LoanApplication[]>(AppConfig.baseUrl + "api/loanapplication"); // ✅ Corrected Endpoint
   }
-  
-  
+
+  downloadLoanApplicationPdf(loanApplicationId: number): Observable<Blob> {
+    return this.http.get(AppConfig.baseUrl + `/pdf/generate/${loanApplicationId}`, { responseType: 'blob' });
+  }
 }
  

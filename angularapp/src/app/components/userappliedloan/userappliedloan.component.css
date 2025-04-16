@@ -169,8 +169,6 @@ button:disabled {
   }
 }
 
-
-/* Edit by Tarun */
 .popup {
   position: fixed; /* Fix popup on the screen */
   top: 50%; /* Center vertically */
@@ -211,4 +209,31 @@ button:disabled {
 
 .popup button:last-child:hover {
   background-color: #4CAF50; /* Darker blue on hover */
+}
+
+/* General container styling */
+select {
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+ 
+/* Focus styling for dropdown */
+select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(6, 91, 74, 0.5);
+}
+ 
+/* Styling dropdown options */
+option {
+  padding: 10px;
+  font-size: 16px;
 }

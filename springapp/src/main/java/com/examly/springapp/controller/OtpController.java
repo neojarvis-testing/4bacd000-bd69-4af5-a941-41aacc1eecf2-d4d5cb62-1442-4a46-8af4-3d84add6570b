@@ -3,7 +3,6 @@ package com.examly.springapp.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.examly.springapp.service.EmailService;
 import com.examly.springapp.service.OtpService;
@@ -11,12 +10,15 @@ import com.examly.springapp.model.OtpRequest;
 
 @RestController
 @RequestMapping("/api/otp")
-public class OtpController {
-    @Autowired
-    private OtpService otpService;
 
-    @Autowired
-    private EmailService emailService;
+public class OtpController {
+    private final OtpService otpService;
+    private final EmailService emailService;
+
+    public OtpController(OtpService otpService, EmailService emailService){
+        this.otpService = otpService;
+        this.emailService = emailService;
+    }
 
     @PostMapping("/send")
     public ResponseEntity<String> sendOtp(@RequestBody String email) {

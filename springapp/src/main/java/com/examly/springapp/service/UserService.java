@@ -1,6 +1,7 @@
 package com.examly.springapp.service;
 
 import com.examly.springapp.dto.LoginDTO;
+import com.examly.springapp.dto.UserProfileDTO;
 import com.examly.springapp.model.User;
 
 import java.util.Map;
@@ -11,4 +12,5 @@ public interface UserService {
     User getUserByUsername(String username);
     Map<String, String> validateUserData(User user);
     User getUserProfile(Long userId);
+    UserProfileDTO getUserProfileDTO(Long userId);
 }

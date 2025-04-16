@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { Subscription } from 'rxjs';
@@ -22,12 +23,14 @@ export class UseraddfeedbackComponent implements OnInit {
     this.userId = parseInt(sessionStorage.getItem('userId'));
   }
 
-  constructor(private fb: FormBuilder, private feedbackService: FeedbackService) {
+
+  constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private router:Router) {
     this.feedbackForm = this.fb.group({
       feedbackText: ['', [Validators.required, Validators.minLength(5)]],
       rating: ['', Validators.required]
     });
    }
+
 
    public submitFeedback(): void {
     console.log('Submit button clicked');
@@ -64,7 +67,7 @@ export class UseraddfeedbackComponent implements OnInit {
 
 public closePopup(): void {
     this.popupMessage = null;
-
+    this.router.navigate(['/userviewfeedback'])
   }
 
   public ngOnDestroy(){

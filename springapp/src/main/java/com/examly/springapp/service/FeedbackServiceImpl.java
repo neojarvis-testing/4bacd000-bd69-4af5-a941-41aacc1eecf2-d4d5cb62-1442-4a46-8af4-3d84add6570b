@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Feedback;
@@ -16,11 +15,15 @@ import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
-    @Autowired private FeedbackRepo feedbackRepo;
+    private final FeedbackRepo feedbackRepo;
+    private final UserRepo userRepo;
+    private final List<Feedback> feedbackList = new ArrayList<>();
 
-    @Autowired private UserRepo userRepo;
-    List<Feedback> feedbackList = new ArrayList<>();
-    
+    public FeedbackServiceImpl(FeedbackRepo feedbackRepo, UserRepo userRepo) {
+        this.feedbackRepo = feedbackRepo;
+        this.userRepo = userRepo;
+    }
+
     @Override
     public Feedback createFeedback(Feedback feedback) {
         System.out.println("Feedback received: " + feedback);
@@ -67,6 +70,5 @@ public class FeedbackServiceImpl implements FeedbackService {
     public List<Feedback> getFeedbacksByUserId(Long userId) {
         return feedbackRepo.findByUser_UserId(userId); 
     }
-
 }
 

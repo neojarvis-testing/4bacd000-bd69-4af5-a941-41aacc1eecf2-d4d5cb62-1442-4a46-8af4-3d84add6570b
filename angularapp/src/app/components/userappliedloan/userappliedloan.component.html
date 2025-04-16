@@ -69,6 +69,7 @@
       <td>
         <button *ngIf="loan.loanStatus != 2" class="view-details" (click)="viewDetails(loan.loanApplicationId)">View Details</button>
         <button *ngIf="loan.loanStatus != 2" class="delete" (click)="confirmDelete(loan.loanApplicationId)">Delete</button>
+        <button class="download-pdf" (click)="downloadPdf(loan.loanApplicationId)">Download</button>
         <button *ngIf="loan.loanStatus == 2" class="feedback" (click)="sendFeedback()">Rate & Feedback</button>
       </td>
     </tr>
