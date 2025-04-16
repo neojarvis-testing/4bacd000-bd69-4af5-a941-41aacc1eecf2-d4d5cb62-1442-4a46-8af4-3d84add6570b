@@ -2,21 +2,29 @@ package com.examly.springapp.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.examly.springapp.model.Loan;
 import com.examly.springapp.model.LoanApplication;
 import com.examly.springapp.model.User;
-
+import com.examly.springapp.service.EmailService;
+import com.examly.springapp.service.PdfService;
 import org.springframework.stereotype.Service;
 import com.examly.springapp.repository.LoanApplicationRepo;
 import com.examly.springapp.repository.LoanRepo;
 import com.examly.springapp.repository.UserRepo;
-
 import jakarta.persistence.EntityNotFoundException;
 import java.util.Base64;
 
 @Service
 public class LoanApplicationServiceImpl implements LoanApplicationService{
+
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private PdfService pdfService;
+
+
 
     private final LoanApplicationRepo loanApplicationRepo;
     private final LoanRepo loanRepo;
@@ -27,7 +35,9 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
         this.loanRepo = loanRepo;
         this.userRepo = userRepo;
     }
+
     
+
     @Override
     public LoanApplication addLoanApplication(LoanApplication loanApplication) {
 
@@ -54,6 +64,10 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
 
         System.out.println("=============== Inside the controller ==============");
         System.out.println(loanApplication);
+
+        byte[] pdfBytes = pdfService.generatePdf(loanApplication);
+        emailService.sendLoanApplicationEmail(null, loanApplication, pdfBytes);        
+        
         return loanApplicationRepo.save(loanApplication);
     }
 

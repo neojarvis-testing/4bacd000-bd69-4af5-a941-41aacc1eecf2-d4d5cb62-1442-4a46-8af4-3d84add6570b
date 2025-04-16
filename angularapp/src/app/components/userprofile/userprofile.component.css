@@ -31,6 +31,13 @@
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Improves readability */
 }
 
+.user-mobileNumber {
+  font-size: 26px; /* Font size for email */
+  font-weight: bold; /* Makes "Email:" bold */
+  color: #ffffff; /* White for high contrast against the background */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Improves readability */
+}
+
 /* Data-specific adjustments */
 .user-name::after, .user-email::after {
   font-weight: normal; /* Keeps the data non-bold */

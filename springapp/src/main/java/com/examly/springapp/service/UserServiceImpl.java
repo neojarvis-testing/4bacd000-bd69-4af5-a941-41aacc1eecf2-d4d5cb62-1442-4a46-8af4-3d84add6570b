@@ -1,6 +1,7 @@
 package com.examly.springapp.service;
 
 import com.examly.springapp.dto.LoginDTO;
+import com.examly.springapp.dto.UserProfileDTO;
 import com.examly.springapp.exceptions.InvalidCredentialsException;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
@@ -75,4 +76,19 @@ public class UserServiceImpl implements UserService {
         Optional<User> userProfile = userRepo.findById(userId);
         return userProfile.get();
     }
+
+    @Override
+    public UserProfileDTO getUserProfileDTO(Long userId) {
+        User user = userRepo.findById(userId).orElse(null);
+        return convertToUserProfileDTO(user);
+    }
+
+    private UserProfileDTO convertToUserProfileDTO(User user) {
+        UserProfileDTO dto = new UserProfileDTO();
+        dto.setUsername(user.getUsername());
+        dto.setEmail(user.getEmail());
+        dto.setMobileNumber(user.getMobileNumber());
+        return dto;
+    }
+    
 }
