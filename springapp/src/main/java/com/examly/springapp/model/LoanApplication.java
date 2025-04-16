@@ -1,5 +1,6 @@
 package com.examly.springapp.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
@@ -22,7 +23,7 @@ import jakarta.persistence.Column;
 @Setter
 @Getter
 @ToString
-public class LoanApplication {
+public class LoanApplication implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

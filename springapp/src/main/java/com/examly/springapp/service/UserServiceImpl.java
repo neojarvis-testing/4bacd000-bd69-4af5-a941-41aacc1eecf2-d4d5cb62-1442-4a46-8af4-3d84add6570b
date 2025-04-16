@@ -5,7 +5,7 @@ import com.examly.springapp.exceptions.InvalidCredentialsException;
 import com.examly.springapp.exceptions.UserAlreadyExistsException;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +14,13 @@ import java.util.*;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepo userRepo;
+    private final UserRepo userRepo;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    public UserServiceImpl(UserRepo userRepo, BCryptPasswordEncoder passwordEncoder) {
+        this.userRepo = userRepo;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public User createUser(User user) {

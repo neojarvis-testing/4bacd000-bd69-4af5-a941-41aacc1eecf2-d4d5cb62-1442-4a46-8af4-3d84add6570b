@@ -7,7 +7,6 @@ import com.examly.springapp.model.Loan;
 import com.examly.springapp.model.LoanApplication;
 import com.examly.springapp.model.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.examly.springapp.repository.LoanApplicationRepo;
 import com.examly.springapp.repository.LoanRepo;
@@ -19,22 +18,21 @@ import java.util.Base64;
 @Service
 public class LoanApplicationServiceImpl implements LoanApplicationService{
 
-    @Autowired
-    private LoanApplicationRepo loanApplicationRepo;
+    private final LoanApplicationRepo loanApplicationRepo;
+    private final LoanRepo loanRepo;
+    private final UserRepo userRepo;
 
-    @Autowired
-    private LoanRepo loanRepo;
-
-    @Autowired
-    private UserRepo userRepo;
-
+    public LoanApplicationServiceImpl(LoanApplicationRepo loanApplicationRepo, LoanRepo loanRepo, UserRepo userRepo) {
+        this.loanApplicationRepo = loanApplicationRepo;
+        this.loanRepo = loanRepo;
+        this.userRepo = userRepo;
+    }
     
     @Override
     public LoanApplication addLoanApplication(LoanApplication loanApplication) {
 
         long loanId = loanApplication.getLoan().getLoanId();
         Loan eloan = loanRepo.findById(loanId).get();
-        // eloan.setApplied(true);
 
         long userId = loanApplication.getUser().getUserId();
         User eUser = userRepo.findById(userId).get();
@@ -78,7 +76,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
         if (loanApplication.isEmpty()) {
             throw new EntityNotFoundException("LoanApplication with " + loanApplicationId + " not found");
         } else {
-        // Decoding the image file before returning
+       
         String decodedFile = new String(Base64.getDecoder().decode(loanApplication.get().getFile()));
         loanApplication.get().setFile(decodedFile);
         return loanApplication.get();
@@ -91,7 +89,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService{
         if (loanApplications.isEmpty()) {
             throw new EntityNotFoundException("No Loan Applications found");
         } else {
-            // Decoding files for all applications
+           
             for (LoanApplication application : loanApplications) {
                 application.setFile(new String(Base64.getDecoder().decode(application.getFile())));
             }
