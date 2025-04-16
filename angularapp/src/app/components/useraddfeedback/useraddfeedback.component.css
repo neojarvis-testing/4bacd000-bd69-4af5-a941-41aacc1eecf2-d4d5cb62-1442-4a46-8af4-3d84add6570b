@@ -1,3 +1,4 @@
+/* General styles for the container and form */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
@@ -20,10 +21,6 @@ body {
   box-sizing: border-box;
 }
 
-.feedback-form {
-  width: 100%;
-}
-
 .feedback-form h2 {
   text-align: center;
   font-size: 2rem;
@@ -33,13 +30,6 @@ body {
 
 .form-group {
   margin-bottom: 15px;
-}
-
-.form-group label {
-  font-weight: bold;
-  color: #333;
-  display: block;
-  margin-bottom: 5px;
 }
 
 textarea {
@@ -57,11 +47,27 @@ textarea:focus {
   outline: none;
 }
 
-.error-messages {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: -10px;
-  margin-bottom: 10px;
+.smiley-rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.smiley-rating input[type="radio"] {
+  display: none;
+}
+
+.smiley {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.smiley:hover,
+.smiley-rating input[type="radio"]:checked + .smiley {
+  transform: scale(1.2);
+  color: #4CAF50;
 }
 
 button[type="submit"] {
@@ -85,6 +91,7 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
+/* Popup styles */
 .popup {
   position: fixed;
   top: 50%;
@@ -143,4 +150,44 @@ button[type="submit"]:disabled {
   .popup {
     width: 90%;
   }
+}
+
+/* Star rating styles */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star {
+  font-size: 3rem; /* Large stars */
+  color: #ccc; /* Light gray for unselected stars */
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: #FFD700; /* Yellow on hover */
+  transform: scale(1.2); /* Enlarges on hover */
+}
+
+.star-rating input[type="radio"]:checked ~ .star {
+  color: #FFD700; /* Yellow for selected stars */
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #FFD700; /* Ensures hover works for left-to-right (1-5) */
+}
+
+.star-rating input[type="radio"]:checked + label,
+.star-rating input[type="radio"]:checked ~ label {
+  color: #FFD700; /* Yellow for all stars from left to selected */
 }
