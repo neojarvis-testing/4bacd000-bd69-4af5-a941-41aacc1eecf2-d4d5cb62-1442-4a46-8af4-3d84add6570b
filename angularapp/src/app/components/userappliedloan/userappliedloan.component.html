@@ -44,6 +44,7 @@
       <th>Submission Date</th>
       <th>Status</th>
       <th>Action</th>
+      <th>Download Application</th>
     </tr>
   </thead>
   <tbody>
@@ -67,11 +68,11 @@
       
       </td>
       <td>
-        <button *ngIf="loan.loanStatus != 2" class="view-details" (click)="viewDetails(loan.loanApplicationId)">View Details</button>
-        <button *ngIf="loan.loanStatus != 2" class="delete" (click)="confirmDelete(loan.loanApplicationId)">Delete</button>
-        <button class="download-pdf" (click)="downloadPdf(loan.loanApplicationId)">Download</button>
-        <button *ngIf="loan.loanStatus == 2" class="feedback" (click)="sendFeedback()">Rate & Feedback</button>
+        <button *ngIf="loan.loanStatus != 2" class="button-41" (click)="viewDetails(loan.loanApplicationId)">View Details</button>
+        <button *ngIf="loan.loanStatus != 2" class="button-42" (click)="confirmDelete(loan.loanApplicationId)">Delete</button>
+        <button *ngIf="loan.loanStatus == 2" class="button-41" (click)="sendFeedback()">Rate & Feedback</button>
       </td>
+      <td> <button class="button-15" (click)="downloadPdf(loan.loanApplicationId)">Download</button> </td>
     </tr>
   </tbody>
 </table>
