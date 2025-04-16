@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Feedback } from 'src/app/models/feedback.model';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
@@ -18,7 +19,7 @@ export class UseraddfeedbackComponent implements OnInit {
     this.userId = parseInt(sessionStorage.getItem('userId'));
   }
 
-  constructor(private feedbackService: FeedbackService) { }
+  constructor(private feedbackService: FeedbackService, private router:Router) { }
 
   submitFeedback(fm: NgForm): void {
     console.log('Submit button clicked');
@@ -53,6 +54,6 @@ export class UseraddfeedbackComponent implements OnInit {
 
   closePopup(): void {
     this.popupMessage = null;
-
+    this.router.navigate(['/userviewfeedback'])
   }
 }
