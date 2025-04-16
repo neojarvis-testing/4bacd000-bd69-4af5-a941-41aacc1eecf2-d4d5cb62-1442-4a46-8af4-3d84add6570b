@@ -3,7 +3,6 @@ package com.examly.springapp.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.exceptions.DuplicateLoanException;
@@ -16,8 +15,11 @@ import jakarta.persistence.EntityNotFoundException;
 public class LoanServiceImpl implements LoanService 
 {
 
-    @Autowired
-    private LoanRepo loanRepo;
+    private final LoanRepo loanRepo;
+
+    public LoanServiceImpl(LoanRepo loanRepo) {
+        this.loanRepo = loanRepo;
+    }
 
     @Override
     public Loan addLoan(Loan loan) 
@@ -69,10 +71,6 @@ public class LoanServiceImpl implements LoanService
         loan.setDocumentsRequired(updatedLoan.getDocumentsRequired());
 
         return loanRepo.save(loan);
-
-        // this one or above one
-        // updatedLoan.setLoanId((loanId));
-        // return loanRepo.save(updatedLoan);
 
     }
 

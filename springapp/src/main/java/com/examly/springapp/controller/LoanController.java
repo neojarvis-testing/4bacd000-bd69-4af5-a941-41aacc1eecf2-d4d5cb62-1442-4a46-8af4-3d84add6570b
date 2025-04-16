@@ -2,7 +2,6 @@ package com.examly.springapp.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.exceptions.DuplicateLoanException;
 import com.examly.springapp.model.Loan;
@@ -17,12 +17,16 @@ import com.examly.springapp.service.LoanService;
 
 
 @RestController
+@RequestMapping("/api/loan")
 public class LoanController {
     
-    @Autowired
-    private LoanService loanService;
+    private final LoanService loanService;
 
-    @PostMapping("/api/loan")
+    public LoanController(LoanService loanService) {
+        this.loanService = loanService;
+    }
+
+    @PostMapping
     public ResponseEntity<?> addLoan(@RequestBody Loan loan) {
         try
         {
@@ -34,7 +38,7 @@ public class LoanController {
         }
     }
 
-    @GetMapping("/api/loan/{loanId}")
+    @GetMapping("/{loanId}")
     public ResponseEntity<?> viewLoanById(@PathVariable Long loanId) {
 
         try 
@@ -46,13 +50,13 @@ public class LoanController {
         }
     }
 
-    @GetMapping("/api/loan")
+    @GetMapping
     public ResponseEntity<?> viewAllLoans() {
         List<Loan> loans = loanService.getAllLoans();
         return ResponseEntity.status(200).body(loans);
     }
 
-    @PutMapping("/api/loan/{loanId}")
+    @PutMapping("/{loanId}")
     public ResponseEntity<?> editLoan(@PathVariable Long loanId, @RequestBody Loan updatedLoan) 
     {
         try {
@@ -65,7 +69,7 @@ public class LoanController {
         }
     }
 
-    @DeleteMapping("/api/loan/{loanId}")
+    @DeleteMapping("/{loanId}")
     public ResponseEntity<?> deleteLoan(@PathVariable Long loanId) {
         try {
             boolean deletedLoan = loanService.deleteLoan(loanId);
