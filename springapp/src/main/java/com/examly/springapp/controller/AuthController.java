@@ -70,7 +70,7 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/api/userProfile/{userId}")
+    @GetMapping("/userProfile/{userId}")
     public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
         UserProfileDTO userProfileDTO = userService.getUserProfileDTO(userId);
         return ResponseEntity.status(200).body(userProfileDTO);
