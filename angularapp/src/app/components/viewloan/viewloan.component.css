@@ -42,11 +42,6 @@ table thead {
   color: white;
 }
 
-table th, table td {
-  text-align: left;
-  padding: 12px;
-  border: 1px solid #ddd;
-}
 
 table th {
   font-weight: bold;
@@ -70,7 +65,7 @@ td .button-group {
 /* Edit Button Styling */
 button.edit-button {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* A lighter green shade */
   color: white; /* White text */
   border: none; /* No border */
   padding: 8px 12px; /* Adjusted padding for compact size */
@@ -91,7 +86,7 @@ button.edit-button:hover {
 /* Delete Button Styling */
 button.delete-button {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient styling */
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
   color: white; /* White text */
   border: none; /* No border */
   padding: 8px 12px; /* Add padding for size */
@@ -135,7 +130,6 @@ button.delete-button:hover {
 input#searchData {
   width: 100%; /* Full-width input */
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ddd; /* Light gray border */
   border-radius: 5px; /* Rounded corners */
   box-sizing: border-box; /* Include padding in width calculation */
@@ -184,7 +178,7 @@ button.yes:hover {
 
 button.cancel {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient for Cancel */
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -202,3 +196,34 @@ button.cancel:hover {
   box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced hover shadow */
 }
 
+  /* Edit by Tarun Start*/
+ 
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+ 
+  th {
+    background-image: linear-gradient(to bottom, #84b709, #46a100);
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+ 
+  td {
+    padding: 10px;
+    background: white;
+  }
+ 
+  tr {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+ 
+/* Edit by Tarun End */
+
+button:hover{
+  transform: translateY(-2px); /* Subtle lift effect */
+}

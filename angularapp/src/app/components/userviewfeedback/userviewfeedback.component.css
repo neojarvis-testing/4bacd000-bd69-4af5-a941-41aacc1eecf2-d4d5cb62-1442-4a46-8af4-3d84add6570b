@@ -69,39 +69,7 @@ h2 {
   margin-top: 20px;
 }
 
-/* Action Buttons */
-button {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
-  color: white; /* White text for readability */
-  border: none; /* Clean, modern design without borders */
-  padding: 8px 12px; /* Comfortable padding */
-  border-radius: 6px; /* Smooth rounded corners */
-  font-size: 0.9rem; /* Easy-to-read font size */
-  cursor: pointer; /* Interactive pointer cursor */
-  font-weight: bold; /* Highlighted text for emphasis */
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle depth effect */
-  transition: box-shadow 0.2s, background-color 0.3s ease, transform 0.2s; /* Smooth interaction transitions */
-}
 
-button:disabled {
-  background-color: #e0e0e0; /* Soft gray for disabled buttons */
-  color: #9E9E9E; /* Muted text color for clarity */
-  cursor: not-allowed; /* Indicate non-interactivity */
-  box-shadow: none; /* No shadow for disabled state */
-}
-
-button:hover:not(:disabled) {
-  background-color: #43A047; /* Darker green for hover state */
-  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow effect */
-  transform: translateY(-2px); /* Subtle lift effect on hover */
-}
-
-button:active:not(:disabled) {
-  background-color: #388E3C; /* Darker green for active (clicked) state */
-  transform: translateY(0); /* Reset lift effect on click */
-  box-shadow: rgba(102, 187, 106, 0.3) 0 2px 4px; /* Reduced shadow effect for active state */
-}
 
 
 /* Popup Styling */
@@ -123,29 +91,6 @@ button:active:not(:disabled) {
   margin: 10px 0; /* Add spacing between text */
 }
 
-.popup button {
-  margin: 5px; /* Add space between the popup buttons */
-  background-color: #e53935; /* Red background for delete button */
-  color: white; /* White text */
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.popup button:hover {
-  background-color: #c62828; /* Darker red on hover */
-}
-
-.popup button:last-child {
-  background-color: #4CAF50; /* Blue for cancel button */
-}
-
-.popup button:last-child:hover {
-  background-color: #4CAF50; /* Darker blue on hover */
-}
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
@@ -166,8 +111,102 @@ button:active:not(:disabled) {
     width: 90%; /* Adjust popup width for smaller screens */
   }
 
-  .popup button {
-    font-size: 0.8rem;
-    padding: 8px 12px; /* Compact button styling */
-  }
+}
+
+/* Edit by Tarun Start*/
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-image: linear-gradient(to bottom, #84b709, #46a100);
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  background: white;
+}
+
+tr {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Edit by Tarun End */
+.button-42 {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+ 
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+}
+
+.button-42:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+.button-41 {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* A lighter green shade */
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+ 
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+  margin-right: 20px;
+}
+
+.button-41:hover {
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Matches the lighter shade for hover effect */
 }

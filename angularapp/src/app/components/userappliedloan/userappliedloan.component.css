@@ -29,7 +29,6 @@ app-usernav {
 /* Container for Content */
 .container {
   width: 90%;
-  max-width: 950px;
   padding: 20px;
   background-color: #fff;
   border-radius: 12px;
@@ -46,9 +45,9 @@ h1 {
 
 /* Search Input */
 input#searchData {
-  width: 100%;
+  width: 50%;
+  height: 50px;
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
@@ -60,11 +59,20 @@ input#searchData:focus {
   outline: none;
 }
 
+.loanStatus{
+  width: 50%;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
 /* General container styling */
 select {
   width: 200px;
   padding: 10px;
-  margin: 10px 0;
   font-size: 16px;
   font-family: Arial, sans-serif;
   border: 1px solid #ccc;
@@ -97,12 +105,6 @@ table {
 table thead {
   background-color: #4CAF50;
   color: white;
-}
-
-table th, table td {
-  text-align: left;
-  padding: 12px;
-  border: 1px solid #ddd;
 }
 
 table th {
@@ -305,7 +307,7 @@ button:disabled {
   line-height: 40px;
   outline: 0;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0 10px;
   pointer-events: auto;
   position: relative;
   text-align: center;
@@ -314,7 +316,7 @@ button:disabled {
   -webkit-user-select: none;
   vertical-align: top;
   white-space: nowrap;
-  width: 100%;
+ 
   z-index: 9;
   border: 0;
   transition: box-shadow 0.2s;
@@ -341,7 +343,7 @@ button:disabled {
   line-height: 40px;
   outline: 0;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0 10px;
   pointer-events: auto;
   position: relative;
   text-align: center;
@@ -350,7 +352,7 @@ button:disabled {
   -webkit-user-select: none;
   vertical-align: top;
   white-space: nowrap;
-  width: 100%;
+ 
   z-index: 9;
   border: 0;
   transition: box-shadow .2s;
@@ -363,4 +365,46 @@ button:disabled {
 button{
   margin: 2px;
 }
+
+/* Edit by Tarun Start*/
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-image: linear-gradient(to bottom, #84b709, #46a100);
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  background: white;
+}
+
+tr {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+
+button:hover {
+  transform: translateY(-2px);
+  /* Subtle lift effect */
+}
+
+
+.filterClass{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Edit by Tarun End */
 

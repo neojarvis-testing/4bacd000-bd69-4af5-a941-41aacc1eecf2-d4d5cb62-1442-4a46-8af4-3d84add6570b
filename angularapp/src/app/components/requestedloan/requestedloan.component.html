@@ -16,7 +16,8 @@
 <div class="container">
 <h1>Applied Loans</h1>
 
-<input 
+<div class="filterClass">
+  <input 
   type="text" 
   placeholder="Search loans..." 
   (keyup)="search()" 
@@ -31,6 +32,7 @@
   <option value="0">Rejected</option>
   <option value="1">Pending</option>
 </select>
+</div>
 
 
 <table>
@@ -48,7 +50,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let loan of loans;index as i">
-      <td>{{ i + 1 }}</td>
+      <td><b>{{ i + 1 }}.</b></td>
       <td>{{ loan.user.username }}</td>
       <td>{{loan.loan.loanType}}</td>
       <td>{{ loan.farmLocation  }}</td>
@@ -66,7 +68,7 @@
         </p>
       </td>
       <td>
-        <button class="bt" (click)="viewDetails(loan.loanApplicationId)">Show More</button>    
+        <button class="bt" (click)="viewDetails(loan.loanApplicationId)">Details</button>    
         <button class="accept" *ngIf=" loan.loanStatus == 1 || loan.loanStatus == 0 "     (click)="acceptButton(loan.loanApplicationId
         )">Accept</button>
         <button class="reject" *ngIf=" loan.loanStatus == 1 || loan.loanStatus == 2 "    (click)="rejectButton(loan.loanApplicationId

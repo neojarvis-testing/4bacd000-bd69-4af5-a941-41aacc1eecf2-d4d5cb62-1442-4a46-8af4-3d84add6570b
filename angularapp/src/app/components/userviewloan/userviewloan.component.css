@@ -1,144 +1,223 @@
 /* General Body Styling */
 body {
-  font-family: Arial, sans-serif; /* Clean and readable font */
-  background-color: #f4f4f9; /* Light gray background */
+  font-family: Arial, sans-serif;
+  /* Clean and readable font */
+  background-color: #f4f4f9;
+  /* Light gray background */
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  box-sizing: border-box; /* Include padding in width/height calculation */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: 100vh;
+  /* Full viewport height */
+  box-sizing: border-box;
+  /* Include padding in width/height calculation */
 }
 
 /* Styling for the Container */
 .container {
-  width: 90%; /* Adjust container width */
+  width: 90%;
+  /* Adjust container width */
   padding: 20px;
   margin: 70px auto;
-  background-color: #fff; /* White background for contrast */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  background-color: #fff;
+  /* White background for contrast */
+  border-radius: 12px;
+  /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow for depth */
   box-sizing: border-box;
 }
 
 /* Centered Title */
 h1 {
-  text-align: center; /* Center-align the table title */
+  text-align: center;
+  /* Center-align the table title */
   font-size: 2rem;
-  color: #4CAF50; /* Matching green theme color */
+  color: #4CAF50;
+  /* Matching green theme color */
   margin-bottom: 20px;
 }
 
 /* Styling the Search Input */
 input#searchData {
-  width: 100%; /* Full-width input */
+  width: 100%;
+  /* Full-width input */
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd; /* Light gray border */
-  border-radius: 5px; /* Rounded corners */
-  box-sizing: border-box; /* Include padding in width calculation */
-  font-size: 1rem; /* Standard font size */
+  border: 1px solid #ddd;
+  /* Light gray border */
+  border-radius: 5px;
+  /* Rounded corners */
+  box-sizing: border-box;
+  /* Include padding in width calculation */
+  font-size: 1rem;
+  /* Standard font size */
 }
 
 input#searchData:focus {
-  border-color: #4CAF50; /* Green border on focus */
-  outline: none; /* Remove default focus outline */
+  border-color: #4CAF50;
+  /* Green border on focus */
+  outline: none;
+  /* Remove default focus outline */
 }
 
 /* Styling for the Table */
 table {
-  width: 100%; /* Full-width table */
-  border-collapse: collapse; /* Remove gaps between cells */
-  margin-top: 20px; /* Space above the table */
+  width: 100%;
+  /* Full-width table */
+  border-collapse: collapse;
+  /* Remove gaps between cells */
+  margin-top: 20px;
+  /* Space above the table */
 }
 
 table thead {
-  background-color: #4CAF50; /* Green background for table headers */
-  color: white; /* White text for headers */
-}
-
-table th, table td {
-  text-align: left; /* Left-align table content */
-  padding: 12px; /* Add padding inside cells */
-  border: 1px solid #ddd; /* Light gray border between cells */
+  background-color: #4CAF50;
+  /* Green background for table headers */
+  color: white;
+  /* White text for headers */
 }
 
 table th {
-  font-weight: bold; /* Emphasize header text */
+  font-weight: bold;
+  /* Emphasize header text */
 }
 
 table tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Alternate row background for readability */
+  background-color: #f9f9f9;
+  /* Alternate row background for readability */
 }
 
 table tbody tr:hover {
-  background-color: #f1f1f1; /* Light gray background on hover */
-  cursor: pointer; /* Pointer cursor on row hover */
+  background-color: #f1f1f1;
+  /* Light gray background on hover */
+  cursor: pointer;
+  /* Pointer cursor on row hover */
 }
 
 /* Apply and Applied Buttons Styling */
 .apply {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient for active button */
-  color: white; /* White text for contrast */
-  border: none; /* Clean design without borders */
-  padding: 10px 20px; /* Comfortable size */
-  border-radius: 6px; /* Smooth rounded edges */
-  font-size: 1rem; /* Readable font size */
-  font-weight: bold; /* Highlight button text */
-  cursor: pointer; /* Pointer cursor for hover feedback */
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle depth shadow */
-  transition: box-shadow 0.2s, background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047);
+  /* Green gradient for active button */
+  color: white;
+  /* White text for contrast */
+  border: none;
+  /* Clean design without borders */
+  padding: 10px 20px;
+  /* Comfortable size */
+  border-radius: 6px;
+  /* Smooth rounded edges */
+  font-size: 1rem;
+  /* Readable font size */
+  font-weight: bold;
+  /* Highlight button text */
+  cursor: pointer;
+  /* Pointer cursor for hover feedback */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  /* Subtle depth shadow */
+  transition: box-shadow 0.2s, background-color 0.3s ease, transform 0.2s;
+  /* Smooth transitions */
 }
 
 .apply:hover {
-  background-color: #43A047; /* Darker green on hover */
-  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
-  transform: translateY(-2px); /* Subtle lift effect */
+  background-color: #43A047;
+  /* Darker green on hover */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px;
+  /* Enhanced shadow on hover */
+  transform: translateY(-2px);
+  /* Subtle lift effect */
 }
 
 .apply:active {
-  background-color: #388E3C; /* Slightly darker green on click */
-  transform: translateY(0); /* Reset lift effect on active state */
-  box-shadow: rgba(102, 187, 106, 0.3) 0 2px 4px; /* Reduced shadow for active state */
+  background-color: #388E3C;
+  /* Slightly darker green on click */
+  transform: translateY(0);
+  /* Reset lift effect on active state */
+  box-shadow: rgba(102, 187, 106, 0.3) 0 2px 4px;
+  /* Reduced shadow for active state */
 }
 
 .applied {
-  background-color: #d4e2d4; /* Light green for disabled "Applied" button */
-  color: #9E9E9E; /* Muted gray text to indicate non-interactivity */
-  border: none; /* Clean design */
-  padding: 10px 20px; /* Same size as "Apply" button */
-  border-radius: 6px; /* Rounded edges to match "Apply" button */
-  font-size: 1rem; /* Consistent font size */
-  font-weight: bold; /* Keep the text consistent */
-  cursor: not-allowed; /* Disabled cursor to indicate inactivity */
-  box-shadow: none; /* No shadow for disabled button */
+  background-color: #d4e2d4;
+  /* Light green for disabled "Applied" button */
+  color: #9E9E9E;
+  /* Muted gray text to indicate non-interactivity */
+  border: none;
+  /* Clean design */
+  padding: 10px 20px;
+  /* Same size as "Apply" button */
+  border-radius: 6px;
+  /* Rounded edges to match "Apply" button */
+  font-size: 1rem;
+  /* Consistent font size */
+  font-weight: bold;
+  /* Keep the text consistent */
+  cursor: not-allowed;
+  /* Disabled cursor to indicate inactivity */
+  box-shadow: none;
+  /* No shadow for disabled button */
 }
 
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .container {
-    width: 100%; /* Full width for smaller screens */
-    padding: 10px; /* Adjust padding */
+    width: 100%;
+    /* Full width for smaller screens */
+    padding: 10px;
+    /* Adjust padding */
   }
 
   h1 {
-    font-size: 1.5rem; /* Reduce title font size */
+    font-size: 1.5rem;
+    /* Reduce title font size */
   }
 
   table {
-    font-size: 0.9rem; /* Reduce font size for table content */
+    font-size: 0.9rem;
+    /* Reduce font size for table content */
   }
 
   input#searchData {
-    font-size: 0.9rem; /* Adjust font size for input field */
-    padding: 8px; /* Compact padding for smaller screens */
+    font-size: 0.9rem;
+    /* Adjust font size for input field */
+    padding: 8px;
+    /* Compact padding for smaller screens */
   }
 
   button {
-    font-size: 0.8rem; /* Compact button styling */
-    padding: 6px 10px; /* Adjust button padding */
+    font-size: 0.8rem;
+    /* Compact button styling */
+    padding: 6px 10px;
+    /* Adjust button padding */
   }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-image: linear-gradient(to bottom, #84b709, #46a100);
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  background: white;
+}
+
+tr {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
 }

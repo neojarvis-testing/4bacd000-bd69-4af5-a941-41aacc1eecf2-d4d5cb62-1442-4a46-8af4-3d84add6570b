@@ -113,6 +113,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Matches hover effect */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 button[type="submit"]:disabled {
