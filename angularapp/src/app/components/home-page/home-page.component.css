@@ -1,38 +1,52 @@
-/* Font Styling */
+/* Importing fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
 
+/* Global Styles */
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 0;
+  margin: 70px auto;
   padding: 0;
-  background-color: #f4f4f4; /* Subtle light gray background */
+  background-color: #f9f9f9; /* Light and neutral background */
+  color: #333333; /* Subtle text color for readability */
+  line-height: 1.6;
+}
+
+/* Background Styling */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/background.webp') center/cover no-repeat;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.8;
 }
 
 /* Welcome Section Styling */
 .welcome-section {
   text-align: center;
-  padding: 20px;
-  /* Classy dark gray background with transparency */
-  color: #4a4a4a; /* Professional and visible dark gray color */
+  padding: 30px;
+  margin: 20px auto;
+  margin-top: 50px;
   border-radius: 10px;
-  margin: 20px;
-  backdrop-filter: blur(6px); /* Adds blur effect to blend with background */
-  font-family: 'Roboto', sans-serif; /* Retains the chosen font */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth and readability */
-   /* Elegant serif font for titles */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-title {
-  margin-top: 50px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: #2d572c; /* Deep green for elegance */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-subtitle {
   font-size: 1.2rem;
+  color: #555555; /* Slightly muted gray */
   font-weight: 400;
-  margin: 0;
+  margin: 10px 0;
 }
 
 /* Loan Container Styling */
@@ -40,95 +54,90 @@ body {
   display: flex;
   justify-content: space-between; /* Ensures even spacing between cards */
   flex-wrap: nowrap; /* Prevents wrapping */
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
-  max-width: 100%;
-  overflow-x: auto; /* Allows horizontal scrolling for smaller screens */
+  height:auto;
+ /* Allows horizontal scrolling if needed */
 }
 
 /* Loan Card Styling */
 .loan-card {
-  background-color: #daf5d8; /* Soft blue for a fresh look */
-  border: 1px solid #dee2e6;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adds depth with shadow */
-  width: 18%; /* Ensures 5 cards fit evenly on the same line */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Roboto', sans-serif; /* Modern font for card text */
-}
-
-.loan-card:nth-child(2) {
-  background-color: #daf5d8; /* Light yellow for variety */
-}
-
-.loan-card:nth-child(3) {
-  background-color: #daf5d8; /* Soft pink for uniqueness */
-}
-
-.loan-card:nth-child(4) {
-  background-color: #daf5d8; /* Light green for earthiness */
-}
-
-.loan-card:nth-child(5) {
-  background-color: #daf5d8; /* Gentle peach for warmth */
+  flex: 0 1 18%; /* Adjusted width to ensure 5 cards fit in one row */
+  max-width: 18%; /* Consistent width for cards */
+  min-width: 18%; /* Ensures cards don’t shrink too small */
 }
 
 .loan-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 .loan-image {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom: 3px solid #43A047;
 }
 
 .loan-details {
-  padding: 15px;
+  padding: 20px;
   text-align: center;
 }
 
 .loan-title {
-  font-size: 1.1rem;
-  font-weight: 700; /* Bold title for emphasis */
-  color: #343a40; /* Dark gray for a classy look */
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d572c;
 }
 
 .loan-description {
-  color: #6c757d; /* Muted gray text for subtlety */
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #666666;
   margin-bottom: 15px;
 }
 
 .btn-primary {
-  background-color: initial;
-  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
-  border: none;
-  padding: 10px 15px; /* Comfortable padding */
-  color: #ffffff; /* Bright white text */
-  border-radius: 6px; /* Smooth rounded edges */
-  cursor: pointer; /* Pointer cursor for interaction */
-  transition: background-color 0.3s ease, box-shadow 0.2s; /* Smooth hover effect */
-  font-size: 0.9rem; /* Readable font size */
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow for depth */
+  display: inline-block;
+  background: linear-gradient(90deg, #66BB6A, #43A047);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .btn-primary:hover {
-  background-color: #43A047; /* Darker green for hover effect */
-  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow for hover */
+  background: #43A047;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loan-container {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+  }
+  .loan-card {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+}
 
-h1 {
-  font-size: 3rem; /* Large and prominent font size */
-  font-weight: bold; /* Emphasize the title */
-  text-align: center; /* Center-align the title */
-  color: #3e8e41; /* Dark green color for the title */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  margin-bottom: 20px; /* Space below the title */
-  font-family: 'Roboto', sans-serif; /* Clean and professional font */
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 2.2rem;
+  }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
 }
