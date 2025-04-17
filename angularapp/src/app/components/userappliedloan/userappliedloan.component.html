@@ -54,14 +54,14 @@
       <td>{{ loan.submissionDate | date: 'yyyy-MM-dd' }}</td>
       <td>
 
-        <p *ngIf="loan.loanStatus == 0"  >
-          Reject
+        <p *ngIf="loan.loanStatus == 0" style="color: #ff2f2f;" >
+          Rejected
         </p>
-        <p *ngIf="loan.loanStatus == 1"  >
+        <p *ngIf="loan.loanStatus == 1" style="color: rgb(170, 170, 170);" >
           Pending
         </p>
-        <p *ngIf="loan.loanStatus == 2"  >
-          Accept
+        <p *ngIf="loan.loanStatus == 2" style="color: #19af4d" >
+          Accepted
         </p>
       
       
