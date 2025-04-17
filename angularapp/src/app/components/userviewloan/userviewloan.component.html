@@ -51,11 +51,11 @@
       <td>{{ loan.eligibility }}</td>
       <td>{{ loan.documentsRequired }}</td>
       <td>
-        <button *ngIf="!isApplied(loan.loanId)"
+        <button class="apply" *ngIf="!isApplied(loan.loanId)"
           (click)="appliedButton(loan.loanId)" 
           > Apply
         </button>
-        <button
+        <button class="applied"
         *ngIf="isApplied(loan.loanId)"
           [disabled]="isApplied(loan.loanId)"> Applied
         </button>

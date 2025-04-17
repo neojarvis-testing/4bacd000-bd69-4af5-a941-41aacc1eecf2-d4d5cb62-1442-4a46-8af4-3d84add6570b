@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  width: 90%; /* Adjust container width */
+  width: 950px; /* Adjust container width */
   padding: 20px;
   margin: 70px auto;
   background-color: #fff; /* White background for contrast */
@@ -29,7 +29,7 @@ app-usernav {
 /* Container for Content */
 .container {
   width: 90%;
-  max-width: 800px;
+  max-width: 950px;
   padding: 20px;
   background-color: #fff;
   border-radius: 12px;
@@ -58,6 +58,33 @@ input#searchData {
 input#searchData:focus {
   border-color: #4CAF50;
   outline: none;
+}
+
+/* General container styling */
+select {
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+ 
+/* Focus styling for dropdown */
+select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(6, 91, 74, 0.5);
+}
+ 
+/* Styling dropdown options */
+option {
+  padding: 10px;
+  font-size: 16px;
 }
 
 /* Styling the Table */
@@ -189,54 +216,44 @@ button:disabled {
 
 .popup button {
   margin: 5px; /* Add space between the popup buttons */
-  background-color: #e53935; /* Red background for delete button */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Gradient red background for delete button */
   color: white; /* White text */
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none; /* Clean look */
+  padding: 10px 15px; /* Comfortable button size */
+  border-radius: 6px; /* Slightly smoother rounded edges */
+  font-size: 0.9rem; /* Readable font size */
+  cursor: pointer; /* Pointer cursor for hover */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease; /* Smooth hover and active effects */
 }
 
 .popup button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #d32f2f; /* Darker red for hover */
+  box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced hover shadow */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
 .popup button:last-child {
-  background-color: #4CAF50; /* Blue for cancel button */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Gradient green for cancel button */
+  color: white; /* White text */
+  border: none; /* Clean look */
+  padding: 10px 15px; /* Comfortable button size */
+  border-radius: 6px; /* Slightly smoother rounded edges */
+  font-size: 0.9rem; /* Readable font size */
+  cursor: pointer; /* Pointer cursor for hover */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease; /* Smooth hover and active effects */
 }
 
 .popup button:last-child:hover {
-  background-color: #4CAF50; /* Darker blue on hover */
+  background-color: #43A047; /* Darker green for hover */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced hover shadow */
+  transform: translateY(-2px); /* Subtle lift effect */
 }
 
-/* General container styling */
-select {
-  width: 200px;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  outline: none;
-}
- 
-/* Focus styling for dropdown */
-select:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 0 5px rgba(6, 91, 74, 0.5);
-}
- 
-/* Styling dropdown options */
-option {
-  padding: 10px;
-  font-size: 16px;
-}
+
 
 .downloadBtn{
   background-color: #4CAF50;
@@ -277,15 +294,15 @@ option {
 
 .button-41 {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #00D775, #00BD68);
-  border-radius: 5px;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* A lighter green shade */
+  border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
-  height: 44px;
-  line-height: 44px;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  height: 40px;
+  line-height: 40px;
   outline: 0;
   overflow: hidden;
   padding: 0 20px;
@@ -300,11 +317,14 @@ option {
   width: 100%;
   z-index: 9;
   border: 0;
+  transition: box-shadow 0.2s;
 }
 
 .button-41:hover {
-  background: #00bd68;
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Matches the lighter shade for hover effect */
 }
+
+
 
 
 /* CSS */
