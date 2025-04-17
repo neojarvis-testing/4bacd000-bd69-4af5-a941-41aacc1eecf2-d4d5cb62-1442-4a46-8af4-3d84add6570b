@@ -107,13 +107,13 @@ export class UserappliedloanComponent implements OnInit {
       this.subscription2.unsubscribe();
     }
     if(this.subscription3){
-      this.subscription2.unsubscribe();
+      this.subscription3.unsubscribe();
     }
     if(this.subscription4){
-      this.subscription2.unsubscribe();
+      this.subscription4.unsubscribe();
     }
     if(this.subscription5){
-      this.subscription2.unsubscribe();
+      this.subscription5.unsubscribe();
     }
 
   }
