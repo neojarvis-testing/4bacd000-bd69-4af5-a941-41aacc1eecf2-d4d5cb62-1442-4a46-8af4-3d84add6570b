@@ -101,32 +101,56 @@ body {
     margin: 2px;
   }
   
-  /* Show More Button - Blue */
   button.bt {
-    background-color: #889c89;
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #889c89, #525c53); /* Grey gradient styling */
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px; /* Consistent padding for size */
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow */
+    transition: box-shadow 0.2s, background-color 0.3s; /* Smooth transitions */
   }
   
   button.bt:hover {
-    background-color: #525c53;
+    background-color: #525c53; /* Darker shade on hover */
+    box-shadow: rgba(136, 156, 137, 0.5) 0 3px 8px; /* Enhanced hover shadow */
   }
   
   /* Accept Button - Green */
   button.accept {
-    background-color: #4CAF50;
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow */
+    transition: box-shadow 0.2s, background-color 0.3s; /* Smooth transitions */
   }
   
   button.accept:hover {
-    background-color: #388E3C;
+    background-color: #43A047; /* Darker green on hover */
+    box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced hover shadow */
   }
   
   /* Reject Button - Red */
   button.reject {
-    background-color: #e53935;
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient styling */
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow */
+    transition: box-shadow 0.2s, background-color 0.3s; /* Smooth transitions */
   }
   
   button.reject:hover {
-    background-color: #c62828;
+    background-color: #d32f2f; /* Darker red on hover */
+    box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced hover shadow */
   }
+  
   
   /* Disabled Button */
   button:disabled {

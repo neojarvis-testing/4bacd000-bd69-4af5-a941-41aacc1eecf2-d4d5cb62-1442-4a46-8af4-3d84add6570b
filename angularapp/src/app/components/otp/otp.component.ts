@@ -22,9 +22,9 @@ export class OtpComponent{
   constructor(private authService: AuthService, private router: Router) {}
 
   public onVerifyOtp() {
-    const email = localStorage.getItem('registeredEmail'); // Get email
-    const userData = localStorage.getItem('registerData'); // Get full user details
-    const registerData: User = userData ? JSON.parse(userData) : null; // Parse user details
+    const email = localStorage.getItem('registeredEmail'); 
+    const userData = localStorage.getItem('registerData'); 
+    const registerData: User = userData ? JSON.parse(userData) : null;
   
     if (!registerData) {
       this.errorMessage = 'User data not found. Please register again.';

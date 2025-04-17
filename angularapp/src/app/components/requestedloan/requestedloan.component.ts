@@ -15,12 +15,15 @@ export class RequestedloanComponent implements OnInit {
   subscription2: Subscription;
   subscription3: Subscription;
   subscription4: Subscription;
+  subscription5: Subscription;
 
 
 
   loans: LoanApplication[] = [];
 
   searchData: string = "";
+  selectedStatus: string = '';
+
 
   constructor(private loanService: LoanService, private router: Router, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
@@ -72,6 +75,25 @@ export class RequestedloanComponent implements OnInit {
     if(this.subscription4){
       this.subscription4.unsubscribe();
     }
+    if(this.subscription5){
+      this.subscription5.unsubscribe();
+    }
+  }
+
+  public filterLoans() {
+
+    if(this.selectedStatus){
+      this.subscription4=this.loanService.getAllLoanApplications().subscribe(data => {
+        this.loans = data;
+        this.loans = this.loans.filter(loan => loan.loanStatus == parseInt(this.selectedStatus));
+      });
+    }else{
+      this.subscription5=this.loanService.getAllLoanApplications().subscribe(data=>{
+        this.loans = data;
+      })
+    }
+
+
   }
 
 

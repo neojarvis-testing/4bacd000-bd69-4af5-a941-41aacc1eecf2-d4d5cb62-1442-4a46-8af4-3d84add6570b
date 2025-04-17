@@ -20,8 +20,7 @@ export class UserviewfeedbackComponent implements OnInit {
   }
 
   public getFeedbacksByUserId(): void {
-    console.log("=============Inside FeedBacks By User==============")
-    console.log(this.userId);
+    
     this.feedbackService.getFeedbacksByUserId(this.userId).subscribe((data) => {
       this.feedbackList = data;
       },

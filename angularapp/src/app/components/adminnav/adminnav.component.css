@@ -181,39 +181,46 @@
 
 /* Styling for "Yes" Button */
 button.yes {
-  background-color: #4CAF50; /* Green for "Yes" */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient for "Yes" */
   color: white; /* White text for contrast */
   border: none; /* Clean design */
   padding: 10px 20px; /* Comfortable size */
-  border-radius: 5px; /* Rounded edges */
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 6px; /* Smooth rounded edges */
+  font-size: 1rem; /* Readable font size */
+  font-weight: bold; /* Bold text for emphasis */
   cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth interaction effects */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s; /* Smooth interaction effects */
 }
 
 button.yes:hover {
   background-color: rgb(236, 236, 236); /* Darker green for hover */
   transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
 }
 
 /* Styling for "No" Button */
 button.cancel {
-  background-color: #f44336; /* Red for "No" */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient for "No" */
   color: white; /* White text for contrast */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px; /* Smooth corners */
-  font-size: 1rem;
-  font-weight: bold; /* Emphasize cancel button */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth interaction effects */
+  border: none; /* Clean design */
+  padding: 10px 20px; /* Comfortable size */
+  border-radius: 6px; /* Smooth rounded edges */
+  font-size: 1rem; /* Readable font size */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s; /* Smooth interaction effects */
 }
 
 button.cancel:hover {
   background-color: #d32f2f; /* Darker red for hover */
   transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
 }
+
 
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 768px) {

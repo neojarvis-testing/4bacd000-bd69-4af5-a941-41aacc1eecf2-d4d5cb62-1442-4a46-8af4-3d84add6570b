@@ -63,20 +63,24 @@ h2 {
 
 /* Action Buttons */
 .feedback-table td button {
-  background-color: #4CAF50; /* Blue background for action buttons */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient for action buttons */
   color: white; /* White text */
   border: none; /* Remove border */
   padding: 8px 12px; /* Add padding for size */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 0.9rem;
+  border-radius: 6px; /* Slightly smoother rounded corners */
+  font-size: 0.9rem; /* Readable font size */
   cursor: pointer; /* Pointer cursor on hover */
-  font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-weight: bold; /* Emphasize button text */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: background-color 0.3s ease, box-shadow 0.2s; /* Smooth hover and shadow effect */
 }
 
 .feedback-table td button:hover {
-  background-color: #4CAF50; /* Darker blue on hover */
+  background-color: #43A047; /* Darker green for hover */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced hover shadow */
 }
+
 
 /* Popup Styling for User Details */
 .popup {
@@ -91,31 +95,42 @@ h2 {
   width: 30%; /* Adjust popup width */
   z-index: 1000; /* Ensure it's above other elements */
   box-sizing: border-box;
+  display: flex; /* Use flexbox to align content */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center child elements horizontally */
+  justify-content: center; /* Center child elements vertically */
 }
 
 .popup h3 {
   margin-top: 0; /* Remove margin from the top of the header */
   color: #4CAF50; /* Matching green color for the popup title */
+  text-align: center; /* Center the text */
 }
 
 .popup p {
   margin: 10px 0; /* Add spacing between text */
+  text-align: center; /* Center the text */
 }
 
 .popup button {
-  background-color: #e53935; /* Red background for close button */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient for close button */
   color: white; /* White text */
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none; /* Remove border */
+  padding: 10px 15px; /* Consistent padding for size */
+  border-radius: 6px; /* Slightly smoother rounded corners */
+  font-size: 0.9rem; /* Readable font size */
+  cursor: pointer; /* Pointer cursor for hover */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: background-color 0.3s ease, box-shadow 0.2s; /* Smooth transitions */
+  margin-top: 10px; /* Add spacing between the button and other elements */
 }
 
 .popup button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #d32f2f; /* Darker red on hover */
+  box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced hover shadow */
 }
+
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {

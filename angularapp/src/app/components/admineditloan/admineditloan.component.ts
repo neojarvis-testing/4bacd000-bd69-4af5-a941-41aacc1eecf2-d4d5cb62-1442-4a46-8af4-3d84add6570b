@@ -37,10 +37,7 @@ export class AdmineditloanComponent implements OnInit {
         this.loanForm.setValue(data);
       });
     }
-    console.log("====================Admin Edit Loan========================");
-    console.log(this.id);
-    console.log(this.loanForm.value);
-     
+    
   }
 
   public showConfirmation(){

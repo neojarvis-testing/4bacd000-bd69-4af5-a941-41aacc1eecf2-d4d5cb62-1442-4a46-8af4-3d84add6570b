@@ -15,7 +15,7 @@ body {
 .container {
   width: 90%;
   padding: 20px;
-  margin: 75px;
+  margin: 75px auto;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -69,37 +69,45 @@ td .button-group {
 
 /* Edit Button Styling */
 button.edit-button {
-  background-color: #4CAF50; /* Blue background */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
   color: white; /* White text */
   border: none; /* No border */
-  padding: 8px 12px; /* Add padding for size */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 0.9rem;
+  padding: 8px 12px; /* Adjusted padding for compact size */
+  border-radius: 6px; /* Smooth rounded corners */
+  font-size: 0.9rem; /* Slightly smaller font size */
   cursor: pointer; /* Pointer cursor on hover */
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.2s; /* Smooth transitions */
 }
 
 button.edit-button:hover {
-  background-color: #4CAF50; /* Darker blue on hover */
+  background-color: #43A047; /* Darker green on hover */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
 }
+
 
 /* Delete Button Styling */
 button.delete-button {
-  background-color: #e53935; /* Red background */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient styling */
   color: white; /* White text */
   border: none; /* No border */
   padding: 8px 12px; /* Add padding for size */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 6px; /* Slightly smoother corners */
   font-size: 0.9rem;
   cursor: pointer; /* Pointer cursor on hover */
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.2s; /* Smooth transitions */
 }
 
 button.delete-button:hover {
-  background-color: #c62828; /* Darker red on hover */
+  background-color: #d32f2f; /* Darker red for hover effect */
+  box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
 }
+
 
 
 /* Mobile Responsiveness */
@@ -155,35 +163,42 @@ input#searchData {
 }
 
 button.yes {
-  background-color: #4CAF50; /* Green for Yes */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient for Yes */
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px; /* Smooth rounded corners */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin: 0 5px; /* Add spacing between the buttons */
-  transition: background-color 0.3s ease;
+  margin: 0 5px; /* Spacing between the buttons */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow for depth */
+  transition: box-shadow 0.2s, background-color 0.3s ease; /* Smooth transitions */
 }
 
 button.yes:hover {
-  background-color: #388E3C; /* Darker green on hover */
+  background-color: #43A047; /* Darker green for hover effect */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced hover shadow */
 }
 
 button.cancel {
-  background-color: #f44336; /* Red for Cancel */
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient for Cancel */
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px; /* Smooth rounded corners */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin: 0 5px; /* Add spacing between the buttons */
-  transition: background-color 0.3s ease;
+  margin: 0 5px; /* Spacing between the buttons */
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow for depth */
+  transition: box-shadow 0.2s, background-color 0.3s ease; /* Smooth transitions */
 }
 
 button.cancel:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+  background-color: #d32f2f; /* Darker red for hover effect */
+  box-shadow: rgba(244, 67, 54, 0.5) 0 3px 8px; /* Enhanced hover shadow */
 }
+

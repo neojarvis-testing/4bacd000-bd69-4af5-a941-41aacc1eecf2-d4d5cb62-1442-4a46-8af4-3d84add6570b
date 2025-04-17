@@ -26,11 +26,9 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public Feedback createFeedback(Feedback feedback) {
-        System.out.println("Feedback received: " + feedback);
         Optional<User> optionalUser = userRepo.findById(feedback.getUser().getUserId());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            System.out.println("Feedback received: " + feedback);
             feedback.setUser(user); 
             return feedbackRepo.save(feedback); 
         } else {
@@ -52,7 +50,6 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public List<Feedback> getAllFeedbacks() {
-        System.out.println(feedbackRepo.findAll());
         return feedbackRepo.findAll(); 
     }
 
@@ -60,10 +57,7 @@ public class FeedbackServiceImpl implements FeedbackService {
     public void deleteFeedback(Long id) {
         if (feedbackRepo.existsById(id)) {
             feedbackRepo.deleteById(id); 
-            System.out.println("Feedback deleted successfully for ID: " + id);
-        } else {
-            System.out.println("Feedback with ID: " + id + " not found.");
-        }
+        } 
     }
 
     @Override

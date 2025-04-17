@@ -55,8 +55,7 @@ export class LoanStatusChartComponent implements OnInit {
   
   public fetchLoanAnalytics() {
     this.subscription2=this.loanService.getLoanApplications().subscribe(loans => {
-      console.log("Fetched Loan Data:", loans); // Debugging Output
-  
+      
           this.subscription3=this.loanService.getLoanApplications().subscribe(loans => {
             this.totalLoans = loans.length;
             this.pendingLoans = loans.filter(loan => loan.loanStatus === 1).length;
@@ -68,7 +67,7 @@ export class LoanStatusChartComponent implements OnInit {
   
       setTimeout(() => {
         this.pieChartData = { ...this.pieChartData };
-      }, 0); //  Refresh Chart Data
+      }, 0); 
     });
   }
   

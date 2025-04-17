@@ -30,37 +30,35 @@ export class SignupComponent {
   public validateField(field: string) {
     const value = field === 'confirmPassword' ? this.confirmPassword : this.registerData[field];
 
-    // Required field validation
+    
     if (!value) {
       this.fieldErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required.`;
       return;
     }
 
-    // Email validation: Proper format check
+    
     if (field === 'email' && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
       this.fieldErrors[field] = 'Invalid email format. Please enter a valid email.';
       return;
     }
 
-    // Mobile number validation: Only digits (0-9) and exactly 10 digits
+    
     if (field === 'mobileNumber' && !/^\d{10}$/.test(value)) {
       this.fieldErrors[field] = 'Mobile number must contain only digits and be exactly 10 digits long.';
       return;
     }
 
-    // Password confirmation validation
+    
     if (field === 'confirmPassword') {
       if (!this.confirmPassword) {
         this.fieldErrors[field] = 'Confirm Password is required.';
       } else if (this.confirmPassword !== this.registerData.password) {
         this.fieldErrors[field] = 'Passwords do not match.';
       } else {
-        delete this.fieldErrors[field]; // ✅ Remove error when passwords match
+        delete this.fieldErrors[field];
       }
       return;
     }
-
-    // Remove error message if validation passes
     delete this.fieldErrors[field];
   }
 
