@@ -20,7 +20,7 @@ export class UserviewloanComponent implements OnInit {
   loansApplied: LoanApplication[] = [];
   userId: number = null;
   searchData: string = "";
-  appliedLoans: Set<number> = new Set(); //track applied loans
+  appliedLoans: Set<number> = new Set(); 
   constructor(private loanService: LoanService, private router: Router) { }
   checkAppliedLoan: boolean = false;
 
@@ -47,18 +47,13 @@ export class UserviewloanComponent implements OnInit {
   }
 
   public isApplied(loanId: number) {
-  console.log("inside the is Applied");
-  console.log(loanId);
-
-  let arr = this.loansApplied.filter(laonApp =>  laonApp.loan.loanId == loanId)
-  if(arr.length>0){
-    console.log("====true=====")
-    return true;
-  }else{
-    console.log("==============false==============")
-    return false;
-  }
-
+    console.log(loanId);
+    let arr = this.loansApplied.filter(laonApp =>  laonApp.loan.loanId == loanId)
+    if(arr.length>0){
+      return true;
+    }else{
+      return false;
+    }
 
   }
 

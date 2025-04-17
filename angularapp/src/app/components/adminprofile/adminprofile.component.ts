@@ -31,8 +31,7 @@ export class AdminprofileComponent implements OnInit {
   public getUserProfile(userId:number){
     this.subscription=this.authService.getUserProfile(userId).subscribe(data=>{
       this.userProfile = data;
-      console.log("Check")
-      console.log(this.userProfile);
+      
     })
   }
 

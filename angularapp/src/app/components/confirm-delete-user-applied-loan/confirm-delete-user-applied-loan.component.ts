@@ -21,13 +21,12 @@ export class ConfirmDeleteUserAppliedLoanComponent implements OnInit {
   ngOnInit(): void {
     this.subscription1=this.activatedRoute.params.subscribe((params) => {
       this.id = +params['id']; 
-      console.log("Loaded loan ID from route:", this.id); 
+      
     });
   }
 
   public confirmDelete(): void {
-    console.log("Attempting to delete loan with ID:", this.id); 
-
+    
     this.subscription2=this.loanService.deleteLoanApplication(this.id).subscribe(() => {
         alert("Loan deleted successfully!");
         this.router.navigate(['/userappliedloan']); 

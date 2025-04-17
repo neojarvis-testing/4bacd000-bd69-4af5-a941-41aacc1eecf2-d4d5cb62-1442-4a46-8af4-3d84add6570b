@@ -34,9 +34,6 @@ export class LoanformComponent implements OnInit {
   ngOnInit(): void {
     this.loanId = parseInt(this.activatedRoute.snapshot.paramMap.get("id"));
     this.userId = parseInt(sessionStorage.getItem("userId"));
-    console.log("============ Inside loanForm  ==========================")
-    console.log(this.loanId)
-    console.log(this.userId)
 
   }
 
@@ -57,11 +54,9 @@ export class LoanformComponent implements OnInit {
         farmerAddress: this.loanApplicationForm.get('address')?.value,
         farmSizeInAcres: parseFloat(this.loanApplicationForm.get('size')?.value),
         farmPurpose: this.loanApplicationForm.get('purpose')?.value,
-        file: "imgWillInsertThere" // Update based on how file handling is implemented
+        file: "imgWillInsertThere" 
       };
 
-      console.log("============ Inside onSubmit loanApplicationForm ==========================");
-      console.log(this.loanApplicationForm.value);
 
       this.subscription=this.loanService.addLoanApplication(loanApplicationData).subscribe({
         next: (data) => {
@@ -72,8 +67,6 @@ export class LoanformComponent implements OnInit {
           console.error('Error while submitting the loan application:', err);
         }
       });
-    } else {
-      console.log('Form is invalid');
     }
   }
 
