@@ -25,6 +25,13 @@
   id="searchData" 
 />
 
+<select id="status" [(ngModel)]="selectedStatus" (change)="filterLoans()">
+  <option value="">All</option>
+  <option value="2">Approved</option>
+  <option value="0">Rejected</option>
+  <option value="1">Pending</option>
+</select>
+
 
 <table>
   <thead>
