@@ -3,6 +3,7 @@ package com.examly.springapp.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,11 +27,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeHttpRequests()
-            .requestMatchers("/api/login", "/api/register", "/api/authenticate").permitAll()
-            .anyRequest().permitAll()
+            .requestMatchers("/api/login", "/api/register", "/api/authenticate", "/api/validateUser", "/api/otp/*").permitAll()
+            .requestMatchers(HttpMethod.OPTIONS).permitAll()
+            .anyRequest().authenticated()
             .and()
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
+    
         return http.build();
     }
 
@@ -44,5 +46,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-// .requestMatchers("/api/login", "/api/register", "/api/authenticate").permitAll()
