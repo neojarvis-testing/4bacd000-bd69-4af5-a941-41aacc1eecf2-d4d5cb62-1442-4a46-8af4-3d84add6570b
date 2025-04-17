@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between; /* Space between left and right sections */
     align-items: center; /* Align items vertically */
-    background-color: #4CAF50; /* Green background */
+    background-color: whitesmoke; /* Green background */
     padding: 10px 20px; /* Spacing inside the navbar */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     color: white;
@@ -14,13 +14,13 @@
   .navbar-left .brand-name {
     font-size: 1.8rem; /* Slightly larger font for branding */
     font-weight: bold; /* Emphasize the brand name */
-    color: white; /* White text for contrast */
+    color: green; /* White text for contrast */
   }
   
   /* Right Section: Navigation Links */
   .navbar-right a {
     text-decoration: none; /* Remove underline */
-    color: white; /* White text for links */
+    color: green; /* White text for links */
     padding: 8px 15px; /* Add padding around the links */
     border-radius: 5px; /* Rounded corners */
     font-weight: bold;
@@ -28,7 +28,7 @@
   }
   
   .navbar-right a:hover {
-    background-color: #3e8e41; /* Darker green on hover */
+    background-color: rgb(236, 236, 236); /* Darker green on hover */
   }
   
   /* Responsive Design */

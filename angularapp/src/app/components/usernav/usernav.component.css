@@ -4,9 +4,9 @@
   justify-content: space-between; /* Space out content */
   align-items: center; /* Vertically center items */
   padding: 10px 20px; /* Inner spacing */
-  background-color: #4CAF50; /* Green background */
+  background-color: whitesmoke; /* Green background */
   color: white; /* Text color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
   position: fixed; /* Make navbar fixed at the top */
   top: 0; /* Align it to the very top */
   width: 100%; /* Full width across the page */
@@ -17,6 +17,7 @@
 .navbar-left .brand-name {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #4CAF50;
 }
 
 /* Right Section (Links and Dropdowns) */
@@ -36,7 +37,7 @@
 /* Styling Links */
 .navbar-right a {
   text-decoration: none;
-  color: white;
+  color: green;
   font-size: 1rem;
   padding: 8px 12px; /* Adds padding inside links */
   border-radius: 5px; /* Rounded corners for better style */
@@ -44,7 +45,7 @@
 }
 
 .navbar-right a:hover {
-  background-color: #3e8e41; /* Darker green on hover */
+  background-color: rgb(236, 236, 236); /* Darker green on hover */
 }
 
 /* Dropdown Container */
@@ -55,7 +56,7 @@
 .dropbtn {
   background-color: transparent;
   border: none;
-  color: white;
+  color: green;
   font-size: 1rem;
   cursor: pointer;
   padding: 8px;
@@ -64,7 +65,7 @@
 }
 
 .dropbtn:hover {
-  background-color: #3e8e41; /* Darker green for hover effect */
+  background-color: rgb(236, 236, 236); /* Darker green for hover effect */
 }
 
 /* Dropdown Content */
@@ -93,7 +94,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #f9f9f9; /* Light gray hover effect */
+  background-color: rgb(236, 236, 236); /* Light gray hover effect */
   color: #333;
 }
 
@@ -110,7 +111,7 @@
 .admin-dropdown .admin-dropbtn {
   background-color: transparent;
   border: none;
-  color: white;
+  color: green;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -118,7 +119,7 @@
 }
 
 .admin-dropdown .admin-dropbtn:hover {
-  color: #dff0d8; /* Subtle hover effect for Admin button */
+  color: rgb(236, 236, 236); /* Subtle hover effect for Admin button */
 }
 
 .admin-dropdown .dropdown-content {
@@ -146,7 +147,7 @@
 }
 
 .admin-dropdown-content a:hover {
-  background-color: #f0f0f0; /* Light gray hover effect */
+  background-color: rgb(236, 236, 236); /* Light gray hover effect */
 }
 
 /* Ensure the dropdown is displayed when hovering */
@@ -197,7 +198,7 @@ button.yes {
 }
 
 button.yes:hover {
-  background-color: #388E3C; /* Darker green for hover */
+  background-color: rgb(236, 236, 236); /* Darker green for hover */
   transform: translateY(-2px); /* Subtle lift effect */
 }
 
