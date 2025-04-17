@@ -114,7 +114,7 @@ h2 {
 
 .popup button {
   background-color: initial;
-  background-image: linear-gradient(-180deg, #f44336, #d32f2f); /* Red gradient for close button */
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
   color: white; /* White text */
   border: none; /* Remove border */
   padding: 10px 15px; /* Consistent padding for size */
@@ -156,3 +156,65 @@ h2 {
     padding: 8px 12px; /* Compact button styling */
   }
 }
+
+
+  /* Edit by Tarun Start*/
+ 
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+ 
+  th {
+    background-image: linear-gradient(to bottom, #84b709, #46a100);
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+ 
+  td {
+    padding: 10px;
+    background: white;
+  }
+ 
+  tr {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+ 
+
+
+button:hover{
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+button.viewProfile {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #889c89, #525c53);
+  /* Grey gradient styling */
+  color: white;
+  border-radius: 6px;
+  padding: 10px 12px;
+  /* Consistent padding for size */
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  /* Subtle shadow */
+  transition: box-shadow 0.2s, background-color 0.3s;
+  /* Smooth transitions */
+  border: none;
+}
+
+button.viewProfile:hover {
+  background-color: #525c53;
+  /* Darker shade on hover */
+  box-shadow: rgba(136, 156, 137, 0.5) 0 3px 8px;
+  /* Enhanced hover shadow */
+}
+
+/* Edit by Tarun End */
+
+
+
+
