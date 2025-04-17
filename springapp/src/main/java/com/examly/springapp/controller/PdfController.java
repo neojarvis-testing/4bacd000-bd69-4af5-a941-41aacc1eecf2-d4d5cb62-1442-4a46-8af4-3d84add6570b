@@ -3,7 +3,6 @@ package com.examly.springapp.controller;
 import com.examly.springapp.model.LoanApplication;
 import com.examly.springapp.repository.LoanApplicationRepo;
 import com.examly.springapp.service.PdfService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/pdf")
 public class PdfController {
 
-    @Autowired
-    private LoanApplicationRepo loanApplicationRepo;
+    private final LoanApplicationRepo loanApplicationRepo;
+    private final PdfService pdfService;
 
-    @Autowired
-    private PdfService pdfService;
+    public PdfController(LoanApplicationRepo loanApplicationRepo, PdfService pdfService) {
+        this.loanApplicationRepo = loanApplicationRepo;
+        this.pdfService = pdfService;
+    }
 
     @GetMapping("/generate/{loanApplicationId}")
     public ResponseEntity<byte[]> generatePdf(@PathVariable Long loanApplicationId) {

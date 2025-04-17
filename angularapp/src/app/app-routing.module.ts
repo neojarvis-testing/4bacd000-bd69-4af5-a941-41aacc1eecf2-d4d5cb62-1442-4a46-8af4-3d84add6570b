@@ -55,7 +55,6 @@ const routes: Routes = [
   {path:'userappliedloan', component:UserappliedloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'userviewloan', component:UserviewloanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
   {path:'confirmDeleteLoan/:id', component:ConfirmDeleteUserAppliedLoanComponent, canActivate: [CompositeGuard], data: { role: 'user' } },
-  // {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent, canActivate: [CompositeGuard], data: { role: ['user','admin'] } },
   {path:'viewAppliedLoanDetails/:id',component:ViewAppliedLoanDetailsComponent },
   {path:'viewuserloan',component:UserviewloanComponent},
   {path:'home-page', component:HomePageComponent},

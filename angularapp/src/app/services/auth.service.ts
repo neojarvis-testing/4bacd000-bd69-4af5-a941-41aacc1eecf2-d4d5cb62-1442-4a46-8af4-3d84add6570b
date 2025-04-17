@@ -54,7 +54,7 @@ export class AuthService {
   }   
 
   public sendOtp(email: string) {
-    console.log("Sending OTP request for:", email); // Debug log
+    console.log("Sending OTP request for:", email); 
     return this.httpClient.post(AppConfig.baseUrl + 'api/otp/send', email, { responseType: 'text' });
   }
 

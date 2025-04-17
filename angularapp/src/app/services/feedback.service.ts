@@ -12,8 +12,6 @@ export class FeedbackService {
   constructor(private httpClient : HttpClient) { }
 
   public sendFeedback(feedback : Feedback) : Observable<any>{
-    console.log("In the service page")
-    console.log(feedback)
     return  this.httpClient.post(AppConfig.baseUrl + 'api/feedback', feedback);
   }
 
@@ -28,7 +26,7 @@ export class FeedbackService {
   public deleteFeedback(feedbackId: number): Observable<string> {
 
     return this.httpClient.delete(AppConfig.baseUrl + 'api/feedback/' + feedbackId, { responseType: 'text' });
-//     return this.httpClient.delete(this.baseUrl + '/api/feedback/' + feedbackId, { responseType: 'text' });
+
 
   }  
 }

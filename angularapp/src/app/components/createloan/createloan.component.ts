@@ -37,17 +37,15 @@ export class CreateloanComponent implements OnInit {
     }else{
       this.formErrorMessage = "";
       let newLoan: Loan = this.loanForm.value;
-      console.log("=========== Form Value Here ====================")
-      console.log(newLoan)
   
       this.loanService.addLoan(newLoan).subscribe(() => {
-        this.showSuccessPopup = true; // Show success pop-up
+        this.showSuccessPopup = true; 
       });
     }
   }
 
   public closePopup(): void {
-    this.showSuccessPopup = false; // Close the success pop-up
-    this.router.navigate(['/viewLoan']); // Navigate to the loan list
+    this.showSuccessPopup = false; 
+    this.router.navigate(['/viewLoan']); 
   }
 }

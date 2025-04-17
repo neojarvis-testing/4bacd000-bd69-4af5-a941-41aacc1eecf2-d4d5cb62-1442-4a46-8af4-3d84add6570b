@@ -27,7 +27,6 @@ export class LoanService {
 
   public addLoan(loan:Loan): Observable<any> 
   {
-    console.log("=========== Form Value From Service ====================")
     console.log(loan)
     return this.http.post<any>(AppConfig.baseUrl + "api/loan", loan);
   }
@@ -87,7 +86,7 @@ export class LoanService {
   }
 
   public getLoanApplications(): Observable<LoanApplication[]> {
-    return this.http.get<LoanApplication[]>(AppConfig.baseUrl + "api/loanapplication"); // ✅ Corrected Endpoint
+    return this.http.get<LoanApplication[]>(AppConfig.baseUrl + "api/loanapplication");
   }
 
   downloadLoanApplicationPdf(loanApplicationId: number): Observable<Blob> {
