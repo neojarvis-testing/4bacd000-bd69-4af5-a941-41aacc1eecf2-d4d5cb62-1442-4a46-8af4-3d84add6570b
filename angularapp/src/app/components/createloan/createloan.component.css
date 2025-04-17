@@ -1,8 +1,5 @@
 /* Fullscreen background blur */
-.blur-container {
-  filter: blur(10px); /* Apply blur effect */
-  pointer-events: none; /* Disable interactions with blurred elements */
-}
+
 
 app-adminnav {
   position: relative;
@@ -41,18 +38,23 @@ app-adminnav {
 }
 
 .popup-content button {
-  background-color: #4CAF50;
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Green gradient styling */
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px; /* Slightly smoother corners */
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: box-shadow 0.2s, background-color 0.3s; /* Smooth transition effects */
 }
 
 .popup-content button:hover {
-  background-color: #3e8e41;
+  background-color: #43A047; /* Darker green for hover effect */
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Enhanced shadow on hover */
 }
+
 
 /* Form container styling */
 .container {
@@ -97,16 +99,26 @@ textarea {
 
 button[type="submit"] {
   margin-top: 20px;
-  background-color: #4CAF50;
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #66BB6A, #43A047); /* Same green gradient */
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px; /* Smooth corners */
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px; /* Subtle shadow effect */
+  transition: box-shadow 0.2s; /* Smooth transitions */
+}
+
+button[type="submit"]:hover {
+  box-shadow: rgba(102, 187, 106, 0.5) 0 3px 8px; /* Matches hover effect */
 }
 
 button[type="submit"]:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  box-shadow: none; /* Removes shadow for disabled button */
 }
+
+
